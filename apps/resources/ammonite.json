@@ -1,0 +1,11 @@
+{
+  "scalaVersion": "2.12.+",
+  "mainClass": "ammonite.Main?",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.lihaoyi:::ammonite:latest.stable"
+  ],
+  "name": "amm"
+}

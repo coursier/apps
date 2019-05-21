@@ -1,0 +1,33 @@
+language: java
+jdk: openjdk8
+git:
+  depth: false
+
+stages:
+  - name: test
+  - name: release
+    if: (branch = master AND type = push) OR (tag IS present)
+
+jobs:
+  include:
+  - script: mill __.publishLocal
+
+  - stage: release
+    script:
+      - echo "$PGP_SECRET" | base64 --decode | gpg --import
+      - mill __.publish --sonatypeCreds "$SONATYPE_USERNAME:$SONATYPE_PASSWORD" --release true --gpgPassphrase "$PGP_PASSPHRASE"
+
+before_install:
+- export PATH="$HOME/.bin:$PATH" 
+- ./.travis-setup.sh
+
+cache:
+  directories:
+  - $HOME/.bin
+  - $HOME/.cache
+  - $HOME/.ivy2/cache
+  - $HOME/.sbt
+branches:
+  only:
+  - master
+  - /^v\d+\.\d+.*$/ # tagged versions

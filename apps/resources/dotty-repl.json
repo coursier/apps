@@ -1,0 +1,13 @@
+{
+  "scalaVersion": "2.12.+",
+  "mainClass": "dotty.tools.repl.Main",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "ch.epfl.lamp:dotty-compiler_0.14:latest.stable"
+  ],
+  "javaOptions": [
+    "-Dscala.usejavacp=true"
+  ]
+}
