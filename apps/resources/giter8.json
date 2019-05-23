@@ -4,7 +4,7 @@
     "central"
   ],
   "dependencies": [
-    "org.foundweekends.giter8:giter8_2.12:latest.stable",
+    "org.foundweekends.giter8::giter8:latest.stable",
     "org.scala-sbt:launcher-interface:1.0.4",
     "org.slf4j:slf4j-nop:1.7.25"
   ],
