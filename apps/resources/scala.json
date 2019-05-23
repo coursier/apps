@@ -1,0 +1,12 @@
+{
+  "mainClass": "scala.tools.nsc.MainGenericRunner",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.scala-lang:scala-compiler:latest.stable"
+  ],
+  "properties": {
+    "scala.usejavacp": "true"
+  }
+}

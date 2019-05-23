@@ -1,0 +1,15 @@
+{
+  "scalaVersion": "2.12.+",
+  "mainClass": "mill.main.client.MillClientMain",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.lihaoyi::mill-dev:latest.stable"
+  ],
+  "properties": {
+    "jna.nosys": "true",
+    "MILL_CLASSPATH": "${java.class.path}",
+    "MILL_VERSION": "${mill-dev.version}"
+  }
+}
