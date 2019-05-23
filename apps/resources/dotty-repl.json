@@ -7,7 +7,7 @@
   "dependencies": [
     "ch.epfl.lamp:dotty-compiler_0.14:latest.stable"
   ],
-  "javaOptions": [
-    "-Dscala.usejavacp=true"
-  ]
+  "properties": {
+    "scala.usejavacp": "true"
+  }
 }
