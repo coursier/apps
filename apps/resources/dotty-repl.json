@@ -5,7 +5,7 @@
     "central"
   ],
   "dependencies": [
-    "ch.epfl.lamp:dotty-compiler_0.14:latest.stable"
+    "ch.epfl.lamp:dotty-compiler_0.15:latest.stable"
   ],
   "properties": {
     "scala.usejavacp": "true"
