@@ -7,7 +7,7 @@
     "io.get-coursier::sbt-launcher:latest.stable",
     "io.get-coursier:coursier-okhttp_2.12:1.1.0-M9"
   ],
-  "sharedLoaderDependencies": [
+  "shared": [
     "org.scala-sbt:launcher-interface"
   ],
   "properties": {
@@ -16,5 +16,10 @@
     "coursier.sbt-launcher.parse-args": "extras"
   },
   "javaOptions": ["-Xms512m", "-Xss2m"],
-  "name": "sbt"
+  "name": "sbt",
+
+
+  "sharedLoaderDependencies": [
+    "org.scala-sbt:launcher-interface"
+  ]
 }
