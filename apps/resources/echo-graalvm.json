@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "launcherType": "graalvm-native-image",
+  "dependencies": [
+    "io.get-coursier:echo:latest.stable"
+  ]
+}
