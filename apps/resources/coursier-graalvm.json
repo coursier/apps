@@ -21,6 +21,9 @@
         "allDeclaredClasses" : true,
         "allPublicClasses" : true
       }
+    ],
+    "shellPrependOptions": [
+      "-Djava.library.path=\"$GRAALVM_HOME/jre/lib\""
     ]
   },
   "dependencies": [
