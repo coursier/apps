@@ -1,0 +1,12 @@
+{
+  "mainClass": "scala.tools.scalap.Main",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.scala-lang:scalap:latest.stable"
+  ],
+  "properties": {
+    "scala.usejavacp": "true"
+  }
+}
