@@ -10,7 +10,7 @@ mkdir -p "$DIR"
 
 export PATH="$DIR:$PATH"
 
-COURSIER_VERSION="2.0.0-RC6-1"
+COURSIER_VERSION="2.0.0-RC6-2"
 MILL_VERSION="0.6.0"
 
 if [ ! -x "$DIR/coursier-$COURSIER_VERSION" ]; then
