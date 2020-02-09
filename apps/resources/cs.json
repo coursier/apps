@@ -1,0 +1,13 @@
+{
+  "scalaVersion": "2.12.+",
+  "repositories": [
+    "central",
+    "typesafe:ivy-releases"
+  ],
+  "launcherType": "graalvm-native-image",
+  "dependencies": [
+    "io.get-coursier::coursier-cli:latest.release"
+  ],
+  "name": "cs",
+  "prebuilt": "https://github.com/coursier/coursier/releases/download/v${version}/cs-${platform}"
+}
