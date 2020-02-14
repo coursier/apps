@@ -1,17 +1,8 @@
 import mill._, scalalib._, publish._
 
-object apps extends JavaModule with PublishModule {
-  def publishVersion = T{
-    import sys.process._
-    val desc = Seq("git", "describe", "--tags")
-      .!!
-      .trim
-      .replace("-g", "+")
-      .stripPrefix("v")
-    if (desc.contains("+"))
-      desc + "-SNAPSHOT"
-    else
-      desc
+trait AppsModule extends JavaModule with PublishModule {
+  def publishVersion = T {
+    appsVersion()
   }
   def pomSettings = PomSettings(
     description = artifactName(),
@@ -24,3 +15,19 @@ object apps extends JavaModule with PublishModule {
     )
   )
 }
+
+def appsVersion(): String = {
+  import sys.process._
+  val desc = Seq("git", "describe", "--tags")
+    .!!
+    .trim
+    .replace("-g", "+")
+    .stripPrefix("v")
+  if (desc.contains("+"))
+    desc + "-SNAPSHOT"
+  else
+    desc
+}
+
+object apps extends AppsModule
+object `apps-contrib` extends AppsModule

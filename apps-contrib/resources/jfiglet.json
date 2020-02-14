@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.github.lalyos:jfiglet:0.0.3"
+  ]
+}
