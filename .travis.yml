@@ -10,12 +10,11 @@ stages:
 
 jobs:
   include:
-  - script: mill __.publishLocal
+  - script: sbt publishLocal
 
   - stage: release
     script:
-      - echo "$PGP_SECRET" | base64 --decode | gpg --import
-      - mill __.publish --sonatypeCreds "$SONATYPE_USERNAME:$SONATYPE_PASSWORD" --release true --gpgPassphrase "$PGP_PASSPHRASE"
+      - sbt ci-release
 
 before_install:
 - export PATH="$HOME/.bin:$PATH" 
@@ -25,7 +24,6 @@ cache:
   directories:
   - $HOME/.bin
   - $HOME/.cache
-  - $HOME/.ivy2/cache
   - $HOME/.sbt
 branches:
   only:
