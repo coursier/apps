@@ -1,5 +1,4 @@
 {
-  "scalaVersion": "2.13.+",
   "mainClass": "org.scalafmt.cli.Cli?",
   "repositories": [
     "central"

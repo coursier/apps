@@ -1,5 +1,4 @@
 {
-  "scalaVersion": "2.12.+",
   "mainClass": "mill.MillMain",
   "repositories": [
     "central"
