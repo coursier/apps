@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.scalameta:::metac:latest.stable"
+  ]
+}
