@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "scala.meta.cli.Metap",
+  "dependencies": [
+    "org.scalameta::scalameta:latest.stable"
+  ]
+}
