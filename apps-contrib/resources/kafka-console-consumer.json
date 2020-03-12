@@ -1,0 +1,10 @@
+{
+  "mainClass": "kafka.tools.ConsoleConsumer",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.apache.kafka::kafka:latest.stable"
+  ],
+  "name": "kafka-console-consumer"
+}
