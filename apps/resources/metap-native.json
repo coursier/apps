@@ -5,6 +5,6 @@
   "launcherType": "scala-native",
   "mainClass": "scala.meta.cli.Metap",
   "dependencies": [
-    "org.scalameta::scalameta:latest.stable"
+    "org.scalameta::scalameta::latest.stable"
   ]
 }
