@@ -1,0 +1,11 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.madgag:bfg:latest.stable"
+  ],
+  "exclusions": [
+    "org.slf4j:slf4j-simple"
+  ]
+}
