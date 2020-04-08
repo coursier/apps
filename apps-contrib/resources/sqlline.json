@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "sqlline.SqlLine",
+  "dependencies": [
+    "sqlline:sqlline:latest.release"
+  ]
+}
