@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "org.jruby.Main",
+  "dependencies": [
+    "org.jruby:jruby:latest.release"
+  ]
+}

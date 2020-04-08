@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "frege.repl.FregeRepl",
+  "dependencies": [
+    "org.frege-lang:frege-repl-core:latest.release"
+  ]
+}
