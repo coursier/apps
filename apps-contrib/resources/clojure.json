@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.clojure:clojure:latest.stable"
+  ]
+}

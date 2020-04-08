@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.python:jython-standalone:latest.release"
+  ]
+}
