@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.github.tomakehurst:wiremock:latest.release",
+    "org.slf4j:slf4j-nop:1.7.28"
+  ]
+}
