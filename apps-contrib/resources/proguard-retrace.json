@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "proguard.retrace.ReTrace",
+  "dependencies": [
+    "net.sf.proguard:proguard-retrace:latest.release"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "net.sf.proguard:proguard-base:latest.release"
+  ]
+}
