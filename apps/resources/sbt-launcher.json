@@ -16,8 +16,6 @@
   },
   "javaOptions": ["-Xms512m", "-Xss2m"],
   "name": "sbt",
-
-
   "sharedLoaderDependencies": [
     "org.scala-sbt:launcher-interface"
   ]
