@@ -4,5 +4,8 @@
   ],
   "dependencies": [
     "org.scalameta:::metac:latest.stable"
-  ]
+  ],
+  "properties": {
+    "scala.usejavacp": "true"
+  }
 }
