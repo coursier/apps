@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 setup_git() {
-  git config --global user.email "ci@coursier.iMadeThisUp"
-  git config --global user.name "Coursier Travis CI"
+  git config --global user.email "invalid@travis-ci.com"
+  git config --global user.name "Travis-CI"
 }
 
 commit_website_files() {
