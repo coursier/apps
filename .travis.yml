@@ -12,13 +12,19 @@ jobs:
   include:
   - script: sbt publishLocal
 
+  - name: "Readme"
+    script: amm scripts/generate-readme.sc
+
   - stage: release
     script:
       - sbt ci-release
 
 before_install:
-- export PATH="$HOME/.bin:$PATH" 
-- ./.travis-setup.sh
+- export PATH="$HOME/.bin:$PATH"
+- ./scripts/.travis-setup.sh
+
+after_success:
+  - ./scripts/.travis-push.sh
 
 cache:
   directories:

@@ -23,4 +23,5 @@ fi
 
 "$DIR/cs" install --dir "$DIR" \
    "mill:$MILL_VERSION" \
-   sbt-launcher
+   sbt-launcher \
+   ammonite
