@@ -1,0 +1,10 @@
+{
+  "mainClass": "kafka.admin.ConsumerGroupCommand",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.apache.kafka::kafka:latest.stable",
+    "org.slf4j:slf4j-nop:1.7.30"
+  ]
+}
