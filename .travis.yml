@@ -23,8 +23,14 @@ before_install:
 - export PATH="$HOME/.bin:$PATH"
 - ./scripts/.travis-setup.sh
 
-after_success:
-  - ./scripts/.travis-push.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  keep_history: true
+  github_token: $GH_TOKEN
+  target_branch: master
+  on:
+    branch: master
 
 cache:
   directories:
