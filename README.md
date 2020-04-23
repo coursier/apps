@@ -51,8 +51,6 @@ Feel free to send in a PR to add your application here!
  - jruby
  - jython
  - kafka-console-consumer
- - kafka-console-producer
- - kafka-consumer-groups
  - proguard-retrace
  - proguard
  - rhino
