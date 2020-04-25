@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central",
+    "bintray:oyvindberg/converter"
+  ],
+  "dependencies": [
+    "org.scalablytyped.converter::cli:latest.release"
+  ]
+}
