@@ -21,7 +21,6 @@ jobs:
       - amm scripts/generate-readme.sc
     deploy:
       provider: pages
-      skip_cleanup: true
       keep_history: true
       github_token: $GH_TOKEN
       target_branch: master
