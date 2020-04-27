@@ -12,25 +12,24 @@ jobs:
   include:
   - script: sbt publishLocal
 
-#   - name: "Readme"
-#     script: amm scripts/generate-readme.sc
-
   - stage: release
     script:
       - sbt ci-release
+  - name: Update README
+    stage: release
+    script:
+      - amm scripts/generate-readme.sc
+    deploy:
+      provider: pages
+      keep_history: true
+      github_token: $GH_TOKEN
+      target_branch: master
+      on:
+        branch: /^v\d+\.\d+.*$/
 
 before_install:
 - export PATH="$HOME/.bin:$PATH"
 - ./scripts/.travis-setup.sh
-
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   keep_history: true
-#   github_token: $GH_TOKEN
-#   target_branch: master
-#   on:
-#     branch: master
 
 cache:
   directories:
