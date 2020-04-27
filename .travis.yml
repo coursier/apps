@@ -19,19 +19,18 @@ jobs:
     stage: release
     script:
       - amm scripts/generate-readme.sc
+    deploy:
+      provider: pages
+      skip_cleanup: true
+      keep_history: true
+      github_token: $GH_TOKEN
+      target_branch: master
+      on:
+        branch: /^v\d+\.\d+.*$/
 
 before_install:
 - export PATH="$HOME/.bin:$PATH"
 - ./scripts/.travis-setup.sh
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  keep_history: true
-  github_token: $GH_TOKEN
-  target_branch: master
-  on:
-    branch: /^v\d+\.\d+.*$/
 
 cache:
   directories:
