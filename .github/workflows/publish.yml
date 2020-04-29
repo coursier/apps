@@ -1,0 +1,52 @@
+name: publish
+on:
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - run: git fetch --prune origin master
+      - name: generate build cache key
+        run: |
+          shasum build.sbt \
+          project/plugins.sbt \
+          project/build.properties > gha.cache.tmp
+      - uses: actions/cache@v1.1.2
+        with:
+          path: ~/.sbt
+          key: ${{ runner.os }}-sbt-${{ hashFiles('gha.cache.tmp') }}
+          restore-keys: ${{ runner.os }}-sbt-
+      - uses: actions/cache@v1.1.2
+        with:
+          path: ~/.cache/coursier
+          key: ${{ runner.os }}-coursier-${{ hashFiles('gha.cache.tmp') }}
+          restore-keys: ${{ runner.os }}-coursier-
+      - uses: actions/cache@v1.1.2
+        with:
+          path: ~/.bin
+          key: ${{ runner.os }}-bin-${{ hashFiles('.github/scripts/ci-setup.sh') }}
+          restore-keys: ${{ runner.os }}-bin-
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "8"
+      - run: .github/scripts/ci-setup.sh
+      - run: ~/.bin/amm .github/scripts/generate-readme.sc
+      - uses: stefanzweifel/git-auto-commit-action@v4.1.6
+        with:
+          file_pattern: README.md
+          commit_message: Update README.md
+          branch: master
+          commit_author: Github Actions <actions@github.com>
+      - run: .github/scripts/gpg-setup.sh
+        env:
+          PGP_SECRET: ${{ secrets.PGP_SECRET }}
+      - name: Publish
+        run: sbt ci-release
+        env:
+          PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
