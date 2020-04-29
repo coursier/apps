@@ -1,5 +1,5 @@
 # Coursier Apps
-[![Build status](https://github.com/coursier/apps/workflows/build/badge.svg)](https://github.com/coursier/apps/actions?query=workflow%3Abuild)
+[![Build Status](https://travis-ci.org/coursier/apps.svg?branch=master)](https://travis-ci.org/coursier/apps)
 [![Maven Central](https://img.shields.io/maven-central/v/io.get-coursier/apps.svg)](https://maven-badges.herokuapp.com/maven-central/io.get-coursier/apps)
 
 This repository holds the apps in the Main and Contrib channels for Coursier.
@@ -36,6 +36,7 @@ which is used with `cs install`
  - scalafmt
  - scalap
  - scalapbc
+ - stc
 
 ## Contrib
 These apps are available by passing `--contrib` to the `cs install` command.
@@ -51,6 +52,8 @@ Feel free to send in a PR to add your application here!
  - jruby
  - jython
  - kafka-console-consumer
+ - kafka-console-producer
+ - kafka-consumer-groups
  - proguard-retrace
  - proguard
  - rhino
