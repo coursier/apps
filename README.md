@@ -45,6 +45,7 @@ Feel free to send in a PR to add your application here!
 
  - authors
  - bfg
+ - cache-migration
  - clojure
  - frege
  - groovy-shell
