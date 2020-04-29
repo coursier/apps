@@ -34,13 +34,6 @@ jobs:
         with:
           java-version: "8"
       - run: .github/scripts/ci-setup.sh
-      - run: ~/.bin/amm .github/scripts/generate-readme.sc
-      - uses: stefanzweifel/git-auto-commit-action@v4.1.6
-        with:
-          file_pattern: README.md
-          commit_message: Update README.md
-          branch: master
-          commit_author: Github Actions <actions@github.com>
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -51,3 +44,10 @@ jobs:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+      - run: ~/.bin/amm .github/scripts/generate-readme.sc
+      - uses: stefanzweifel/git-auto-commit-action@v4.1.6
+        with:
+          file_pattern: README.md
+          commit_message: Update README.md
+          branch: master
+          commit_author: Github Actions <actions@github.com>
