@@ -30,7 +30,7 @@ val mdocSettings = mdoc
 // this with mdoc having the template at the root and needed it to be renamed
 // and then put back into the root. This is a hack around that :/
 mkdir! pwd/'temp
-mv(pwd/"README.md.template", pwd/'temp/"README.md")
+mv(pwd/"README.template.md", pwd/'temp/"README.md")
 mdoc.Main.process(mdocSettings)
-mv(pwd/'temp/"README.md", pwd/"README.md.template")
+mv(pwd/'temp/"README.md", pwd/"README.template.md")
 rm! pwd/'temp
