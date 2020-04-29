@@ -1,0 +1,33 @@
+name: build
+on:
+  pull_request: {}
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - "**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - name: generate build cache key
+        run: |
+          shasum build.sbt \
+          project/plugins.sbt \
+          project/build.properties > gha.cache.tmp
+      - uses: actions/cache@v1.1.2
+        with:
+          path: ~/.sbt
+          key: ${{ runner.os }}-sbt-${{ hashFiles('gha.cache.tmp') }}
+          restore-keys: ${{ runner.os }}-sbt-
+      - uses: actions/cache@v1.1.2
+        with:
+          path: ~/.cache/coursier
+          key: ${{ runner.os }}-coursier-${{ hashFiles('gha.cache.tmp') }}
+          restore-keys: ${{ runner.os }}-coursier-
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "8"
+      - run: sbt publishLocal
