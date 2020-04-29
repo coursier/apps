@@ -1,5 +1,6 @@
 # Coursier Apps
-[![Build Status](https://travis-ci.org/coursier/apps.svg?branch=master)](https://travis-ci.org/coursier/apps)
+[![Build status](https://github.com/coursier/apps/workflows/build/badge.svg)](https://github.com/coursier/apps/actions?query=workflow%3Abuild)
+[![Release status](https://github.com/coursier/apps/workflows/publish/badge.svg)](https://github.com/coursier/apps/actions?query=workflow%3Apublish)
 [![Maven Central](https://img.shields.io/maven-central/v/io.get-coursier/apps.svg)](https://maven-badges.herokuapp.com/maven-central/io.get-coursier/apps)
 
 This repository holds the apps in the Main and Contrib channels for Coursier.
