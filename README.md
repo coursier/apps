@@ -14,6 +14,7 @@ which is used with `cs install`
 
  - almond
  - ammonite
+ - bloop-jvm
  - bloop
  - coursier
  - cs
