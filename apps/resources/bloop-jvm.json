@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "ch.epfl.scala::bloopgun:latest.stable"
+  ]
+}
