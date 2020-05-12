@@ -1,4 +1,4 @@
-import $ivy.`org.scalameta::mdoc:2.1.5`
+import $ivy.`org.scalameta::mdoc:2.2.0`
 import ammonite.ops._
 import java.nio.file.Paths
 import mdoc.Reporter
@@ -21,16 +21,9 @@ class ListModifier() extends StringModifier {
 
 val mdocSettings = mdoc
   .MainSettings()
-  .withIn(Paths.get("temp"))
-  .withOut(Paths.get(""))
+  .withIn(Paths.get("README.template.md"))
+  .withOut(Paths.get("README.md"))
   .withStringModifiers(List(new ListModifier))
   .withNoLinkHygiene(true)
 
-// NOTE: (ckipp01) This is sort of a hack, but I don't know a different way to
-// this with mdoc having the template at the root and needed it to be renamed
-// and then put back into the root. This is a hack around that :/
-mkdir! pwd/'temp
-mv(pwd/"README.template.md", pwd/'temp/"README.md")
 mdoc.Main.process(mdocSettings)
-mv(pwd/'temp/"README.md", pwd/"README.template.md")
-rm! pwd/'temp
