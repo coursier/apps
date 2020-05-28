@@ -48,6 +48,8 @@ Feel free to send in a PR to add your application here!
  - bfg
  - cache-migration
  - clojure
+ - fastpass-jvm
+ - fastpass
  - frege
  - groovy-shell
  - groovy
