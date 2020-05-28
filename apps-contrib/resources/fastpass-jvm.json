@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "scala.meta.fastpass.Fastpass",
+  "dependencies": [
+    "org.scalameta::fastpass:latest.stable"
+  ]
+}

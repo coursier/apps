@@ -1,0 +1,10 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "scala.meta.fastpass.Fastpass",
+  "prebuilt": "https://github.com/scalameta/fastpass/releases/download/v${version}/fastpass-${platform}",
+  "dependencies": [
+    "org.scalameta::fastpass:latest.stable"
+  ]
+}
