@@ -18,6 +18,7 @@ which is used with `cs install`
  - bloop
  - coursier
  - cs
+ - csbt
  - dotty-repl
  - echo-graalvm
  - echo-java
@@ -31,6 +32,7 @@ which is used with `cs install`
  - mill-interactive
  - mill
  - sbt-launcher
+ - sbt
  - scala
  - scalac
  - scaladoc
