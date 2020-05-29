@@ -1,0 +1,17 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "io.get-coursier::sbt-launcher:latest.stable"
+  ],
+  "shared": [
+    "org.scala-sbt:launcher-interface"
+  ],
+  "properties": {
+    "jline.shutdownhook": "false",
+    "jna.nosys": "true",
+    "coursier.sbt-launcher.parse-args": "extras"
+  },
+  "javaOptions": ["-Xms512m", "-Xss2m"]
+}
