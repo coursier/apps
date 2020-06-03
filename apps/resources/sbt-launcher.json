@@ -18,5 +18,6 @@
   "name": "sbt",
   "sharedLoaderDependencies": [
     "org.scala-sbt:launcher-interface"
-  ]
+  ],
+  "jvmOptionFile": ".jvmopts"
 }

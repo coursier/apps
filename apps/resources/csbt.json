@@ -13,5 +13,6 @@
     "jna.nosys": "true",
     "coursier.sbt-launcher.parse-args": "extras"
   },
-  "javaOptions": ["-Xms512m", "-Xss2m"]
+  "javaOptions": ["-Xms512m", "-Xss2m"],
+  "jvmOptionFile": ".jvmopts"
 }

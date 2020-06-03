@@ -10,5 +10,6 @@
     "jline.shutdownhook": "false",
     "jna.nosys": "true"
   },
-  "javaOptions": ["-Xms512m", "-Xss2m"]
+  "javaOptions": ["-Xms512m", "-Xss2m"],
+  "jvmOptionFile": ".jvmopts"
 }
