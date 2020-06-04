@@ -65,6 +65,7 @@ Feel free to send in a PR to add your application here!
  - proguard-retrace
  - proguard
  - rhino
+ - scala-steward
  - spark-repl
  - sqlline
  - wiremock
