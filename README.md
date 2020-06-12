@@ -64,6 +64,7 @@ Feel free to send in a PR to add your application here!
  - kafka-consumer-groups
  - proguard-retrace
  - proguard
+ - protoc-jar
  - rhino
  - scala-steward
  - spark-repl
