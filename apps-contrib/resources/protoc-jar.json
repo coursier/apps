@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.github.os72:protoc-jar:latest.release"
+  ]
+}
