@@ -8,5 +8,6 @@
   ],
   "shared": [
     "sh.almond:::scala-kernel-api"
-  ]
+  ],
+  "classifiers": ["_", "sources"]
 }
