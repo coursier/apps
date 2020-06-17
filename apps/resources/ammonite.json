@@ -6,5 +6,6 @@
   "dependencies": [
     "com.lihaoyi:::ammonite:latest.stable"
   ],
+  "classifiers": ["_", "sources"],
   "name": "amm"
 }
