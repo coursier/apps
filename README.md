@@ -46,6 +46,7 @@ which is used with `cs install`
 These apps are available by passing `--contrib` to the `cs install` command.
 Feel free to send in a PR to add your application here!
 
+ - amm-runner
  - authors
  - bfg
  - cache-migration
