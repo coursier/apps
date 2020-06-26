@@ -23,5 +23,8 @@ fi
 
 "$DIR/cs" install --dir "$DIR" \
    "mill:$MILL_VERSION" \
-   sbt-launcher \
-   ammonite
+   sbt-launcher
+
+"$DIR/cs" bootstrap -o "$DIR/ammonite" \
+   com.lihaoyi:ammonite_2.13.2:2.1.4 \
+   -M ammonite.Main
