@@ -4,7 +4,7 @@
     "central"
   ],
   "dependencies": [
-    "com.lihaoyi:::ammonite:latest.stable"
+    "com.lihaoyi:::ammonite:latest.release"
   ],
   "classifiers": ["_", "sources"],
   "name": "amm"
