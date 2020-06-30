@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.ow2.asm:asm-util:latest.release"
+  ],
+  "mainClass": "org.objectweb.asm.util.ASMifier"
+}
