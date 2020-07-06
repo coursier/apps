@@ -2,9 +2,6 @@
   "repositories": [
     "central"
   ],
-  "properties": {
-    "metals.client": "emacs"
-  },
   "javaOptions": ["-Xms100m", "-Xss4m"],
   "dependencies": [
     "org.scalameta::metals:latest.stable"
