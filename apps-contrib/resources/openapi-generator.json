@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "org.openapitools.codegen.OpenAPIGenerator",
+  "dependencies": [
+    "org.openapitools:openapi-generator-cli:latest.stable"
+  ]
+}
