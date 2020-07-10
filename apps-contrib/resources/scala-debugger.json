@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.scala-debugger::scala-debugger-tool:latest.release"
+  ]
+}
