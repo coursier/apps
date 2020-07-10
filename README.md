@@ -63,7 +63,6 @@ Feel free to send in a PR to add your application here!
  - kafka-console-consumer
  - kafka-console-producer
  - kafka-consumer-groups
- - openapi-generator
  - proguard-7
  - proguard-retrace
  - proguard
