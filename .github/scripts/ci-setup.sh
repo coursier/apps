@@ -25,6 +25,6 @@ fi
    "mill:$MILL_VERSION" \
    sbt-launcher
 
-"$DIR/cs" bootstrap -o "$DIR/ammonite" \
+"$DIR/cs" bootstrap -o "$DIR/amm" \
    com.lihaoyi:ammonite_2.13.2:2.1.4 \
    -M ammonite.Main
