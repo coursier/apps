@@ -40,6 +40,7 @@ which is used with `cs install`
  - scalafmt
  - scalap
  - scalapbc
+ - seed
  - stc
 
 ## Contrib
@@ -47,6 +48,8 @@ These apps are available by passing `--contrib` to the `cs install` command.
 Feel free to send in a PR to add your application here!
 
  - amm-runner
+ - asm-textifier
+ - asmifier
  - authors
  - bfg
  - cache-migration
@@ -63,11 +66,13 @@ Feel free to send in a PR to add your application here!
  - kafka-console-consumer
  - kafka-console-producer
  - kafka-consumer-groups
+ - openapi-generator
  - proguard-7
  - proguard-retrace
  - proguard
  - protoc-jar
  - rhino
+ - scala-debugger
  - scala-steward
  - spark-repl
  - sqlline
