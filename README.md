@@ -59,6 +59,7 @@ Feel free to send in a PR to add your application here!
  - frege
  - groovy-shell
  - groovy
+ - guardrail
  - ivy
  - jfiglet
  - jruby
@@ -74,8 +75,10 @@ Feel free to send in a PR to add your application here!
  - rhino
  - scala-debugger
  - scala-steward
+ - scalaxb
  - spark-repl
  - sqlline
+ - swagger-codegen
  - wiremock
 
 ### Updating the README
