@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "io.swagger.codegen.v3:swagger-codegen-cli:latest.stable"
+  ]
+}
