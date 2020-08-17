@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central",
+    "jitpack"
+  ],
+  "dependencies": [
+    "com.github.making:rsc:latest.release"
+  ]
+}
