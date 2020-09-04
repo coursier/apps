@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "javaOptions": ["-Xms100m", "-Xss4m"],
+  "dependencies": [
+    "org.scalameta::metals:latest.stable"
+  ]
+}
