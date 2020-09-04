@@ -27,6 +27,7 @@ which is used with `cs install`
  - mdoc
  - metac
  - metals-emacs
+ - metals
  - metap-native
  - metap
  - mill-interactive
@@ -73,6 +74,8 @@ Feel free to send in a PR to add your application here!
  - proguard
  - protoc-jar
  - rhino
+ - rsc
+ - rscj
  - scala-debugger
  - scala-steward
  - scalaxb
