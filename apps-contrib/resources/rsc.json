@@ -7,5 +7,5 @@
   "dependencies": [
     "com.github.making:rsc:latest.release"
   ],
-  "prebuilt": "https://github.com/making/rsc/releases/download/${version}/rsc-osx-x86_64"
+  "prebuilt": "https://github.com/making/rsc/releases/download/${version}/rsc-${platform}"
 }
