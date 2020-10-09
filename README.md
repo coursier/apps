@@ -34,6 +34,7 @@ which is used with `cs install`
  - mill
  - sbt-launcher
  - sbt
+ - sbtn
  - scala
  - scalac
  - scaladoc
