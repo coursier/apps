@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.flywaydb:flyway-commandline:latest.release"
+  ],
+  "mainClass": "org.flywaydb.commandline.Main"
+}
