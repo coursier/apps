@@ -1,0 +1,15 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.apache.zookeeper:zookeeper:latest.release",
+    "io.dropwizard:dropwizard-metrics:2.0.13",
+    "org.xerial.snappy:snappy-java:1.1.7.7"
+  ],
+  "mainClass": "org.apache.zookeeper.server.quorum.QuorumPeerMain",
+  "descriptor-comments": [
+    "seems dropwizards and snappy-java are required for zookeeper 3.6.2",
+    "(3.5.8 seems fine OTOH)."
+  ]
+}

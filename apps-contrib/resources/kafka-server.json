@@ -1,0 +1,9 @@
+{
+  "mainClass": "kafka.Kafka",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.apache.kafka::kafka:latest.stable"
+  ]
+}
