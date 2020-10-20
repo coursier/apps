@@ -58,11 +58,13 @@ Feel free to send in a PR to add your application here!
  - clojure
  - fastpass-jvm
  - fastpass
+ - flyway
  - frege
  - groovy-shell
  - groovy
  - guardrail
  - ivy
+ - jansi
  - jfiglet
  - jruby
  - jython
