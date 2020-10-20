@@ -1,0 +1,12 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.fusesource.jansi:jansi:1.18"
+  ],
+  "descriptor-comments": [
+    "Pinning the version, as it seems https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/maven-metadata.xml",
+    "isn't updated."
+  ]
+}
