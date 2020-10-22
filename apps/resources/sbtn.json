@@ -6,9 +6,5 @@
     "org.scala-sbt:sbt:latest.stable"
   ],
   "launcherType": "graalvm-native-image",
-  "prebuiltBinaries": {
-    "x86_64-apple-darwin": "tgz+https://github.com/sbt/sbtn-dist/releases/download/v${version}/sbtn-${platform}-${version}.tar.gz",
-    "x86_64-pc-linux": "tgz+https://github.com/sbt/sbtn-dist/releases/download/v${version}/sbtn-${platform}-${version}.tar.gz",
-    "x86_64-pc-win32": "zip+https://github.com/sbt/sbtn-dist/releases/download/v${version}/sbtn-${platform}-${version}.zip"
-  }
+  "prebuilt": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-${platform}"
 }
