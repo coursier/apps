@@ -1,0 +1,8 @@
+{
+    "repositories": [
+        "central"
+    ],
+    "dependencies": [
+        "com.firstbird.emergence::core:latest.release"
+    ]
+}
