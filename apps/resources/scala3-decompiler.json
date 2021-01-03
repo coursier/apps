@@ -1,5 +1,5 @@
 {
-  "mainClass": "dotty.tools.repl.Main",
+  "mainClass": "dotty.tools.dotc.decompiler.Main",
   "repositories": [
     "central"
   ],
