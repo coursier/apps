@@ -1,0 +1,12 @@
+{
+  "mainClass": "dotty.tools.dottydoc.Main",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.scala-lang:scala3-doc_3.0.0-M3:latest.release"
+  ],
+  "properties": {
+    "scala.usejavacp": "true"
+  }
+}
