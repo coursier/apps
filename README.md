@@ -36,6 +36,10 @@ which is used with `cs install`
  - sbt
  - sbtn
  - scala
+ - scala3-compiler
+ - scala3-decompiler
+ - scala3-doc
+ - scala3-repl
  - scalac
  - scaladoc
  - scalafix
