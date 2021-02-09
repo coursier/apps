@@ -1,0 +1,12 @@
+{
+  "mainClass": "com.github.arturopala.makeitg8.MakeItG8",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.github.arturopala::make-it-g8:latest.stable"
+  ],
+  "properties": {
+    "makeitg8.interactive": "true"
+  }
+}
