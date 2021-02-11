@@ -78,6 +78,7 @@ Feel free to send in a PR to add your application here!
  - kafka-consumer-groups
  - kafka-server
  - kafka-topics
+ - make-it-g8
  - openapi-generator
  - proguard-7
  - proguard-retrace
