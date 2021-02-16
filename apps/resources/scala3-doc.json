@@ -1,10 +1,10 @@
 {
-  "mainClass": "dotty.tools.dottydoc.Main",
+  "mainClass": "dotty.tools.scaladoc.Main",
   "repositories": [
     "central"
   ],
   "dependencies": [
-    "org.scala-lang:scala3-doc_3.0.0-M3:3.0.0-M3"
+    "org.scala-lang:scala3-doc_3.0.0-RC1:3.0.0-RC1"
   ],
   "properties": {
     "scala.usejavacp": "true"
