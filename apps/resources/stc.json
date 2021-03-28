@@ -1,6 +1,6 @@
 {
   "repositories": [
-    "central",
+    "central"
   ],
   "dependencies": [
     "org.scalablytyped.converter::cli:latest.release"
