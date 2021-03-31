@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "mainClass": "com.sourcegraph.lsif_java.LsifJava",
+  "dependencies": [
+    "com.sourcegraph::lsif-java:latest.stable"
+  ]
+}
