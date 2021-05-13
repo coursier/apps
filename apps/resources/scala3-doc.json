@@ -4,7 +4,7 @@
     "central"
   ],
   "dependencies": [
-    "org.scala-lang:scala3-doc_3.0.0-RC3:3.0.0-RC3"
+    "org.scala-lang:scala3-doc_3.0.0:3.0.0"
   ],
   "properties": {
     "scala.usejavacp": "true"
