@@ -5,7 +5,7 @@
   ],
   "launcherType": "graalvm-native-image",
   "dependencies": [
-    "io.get-coursier::coursier-cli:latest.release"
+    "io.get-coursier::coursier-cli:latest.stable"
   ],
   "name": "cs",
   "prebuilt": "https://github.com/coursier/coursier/releases/download/v${version}/cs-${platform}"
