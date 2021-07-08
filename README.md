@@ -57,6 +57,7 @@ Feel free to send in a PR to add your application here!
  - asm-textifier
  - asmifier
  - authors
+ - avro-tools
  - bfg
  - cache-migration
  - catscript
