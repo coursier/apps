@@ -4,7 +4,7 @@
     "central"
   ],
   "dependencies": [
-    "org.scala-lang:scala3-compiler_3:3.0.0"
+    "org.scala-lang:scala3-compiler_3:3.0.1"
   ],
   "properties": {
     "scala.usejavacp": "true"
