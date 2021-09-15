@@ -1,0 +1,12 @@
+{
+  "mainClass": "dotty.tools.MainGenericRunner",
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.scala-lang:scala3-compiler_3:3.0.3-RC1-bin-20210815-1524a5a-NIGHTLY"
+  ],
+  "properties": {
+    "scala.usejavacp": "true"
+  }
+}
