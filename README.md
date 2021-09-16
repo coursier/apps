@@ -40,6 +40,7 @@ which is used with `cs install`
  - scala3-decompiler
  - scala3-doc
  - scala3-repl
+ - scala3
  - scalac
  - scaladoc
  - scalafix
