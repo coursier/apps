@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "net.sourceforge.plantuml:plantuml:latest.release"
+  ]
+}
