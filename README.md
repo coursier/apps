@@ -84,6 +84,7 @@ Feel free to send in a PR to add your application here!
  - lsif-java
  - make-it-g8
  - openapi-generator
+ - plantuml
  - proguard-7
  - proguard-retrace
  - proguard
