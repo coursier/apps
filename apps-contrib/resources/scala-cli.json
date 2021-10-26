@@ -1,0 +1,11 @@
+{
+  "repositories": [
+      "central",
+      "https://oss.sonatype.org/content/repositories/snapshots"
+  ],
+  "dependencies": [
+      "org.virtuslab.scala-cli::cli:latest.release"
+  ],
+  "launcherType": "graalvm-native-image",
+  "prebuilt": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-${platform}.gz"
+}
