@@ -10,16 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2.1.0
       - run: git fetch --prune origin master
-      - uses: coursier/cache-action@v3
-      - uses: actions/cache@v1.1.2
+      - uses: coursier/cache-action@v6.3
+      - uses: coursier/setup-action@v1.1.1
         with:
-          path: ~/.bin
-          key: ${{ runner.os }}-bin-${{ hashFiles('.github/scripts/ci-setup.sh') }}
-          restore-keys: ${{ runner.os }}-bin-
-      - uses: actions/setup-java@v1
-        with:
-          java-version: "8"
-      - run: .github/scripts/ci-setup.sh
+          jvm: 8
+          apps: "sbt ammonite:2.4.0"
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -30,7 +25,7 @@ jobs:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-      - run: ~/.bin/amm .github/scripts/generate-readme.sc
+      - run: amm .github/scripts/generate-readme.sc
       - uses: stefanzweifel/git-auto-commit-action@v4.1.6
         with:
           file_pattern: README.md
