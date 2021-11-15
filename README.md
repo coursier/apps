@@ -92,6 +92,7 @@ Feel free to send in a PR to add your application here!
  - rhino
  - rsc
  - rscj
+ - scala-cli
  - scala-debugger
  - scala-steward
  - scalaxb
