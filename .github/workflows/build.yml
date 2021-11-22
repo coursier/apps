@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: coursier/cache-action@v6.3
-      - uses: coursier/setup-action@v1.1.1
+      - uses: coursier/setup-action@v1.1.2
         with:
           jvm: 8
           apps: sbt
