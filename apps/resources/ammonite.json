@@ -1,5 +1,5 @@
 {
-  "mainClass": "ammonite.Main?",
+  "mainClass": "ammonite.AmmoniteMain?",
   "repositories": [
     "central"
   ],
