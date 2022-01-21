@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "se.bjurr.gitchangelog:git-changelog-command-line:latest.release"
+  ]
+}
