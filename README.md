@@ -68,6 +68,7 @@ Feel free to send in a PR to add your application here!
  - firstbird-emergence
  - flyway
  - frege
+ - git-changelog
  - groovy-shell
  - groovy
  - guardrail
