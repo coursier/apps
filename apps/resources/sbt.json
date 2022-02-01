@@ -11,5 +11,7 @@
     "jna.nosys": "true"
   },
   "javaOptions": ["-Xms512m", "-Xss2m"],
-  "jvmOptionFile": ".jvmopts"
+  "jvmOptionFile": ".jvmopts",
+  "launcherType": "prebuilt",
+  "prebuilt": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbt"
 }
