@@ -3,7 +3,7 @@
     "central",
     "typesafe:ivy-releases"
   ],
-  "launcherType": "prebuilt",
+  "launcherType": "graalvm-native-image",
   "dependencies": [
     "io.get-coursier::coursier-cli:latest.release"
   ],
