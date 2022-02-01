@@ -3,10 +3,22 @@
     "central",
     "typesafe:ivy-releases"
   ],
-  "launcherType": "graalvm-native-image",
+  "launcherType": "prebuilt",
   "dependencies": [
-    "io.get-coursier::coursier-cli:latest.stable"
+    "io.get-coursier::coursier-cli:latest.release"
   ],
   "name": "cs",
-  "prebuilt": "https://github.com/coursier/coursier/releases/download/v${version}/cs-${platform}"
+  "prebuiltBinaries": {
+    "x86_64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-linux.gz",
+    "aarch64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-aarch64-pc-linux.gz",
+    "x86_64-apple-darwin": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-apple-darwin.gz",
+    "x86_64-pc-win32": "zip+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-win32.zip"
+  },
+  "versionOverrides": [
+    {
+      "versionRange": "(,2.0.16]",
+      "prebuiltBinaries": {},
+      "prebuilt": "https://github.com/coursier/coursier/releases/download/v${version}/cs-${platform}"
+    }
+  ]
 }
