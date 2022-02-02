@@ -12,6 +12,6 @@
   },
   "javaOptions": ["-Xms512m", "-Xss2m"],
   "jvmOptionFile": ".jvmopts",
-  "launcherType": "prebuilt",
+  "launcherType": "graalvm-native-image",
   "prebuilt": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbt"
 }
