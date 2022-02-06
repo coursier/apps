@@ -69,6 +69,7 @@ Feel free to send in a PR to add your application here!
  - flyway
  - frege
  - git-changelog
+ - google-java-format
  - groovy-shell
  - groovy
  - guardrail
