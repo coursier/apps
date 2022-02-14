@@ -3,6 +3,6 @@
     "central"
   ],
   "dependencies": [
-    "ch.epfl.scala::bloopgun:latest.stable"
+    "ch.epfl.scala:bloopgun_2.12:latest.stable"
   ]
 }
