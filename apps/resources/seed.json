@@ -1,9 +1,0 @@
-{
-  "repositories": [
-    "central",
-    "bintray:tindzk/maven"
-  ],
-  "dependencies": [
-    "tindzk::seed:latest.stable"
-  ]
-}
