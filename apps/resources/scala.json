@@ -11,6 +11,10 @@
   },
   "versionOverrides": [
     {
+      "versionRange": "[3.0.0,3.0.2]",
+      "mainClass": "dotty.tools.repl.Main"
+    },
+    {
       "versionRange": "(,2.max]",
       "mainClass": "scala.tools.nsc.MainGenericRunner",
       "dependencies": [
