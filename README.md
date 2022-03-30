@@ -47,7 +47,6 @@ which is used with `cs install`
  - scalafmt
  - scalap
  - scalapbc
- - seed
  - stc
 
 ## Contrib
