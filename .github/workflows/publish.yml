@@ -26,7 +26,7 @@ jobs:
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
       - run: amm .github/scripts/generate-readme.sc
-      - uses: stefanzweifel/git-auto-commit-action@v4.14.0
+      - uses: stefanzweifel/git-auto-commit-action@v4.14.1
         with:
           file_pattern: README.md
           commit_message: Update README.md
