@@ -35,6 +35,7 @@ which is used with `cs install`
  - sbt-launcher
  - sbt
  - sbtn
+ - scala-cli
  - scala
  - scala3-compiler
  - scala3-decompiler
