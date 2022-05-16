@@ -1,4 +1,5 @@
 {
+  "deprecated": true,
   "repositories": [
     "central"
   ],
