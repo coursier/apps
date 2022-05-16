@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.sourcegraph::scip-java:latest.stable"
+  ]
+}
