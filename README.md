@@ -98,6 +98,7 @@ Feel free to send in a PR to add your application here!
  - scala-debugger
  - scala-steward
  - scalaxb
+ - scip-java
  - spark-repl
  - sqlline
  - swagger-codegen
