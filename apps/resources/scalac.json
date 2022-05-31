@@ -4,7 +4,9 @@
     "central"
   ],
   "dependencies": [
-    "org.scala-lang:scala3-compiler_3:latest.stable"
+    "org.scala-lang:scala3-compiler_3:latest.stable",
+    "org.scala-lang:scala3-staging_3:latest.stable",
+    "org.scala-lang:scala3-tasty-inspector_3:latest.stable"
   ],
   "properties": {
     "scala.usejavacp": "true"
