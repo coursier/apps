@@ -2,6 +2,7 @@
   "repositories": [
     "central"
   ],
+  "mainClass": "com.sourcegraph.scip_java.ScipJava",
   "dependencies": [
     "com.sourcegraph::scip-java:latest.stable"
   ]
