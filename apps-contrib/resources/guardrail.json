@@ -3,6 +3,6 @@
     "central"
   ],
   "dependencies": [
-    "com.twilio::guardrail:latest.stable"
+    "dev.guardrail::guardrail-all:latest.stable"
   ]
 }
