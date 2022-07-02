@@ -1,0 +1,13 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "io.github.kitlangton::scala-update:latest.release"
+  ],
+  "launcherType": "graalvm-native-image",
+  "prebuiltBinaries": {
+    "x86_64-pc-linux": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-linux-amd",
+    "x86_64-apple-darwin": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-macos-amd"
+  }
+}
