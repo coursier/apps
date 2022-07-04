@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: git fetch --prune origin master
       - uses: coursier/cache-action@v6.3
-      - uses: coursier/setup-action@v1.2.0-M3
+      - uses: coursier/setup-action@v1.2.0
         with:
           jvm: 8
           apps: "sbt ammonite:2.4.0"
