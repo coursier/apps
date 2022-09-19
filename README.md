@@ -97,6 +97,7 @@ Feel free to send in a PR to add your application here!
  - scala-cli
  - scala-debugger
  - scala-steward
+ - scala-update
  - scalaxb
  - scip-java
  - spark-repl
