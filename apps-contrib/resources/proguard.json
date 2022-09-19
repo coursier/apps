@@ -3,6 +3,15 @@
     "central"
   ],
   "dependencies": [
-    "net.sf.proguard:proguard-base:latest.release"
+    "com.guardsquare:proguard-base:latest.release"
+  ],
+  "mainClass": "proguard.ProGuard",
+  "versionOverrides": [
+    {
+      "versionRange": "[0,7)",
+      "dependencies": [
+        "net.sf.proguard:proguard-base:latest.release"
+      ]
+    }
   ]
 }
