@@ -1,4 +1,5 @@
 {
+  "mainClass": "mdoc.Main",
   "repositories": [
     "central"
   ],
