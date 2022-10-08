@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "io.github.molarmanful:sclin_3:latest.release"
+  ]
+}
