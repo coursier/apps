@@ -100,6 +100,7 @@ Feel free to send in a PR to add your application here!
  - scala-update
  - scalaxb
  - scip-java
+ - sclin
  - spark-repl
  - sqlline
  - swagger-codegen
