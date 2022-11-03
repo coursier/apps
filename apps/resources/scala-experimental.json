@@ -17,8 +17,7 @@
     {
       "versionRange": "[0.0.1,0.1.2]",
       "repositories": [
-        "central",
-        "sonatype:snapshots"
+        "central"
       ],
       "dependencies": [
         "org.virtuslab.scala-cli:cli_2.12:latest.release"
