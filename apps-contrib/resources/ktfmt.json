@@ -1,0 +1,10 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.facebook:ktfmt:latest.release"
+
+  ],
+  "mainClass": "com.facebook.ktfmt.cli.Main"
+}
