@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.benf:cfr:latest.release"
+  ]
+}
