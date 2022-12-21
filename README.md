@@ -63,6 +63,7 @@ Feel free to send in a PR to add your application here!
  - bfg
  - cache-migration
  - catscript
+ - cfr
  - clojure
  - fastpass-jvm
  - fastpass
