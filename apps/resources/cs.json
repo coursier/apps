@@ -17,7 +17,7 @@
   },
   "versionOverrides": [
     {
-      "versionRange": "]2.0.16, 2.1.0-RC4]",
+      "versionRange": "(2.0.16, 2.1.0-RC4]",
       "prebuiltBinaries": {
         "x86_64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-linux.gz",
         "aarch64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-aarch64-pc-linux.gz",
