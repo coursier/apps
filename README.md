@@ -104,6 +104,7 @@ Feel free to send in a PR to add your application here!
  - scalaxb
  - scip-java
  - sclin
+ - smithy-language-server
  - spark-repl
  - sqlline
  - swagger-codegen
