@@ -1,3 +1,5 @@
 target/
 .bsp/
 gha.cache.tmp
+.metals/
+.vscode/
