@@ -1,8 +1,11 @@
-import $ivy.`org.scalameta::mdoc:2.2.0`
-import ammonite.ops._
+//> using scala "2.13.10"
+//> using lib "org.scalameta::mdoc:2.3.7"
+//> using lib "com.lihaoyi::os-lib:0.9.1"
+
+import mdoc.{Reporter, StringModifier}
+
 import java.nio.file.Paths
-import mdoc.Reporter
-import mdoc.StringModifier
+
 import scala.meta.inputs.Input
 
 class ListModifier() extends StringModifier {
@@ -13,8 +16,8 @@ class ListModifier() extends StringModifier {
       code: Input,
       reporter: Reporter
   ): String = {
-    val targetPaths = ls! pwd/s"${topic}"/'resources
-    val targetNames = targetPaths.map(_.baseName).toList
+    val targetPaths = os.list(os.pwd / topic/ "resources")
+    val targetNames = targetPaths.map(_.last.stripSuffix(".json")).toList
     targetNames.mkString(" - ", "\n - ", "\n")
   }
 }

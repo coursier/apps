@@ -3,3 +3,4 @@ target/
 gha.cache.tmp
 .metals/
 .vscode/
+.scala-build/
