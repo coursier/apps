@@ -13,6 +13,7 @@
     "x86_64-apple-darwin": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-x86_64-apple-darwin.gz",
     "aarch64-apple-darwin": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-aarch64-apple-darwin.gz"
   },
+  "mainClass": "scala.cli.ScalaCli?",
   "versionOverrides": [
     {
       "versionRange": "[0.0.1,0.1.2]",
