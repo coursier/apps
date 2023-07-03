@@ -5,6 +5,6 @@
   "launcherType": "graalvm-native-image",
   "prebuilt": "https://github.com/scalacenter/bloop/releases/download/v${version}/bloop-${platform}",
   "dependencies": [
-    "ch.epfl.scala::bloopgun:latest.stable"
+    "ch.epfl.scala::bloopgun-core:latest.stable"
   ]
 }
