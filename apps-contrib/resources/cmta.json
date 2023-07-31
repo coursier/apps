@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.lunatech::cmta:latest.stable"
+  ],
+  "mainClass": "com.lunatech.cmt.admin.Main"
+}
