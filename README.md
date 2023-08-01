@@ -65,6 +65,8 @@ Feel free to send in a PR to add your application here!
  - catscript
  - cfr
  - clojure
+ - cmta
+ - cmtc
  - fastpass-jvm
  - fastpass
  - firstbird-emergence
