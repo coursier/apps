@@ -10,3 +10,4 @@
     "org.apache.spark::spark-catalyst:latest.release"
   ]
 }
+
