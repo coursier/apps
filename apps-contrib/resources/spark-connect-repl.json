@@ -1,0 +1,13 @@
+{
+  "mainClass": "org.apache.spark.sql.application.ConnectRepl",
+  "repositories": [
+    "central"
+  ],
+  "scalaVersion": "2.12+",
+  "dependencies": [
+    "com.lihaoyi:::ammonite:2.5.8",
+    "org.apache.spark::spark-connect-client-jvm:latest.release",
+    "org.apache.spark::spark-catalyst:latest.release"
+  ]
+}
+
