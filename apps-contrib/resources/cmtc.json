@@ -2,6 +2,8 @@
   "repositories": [
     "central"
   ],
+  "launcherType": "graalvm-native-image",
+  "prebuilt": "https://github.com/lunatech-labs/course-management-tools/releases/download/${version}/cmtc-${platform}",
   "dependencies": [
     "com.lunatech::cmtc:latest.stable"
   ],
