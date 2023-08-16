@@ -107,6 +107,7 @@ Feel free to send in a PR to add your application here!
  - scip-java
  - sclin
  - smithy-language-server
+ - spark-connect-repl
  - spark-repl
  - sqlline
  - swagger-codegen
