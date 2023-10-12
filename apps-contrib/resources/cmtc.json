@@ -3,9 +3,9 @@
     "central"
   ],
   "launcherType": "graalvm-native-image",
-  "prebuilt": "https://github.com/lunatech-labs/course-management-tools/releases/download/${version}/cmtc-${platform}",
+  "prebuilt": "https://github.com/scalacenter/course-management-tools/releases/download/${version}/cmtc-${platform}",
   "dependencies": [
-    "com.lunatech::cmtc:latest.stable"
+    "ch.epfl.scala::cmtc:latest.stable"
   ],
-  "mainClass": "com.lunatech.cmt.client.Main"
+  "mainClass": "coursemgmt.client.Main"
 }
