@@ -1,0 +1,15 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.indoorvivants:bindgen_native0.4_3:latest.stable"
+  ],
+  "launcherType": "scala-native",
+  "prebuiltBinaries": {
+    "x86_64-pc-linux": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-x86_64-pc-linux",
+    "x86_64-pc-win32": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-x86_64-pc-win32.exe",
+    "x86_64-apple-darwin": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-x86_64-apple-darwin",
+    "aarch64-apple-darwin": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-aarch64-apple-darwin"
+  }
+}
