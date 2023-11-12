@@ -107,6 +107,7 @@ Feel free to send in a PR to add your application here!
  - scip-java
  - sclin
  - smithy-language-server
+ - sn-bindgen
  - sn-vcpkg
  - spark-connect-repl
  - spark-repl
