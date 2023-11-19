@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "eu.joaocosta:spaeti_3:latest.stable"
+  ],
+  "mainClass": "eu.joaocosta.spaeti.main"
+}
