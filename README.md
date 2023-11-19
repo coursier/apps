@@ -109,6 +109,7 @@ Feel free to send in a PR to add your application here!
  - smithy-language-server
  - sn-bindgen
  - sn-vcpkg
+ - spaeti
  - spark-connect-repl
  - spark-repl
  - sqlline
