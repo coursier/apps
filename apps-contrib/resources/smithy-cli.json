@@ -1,0 +1,4 @@
+{
+  "repositories": ["central"],
+  "dependencies": ["software.amazon.smithy:smithy-cli:latest.release"]
+}
