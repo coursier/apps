@@ -106,6 +106,7 @@ Feel free to send in a PR to add your application here!
  - scalaxb
  - scip-java
  - sclin
+ - smithy-cli
  - smithy-language-server
  - sn-bindgen
  - sn-vcpkg
