@@ -1,0 +1,15 @@
+{
+  "repositories": [
+    "jitpack"
+  ],
+  "dependencies": [
+    "com.github.avdv:scalals:latest.release"
+  ],
+  "launcherType": "prebuilt",
+  "prebuiltBinaries": {
+    "x86_64-pc-linux": "https://github.com/avdv/scalals/releases/download/${version}/scalals-x86_64-linux",
+    "aarch64-pc-linux": "https://github.com/avdv/scalals/releases/download/${version}/scalals-arm64-linux",
+    "x86_64-apple-darwin": "https://github.com/avdv/scalals/releases/download/${version}/scalals-x86_64-darwin",
+    "aarch64-apple-darwin": "https://github.com/avdv/scalals/releases/download/${version}/scalals-arm64-darwin"
+  }
+}
