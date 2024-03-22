@@ -103,6 +103,7 @@ Feel free to send in a PR to add your application here!
  - scala-debugger
  - scala-steward
  - scala-update
+ - scalals
  - scalaxb
  - scip-java
  - sclin
