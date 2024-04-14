@@ -109,6 +109,8 @@ Feel free to send in a PR to add your application here!
  - sclin
  - smithy-cli
  - smithy-language-server
+ - smithy4s
+ - smithytranslate
  - sn-bindgen
  - sn-vcpkg
  - spaeti
