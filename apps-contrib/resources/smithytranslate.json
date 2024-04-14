@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        "central"
+    ],
+    "dependencies": [
+        "com.disneystreaming.smithy::smithytranslate-cli:latest.release"
+    ],
+    "mainClass": "smithytranslate.cli.Main",
+    "launcherType": "bootstrap"
+}
+
