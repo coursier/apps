@@ -8,3 +8,4 @@
   "mainClass": "smithy4s.codegen.cli.Main",
   "launcherType": "bootstrap"
 }
+
