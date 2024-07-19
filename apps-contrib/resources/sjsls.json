@@ -1,0 +1,9 @@
+{
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.github.quafadas::sjsls:latest.stable"
+    ],
+    "launcherType": "bootstrap"
+}
