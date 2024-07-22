@@ -107,6 +107,7 @@ Feel free to send in a PR to add your application here!
  - scalaxb
  - scip-java
  - sclin
+ - sjsls
  - smithy-cli
  - smithy-language-server
  - smithy4s
