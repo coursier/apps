@@ -2,6 +2,7 @@
   "repositories": [
     "central"
   ],
+  "mainClass": "software.amazon.smithy.lsp.Main",
   "dependencies": [
     "software.amazon.smithy:smithy-language-server:latest.release"
   ]
