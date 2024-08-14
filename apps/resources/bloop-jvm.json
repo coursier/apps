@@ -4,5 +4,11 @@
   ],
   "dependencies": [
     "ch.epfl.scala::bloopgun-core:latest.stable"
+  ],
+  "versionOverrides": [
+    {
+      "versionRange": "[2.0.0,)",
+      "dependencies": ["ch.epfl.scala::bloop-cli:latest.stable"]
+    }
   ]
 }
