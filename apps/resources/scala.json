@@ -1,5 +1,4 @@
 {
-  "mainClass": "dotty.tools.MainGenericRunner",
   "repositories": [
     "central"
   ],
@@ -9,6 +8,7 @@
   "properties": {
     "scala.usejavacp": "true"
   },
+  "launcherType": "prebuilt",
   "versionOverrides": [
     {
       "versionRange": "[3.5.0-RC2,)",
@@ -27,11 +27,18 @@
       "prebuilt": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}.zip!scala3-${version}/bin/scala"
     },
     {
+      "versionRange": "[3.1.0,3.5.0-RC1)",
+      "launcherType": "bootstrap",
+      "mainClass": "dotty.tools.MainGenericRunner"
+    },
+    {
       "versionRange": "[3.0.0,3.0.2]",
+      "launcherType": "bootstrap",
       "mainClass": "dotty.tools.repl.Main"
     },
     {
       "versionRange": "(,2.max]",
+      "launcherType": "bootstrap",
       "mainClass": "scala.tools.nsc.MainGenericRunner",
       "dependencies": [
         "org.scala-lang:scala-compiler:latest.stable"
