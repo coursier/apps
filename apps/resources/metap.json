@@ -4,6 +4,6 @@
   ],
   "mainClass": "scala.meta.cli.Metap",
   "dependencies": [
-    "org.scalameta::scalameta:latest.stable"
+    "org.scalameta::semanticdb-metap:latest.stable"
   ]
 }
