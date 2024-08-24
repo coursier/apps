@@ -5,5 +5,13 @@
   "mainClass": "scala.meta.cli.Metap",
   "dependencies": [
     "org.scalameta::semanticdb-metap:latest.stable"
+  ],
+  "versionOverrides": [
+    {
+      "versionRange": "(,4.9.7]",
+      "dependencies": [
+        "org.scalameta::scalameta::latest.stable"
+      ]
+    }
   ]
 }
