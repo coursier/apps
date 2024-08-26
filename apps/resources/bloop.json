@@ -2,13 +2,15 @@
   "repositories": ["central"],
   "launcherType": "graalvm-native-image",
   "prebuilt": "https://github.com/scalacenter/bloop/releases/download/v${version}/bloop-${platform}",
-  "dependencies": ["ch.epfl.scala::bloopgun-core:latest.stable"],
+  "dependencies": ["ch.epfl.scala::bloop-cli:latest.stable"],
+  "mainClass": "bloop.cli.Bloop",
   "versionOverrides": [
     {
-      "versionRange": "[2.0.0,)",
+      "versionRange": "[,1.max)",
       "launcherType": "graalvm-native-image",
       "prebuilt": "https://github.com/scalacenter/bloop/releases/download/v${version}/bloop-${platform}",
-      "dependencies": ["ch.epfl.scala::bloop-cli:latest.stable"]
+      "dependencies": ["ch.epfl.scala::bloopgun-core:latest.stable"],
+      "mainClass": "bloop.bloopgun.Bloopgun"
     }
   ]
 }

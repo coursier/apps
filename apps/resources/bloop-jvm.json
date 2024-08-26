@@ -3,12 +3,14 @@
     "central"
   ],
   "dependencies": [
-    "ch.epfl.scala::bloopgun-core:latest.stable"
+    "ch.epfl.scala::bloop-cli:latest.stable"
   ],
+  "mainClass": "bloop.cli.Bloop",
   "versionOverrides": [
     {
-      "versionRange": "[2.0.0,)",
-      "dependencies": ["ch.epfl.scala::bloop-cli:latest.stable"]
+      "versionRange": "[,1.max)",
+      "dependencies": ["ch.epfl.scala::bloopgun-core:latest.stable"],
+      "mainClass": "bloop.bloopgun.Bloopgun"
     }
   ]
 }
