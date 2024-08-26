@@ -5,7 +5,7 @@
   "launcherType": "scala-native",
   "mainClass": "scala.meta.cli.Metap",
   "dependencies": [
-    "org.scalameta::semanticdb-metap::latest.stable"
+    "org.scalameta:::semanticdb-metap::latest.stable"
   ],
   "versionOverrides": [
     {
