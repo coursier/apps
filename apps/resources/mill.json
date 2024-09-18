@@ -9,6 +9,8 @@
   "properties": {
     "jna.nosys": "true",
     "MILL_CLASSPATH": "${java.class.path}",
-    "MILL_VERSION": "${mill-dev.version}"
-  }
+    "MILL_VERSION": "${mill-dev.version}",
+    "mill.jvm_opts_applied": "true"
+  },
+  "jvmOptionFile": ".mill-jvm-opts"
 }
