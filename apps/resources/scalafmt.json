@@ -4,6 +4,6 @@
     "central"
   ],
   "dependencies": [
-    "org.scalameta::scalafmt-cli:latest.release"
+    "org.scalameta::scalafmt-cli:latest.stable"
   ]
 }
