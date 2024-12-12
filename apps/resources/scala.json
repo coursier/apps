@@ -10,21 +10,21 @@
   },
   "launcherType": "prebuilt",
   "prebuiltBinaries": {
-    "x86_64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-linux.tar.gz!bin/scala",
-    "aarch64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-pc-linux.tar.gz!bin/scala",
-    "x86_64-pc-win32": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-win32.zip!bin/scala",
-    "x86_64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-apple-darwin.tar.gz!bin/scala",
-    "aarch64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-apple-darwin.tar.gz!bin/scala"
+    "x86_64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-linux.tar.gz!scala3-${version}-x86_64-pc-linux/bin/scala",
+    "aarch64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-pc-linux.tar.gz!scala3-${version}-aarch64-pc-linux/bin/scala",
+    "x86_64-pc-win32": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-win32.zip!scala3-${version}-x86_64-pc-win32/bin/scala",
+    "x86_64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-apple-darwin.tar.gz!scala3-${version}-x86_64-apple-darwin/bin/scala",
+    "aarch64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-apple-darwin.tar.gz!scala3-${version}-aarch64-apple-darwin/bin/scala"
   },
   "versionOverrides": [
     {
-      "versionRange": "[3.5.0-RC2,3.5.2]",
+      "versionRange": "[3.6.0,3.6.2-RC3]",
       "prebuiltBinaries": {
-        "x86_64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-linux.tar.gz!scala3-${version}-x86_64-pc-linux/bin/scala",
-        "aarch64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-pc-linux.tar.gz!scala3-${version}-aarch64-pc-linux/bin/scala",
-        "x86_64-pc-win32": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-win32.zip!scala3-${version}-x86_64-pc-win32/bin/scala",
-        "x86_64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-apple-darwin.tar.gz!scala3-${version}-x86_64-apple-darwin/bin/scala",
-        "aarch64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-apple-darwin.tar.gz!scala3-${version}-aarch64-apple-darwin/bin/scala"
+        "x86_64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-linux.tar.gz!bin/scala",
+        "aarch64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-pc-linux.tar.gz!bin/scala",
+        "x86_64-pc-win32": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-win32.zip!bin/scala",
+        "x86_64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-apple-darwin.tar.gz!bin/scala",
+        "aarch64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-apple-darwin.tar.gz!bin/scala"
       }
     },
     {
