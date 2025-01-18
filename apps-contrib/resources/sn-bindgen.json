@@ -3,7 +3,7 @@
     "central"
   ],
   "dependencies": [
-    "com.indoorvivants:bindgen_native0.4_3:latest.stable"
+    "com.indoorvivants:bindgen_native0.5_3:latest.stable"
   ],
   "launcherType": "scala-native",
   "prebuiltBinaries": {
