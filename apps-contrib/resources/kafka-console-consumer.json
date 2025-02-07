@@ -1,5 +1,5 @@
 {
-  "mainClass": "kafka.tools.ConsoleConsumer",
+  "mainClass": "org.apache.kafka.tools.consumer.ConsoleConsumer",
   "repositories": [
     "central"
   ],
