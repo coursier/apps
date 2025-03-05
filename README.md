@@ -87,6 +87,7 @@ Feel free to send in a PR to add your application here!
  - kafka-consumer-groups
  - kafka-server
  - kafka-topics
+ - kinetic-merge
  - ktfmt
  - lsif-java
  - make-it-g8
@@ -99,7 +100,6 @@ Feel free to send in a PR to add your application here!
  - rhino
  - rsc
  - rscj
- - scala-cli
  - scala-debugger
  - scala-steward
  - scala-update
