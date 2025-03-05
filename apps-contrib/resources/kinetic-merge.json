@@ -1,0 +1,9 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "com.sageserpent::kinetic-merge:latest.stable"
+  ],
+  "launcherType": "bootstrap"
+}
