@@ -1,10 +1,20 @@
 {
-  "mainClass": "kafka.tools.ConsoleConsumer",
+  "mainClass": "org.apache.kafka.tools.consumer.ConsoleConsumer",
   "repositories": [
     "central"
   ],
   "dependencies": [
     "org.apache.kafka::kafka:latest.stable",
     "org.slf4j:slf4j-nop:1.7.30"
+  ],
+  "versionOverrides": [
+    {
+      "versionRange": "[1.0.0,3.8.0)",
+      "mainClass": "kafka.tools.ConsoleConsumer"
+    },
+    {
+      "versionRange": "(,1.0.0)",
+      "mainClass": "kafka.consumer.ConsoleConsumer"
+    }
   ]
 }

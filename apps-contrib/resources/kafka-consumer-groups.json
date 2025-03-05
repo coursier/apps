@@ -1,10 +1,16 @@
 {
-  "mainClass": "kafka.admin.ConsumerGroupCommand",
+  "mainClass": "org.apache.kafka.tools.consumer.group.ConsumerGroupCommand",
   "repositories": [
     "central"
   ],
   "dependencies": [
     "org.apache.kafka::kafka:latest.stable",
     "org.slf4j:slf4j-nop:1.7.30"
+  ],
+  "versionOverrides": [
+    {
+      "versionRange": "[1.0.0,3.8.0)",
+      "mainClass": "kafka.admin.ConsumerGroupCommand"
+    }
   ]
 }
