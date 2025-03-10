@@ -1,8 +1,0 @@
-{
-  "repositories": [
-    "central"
-  ],
-  "dependencies": [
-    "io.github.alexarchambault.ammonite::ammonite-runner-cli:latest.release"
-  ]
-}
