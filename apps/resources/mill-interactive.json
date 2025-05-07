@@ -1,15 +1,24 @@
 {
-  "mainClass": "mill.MillMain",
+  "mainClass": "mill.runner.MillMain",
   "repositories": [
     "central"
   ],
   "dependencies": [
-    "com.lihaoyi::mill-dev:latest.stable"
+    "com.lihaoyi::mill-dist:latest.stable"
   ],
   "properties": {
     "jna.nosys": "true",
     "MILL_CLASSPATH": "${java.class.path}",
     "MILL_VERSION": "${mill-dev.version}"
   },
-  "name": "mill-i"
+  "name": "mill-i",
+  "versionOverrides": [
+    {
+      "versionRange": "(,0.11.0-M7]",
+      "mainClass": "mill.MillMain",
+      "dependencies": [
+        "com.lihaoyi::mill-dev:latest.stable"
+      ]
+    }
+  ]
 }
