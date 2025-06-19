@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "io.github.finochiom:s2d_cli_3:latest.release"
+  ]
+}
