@@ -3,6 +3,6 @@
     "central"
   ],
   "dependencies": [
-    "io.github.finochiom:s2d_native0.5.3:latest.release"
+    "io.github.finochiom:s2d_cli_3:latest.release"
   ]
 }
