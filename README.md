@@ -100,6 +100,7 @@ Feel free to send in a PR to add your application here!
  - rhino
  - rsc
  - rscj
+ - s2d
  - scala-debugger
  - scala-steward
  - scala-update
