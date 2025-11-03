@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: git fetch --prune origin main
-      - uses: coursier/cache-action@v6.4
+      - uses: coursier/cache-action@v7.0
       - uses: coursier/setup-action@v1.3
         with:
           jvm: 8
