@@ -8,7 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: git fetch --prune origin main
       - uses: coursier/cache-action@v7.0
       - uses: coursier/setup-action@v1.3
