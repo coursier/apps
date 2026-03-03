@@ -27,6 +27,7 @@ which is used with `cs install`
  - mdoc
  - metac
  - metals-emacs
+ - metals-mcp
  - metals
  - metap-native
  - metap
