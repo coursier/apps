@@ -4,9 +4,17 @@
     "central"
   ],
   "dependencies": [
-    "org.scala-lang:scala3-compiler_3:latest.stable"
+    "org.scala-lang:scala3-repl_3:latest.stable"
   ],
   "properties": {
     "scala.usejavacp": "true"
-  }
+  },
+  "versionOverrides": [
+    {
+      "versionRange": "[3.0.0,3.7.4]",
+      "dependencies": [
+        "org.scala-lang:scala3-compiler_3:latest.stable"
+      ]
+    }
+  ]
 }
