@@ -115,6 +115,7 @@ Feel free to send in a PR to add your application here!
  - smithy4s
  - smithytranslate
  - sn-bindgen
+ - sn-sizemap
  - sn-vcpkg
  - spaeti
  - spark-connect-repl
