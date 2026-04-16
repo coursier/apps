@@ -103,6 +103,7 @@ Feel free to send in a PR to add your application here!
  - rscj
  - s2d
  - scala-debugger
+ - scala-monitor
  - scala-steward
  - scala-update
  - scalals
