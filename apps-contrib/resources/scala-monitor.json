@@ -1,0 +1,15 @@
+{
+  "repositories": [
+    "central"
+  ],
+  "dependencies": [
+    "org.polyvariant:scala-monitor_native0.5_3:latest.stable"
+  ],
+  "launcherType": "scala-native",
+  "prebuiltBinaries": {
+    "x86_64-pc-linux": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-x86_64-pc-linux",
+    "aarch64-pc-linux": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-aarch64-pc-linux",
+    "x86_64-apple-darwin": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-x86_64-apple-darwin",
+    "aarch64-apple-darwin": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-aarch64-apple-darwin"
+  }
+}
