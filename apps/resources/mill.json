@@ -1,14 +1,12 @@
 {
-  "mainClass": "mill.main.client.MillClientMain",
   "repositories": [
-    "central"
+    "central",
+    "typesafe:ivy-releases"
   ],
+  "launcherType": "prebuilt",
   "dependencies": [
     "com.lihaoyi::mill-dev:latest.stable"
   ],
-  "properties": {
-    "jna.nosys": "true",
-    "MILL_CLASSPATH": "${java.class.path}",
-    "MILL_VERSION": "${mill-dev.version}"
-  }
+  "name": "mill",
+  "prebuilt": "https://github.com/com-lihaoyi/mill/releases/download/${version}/${version}"
 }
