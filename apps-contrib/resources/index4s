@@ -1,0 +1,11 @@
+{
+  "repositories": ["central"],
+  "dependencies": ["org.polyvariant:index4s_native0.5_3:latest.stable"],
+  "launcherType": "scala-native",
+  "prebuiltBinaries": {
+    "x86_64-pc-linux":     "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-linux-amd64",
+    "aarch64-pc-linux":    "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-linux-arm64",
+    "x86_64-apple-darwin": "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-macos-x86_64",
+    "aarch64-apple-darwin": "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-macos-arm64"
+  }
+}
