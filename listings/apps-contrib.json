@@ -1,0 +1,737 @@
+{
+  "amm-runner": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.github.alexarchambault.ammonite::ammonite-runner-cli:latest.release"
+    ]
+  },
+  "asm-textifier": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.ow2.asm:asm-util:latest.release"
+    ],
+    "mainClass": "org.objectweb.asm.util.Textifier"
+  },
+  "asmifier": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.ow2.asm:asm-util:latest.release"
+    ],
+    "mainClass": "org.objectweb.asm.util.ASMifier"
+  },
+  "authors": {
+    "repositories": [
+      "central",
+      "bintray:jypma/maven"
+    ],
+    "dependencies": [
+      "lt.dvim.authors::authors-cli:latest.stable"
+    ]
+  },
+  "avro-tools": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.avro:avro-tools:latest.release"
+    ],
+    "mainClass": "org.apache.avro.tool.Main"
+  },
+  "bfg": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.madgag:bfg:latest.stable"
+    ],
+    "exclusions": [
+      "org.slf4j:slf4j-simple"
+    ]
+  },
+  "cache-migration": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.get-coursier.util::cache-migration:latest.stable"
+    ]
+  },
+  "catscript": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.chrisdavenport::catscript:latest.stable"
+    ]
+  },
+  "cellar": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.virtuslab:cellar-cli_3:latest.release"
+    ],
+    "launcherType": "graalvm-native-image",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "gz+https://github.com/VirtusLab/cellar/releases/download/v${version}/cellar-${version}-linux-x86_64.tar.gz!cellar",
+      "aarch64-pc-linux": "gz+https://github.com/VirtusLab/cellar/releases/download/v${version}/cellar-${version}-linux-aarch64.tar.gz!cellar",
+      "x86_64-apple-darwin": "gz+https://github.com/VirtusLab/cellar/releases/download/v${version}/cellar-${version}-macos-x86_64.tar.gz!cellar",
+      "aarch64-apple-darwin": "gz+https://github.com/VirtusLab/cellar/releases/download/v${version}/cellar-${version}-macos-arm64.tar.gz!cellar"
+    },
+    "mainClass": "cellar.cli.CellarApp?"
+  },
+  "cfr": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.benf:cfr:latest.release"
+    ]
+  },
+  "clojure": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.clojure:clojure:latest.stable"
+    ]
+  },
+  "cmta": {
+    "repositories": [
+      "central"
+    ],
+    "launcherType": "graalvm-native-image",
+    "prebuilt": "https://github.com/scalacenter/course-management-tools/releases/download/${version}/cmta-${platform}",
+    "dependencies": [
+      "ch.epfl.scala::cmta:latest.stable"
+    ],
+    "mainClass": "coursemgmt.admin.Main"
+  },
+  "cmtc": {
+    "repositories": [
+      "central"
+    ],
+    "launcherType": "graalvm-native-image",
+    "prebuilt": "https://github.com/scalacenter/course-management-tools/releases/download/${version}/cmtc-${platform}",
+    "dependencies": [
+      "ch.epfl.scala::cmtc:latest.stable"
+    ],
+    "mainClass": "coursemgmt.client.Main"
+  },
+  "fastpass-jvm": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "scala.meta.fastpass.Fastpass",
+    "dependencies": [
+      "org.scalameta::fastpass:latest.stable"
+    ]
+  },
+  "fastpass": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "scala.meta.fastpass.Fastpass",
+    "prebuilt": "https://github.com/scalameta/fastpass/releases/download/v${version}/fastpass-${platform}",
+    "dependencies": [
+      "org.scalameta::fastpass:latest.stable"
+    ]
+  },
+  "firstbird-emergence": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.firstbird.emergence::core:latest.release"
+    ]
+  },
+  "flyway": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.flywaydb:flyway-commandline:latest.release"
+    ],
+    "mainClass": "org.flywaydb.commandline.Main"
+  },
+  "frege": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "frege.repl.FregeRepl",
+    "dependencies": [
+      "org.frege-lang:frege-repl-core:latest.release"
+    ]
+  },
+  "git-changelog": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "se.bjurr.gitchangelog:git-changelog-command-line:latest.release"
+    ]
+  },
+  "google-java-format": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.google.googlejavaformat:google-java-format:latest.release"
+    ]
+  },
+  "groovy-shell": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "org.codehaus.groovy.tools.shell.Main",
+    "dependencies": [
+      "org.codehaus.groovy:groovy-groovysh:latest.release"
+    ]
+  },
+  "groovy": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.codehaus.groovy:groovy-groovysh:latest.release"
+    ]
+  },
+  "guardrail": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "dev.guardrail::guardrail-all:latest.stable"
+    ]
+  },
+  "index4s": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.polyvariant:index4s_native0.5_3:latest.stable"
+    ],
+    "launcherType": "scala-native",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-linux-amd64",
+      "aarch64-pc-linux": "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-linux-arm64",
+      "x86_64-apple-darwin": "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-macos-x86_64",
+      "aarch64-apple-darwin": "https://github.com/polyvariant/index4s/releases/download/v${version}/index4s-${version}-macos-arm64"
+    }
+  },
+  "ivy": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.ivy:ivy:latest.release"
+    ]
+  },
+  "jansi": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.fusesource.jansi:jansi:1.18"
+    ],
+    "descriptor-comments": [
+      "Pinning the version, as it seems https://repo1.maven.org/maven2/org/fusesource/jansi/jansi/maven-metadata.xml",
+      "isn't updated."
+    ]
+  },
+  "jfiglet": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.github.lalyos:jfiglet:0.0.3"
+    ]
+  },
+  "jruby": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "org.jruby.Main",
+    "dependencies": [
+      "org.jruby:jruby:latest.release"
+    ]
+  },
+  "jython": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.python:jython-standalone:latest.release"
+    ]
+  },
+  "kafka-console-consumer": {
+    "mainClass": "org.apache.kafka.tools.consumer.ConsoleConsumer",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.kafka::kafka:latest.stable",
+      "org.slf4j:slf4j-nop:1.7.30"
+    ],
+    "versionOverrides": [
+      {
+        "versionRange": "[1.0.0,3.8.0)",
+        "mainClass": "kafka.tools.ConsoleConsumer"
+      },
+      {
+        "versionRange": "(,1.0.0)",
+        "mainClass": "kafka.consumer.ConsoleConsumer"
+      }
+    ]
+  },
+  "kafka-console-producer": {
+    "mainClass": "org.apache.kafka.tools.ConsoleProducer",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.kafka::kafka:latest.stable",
+      "org.slf4j:slf4j-nop:1.7.30"
+    ],
+    "versionOverrides": [
+      {
+        "versionRange": "[1.0.0,4.0.0)",
+        "mainClass": "kafka.tools.ConsoleProducer"
+      },
+      {
+        "versionRange": "(,1.0.0)",
+        "mainClass": "kafka.producer.ConsoleProducer"
+      }
+    ]
+  },
+  "kafka-consumer-groups": {
+    "mainClass": "org.apache.kafka.tools.consumer.group.ConsumerGroupCommand",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.kafka::kafka:latest.stable",
+      "org.slf4j:slf4j-nop:1.7.30"
+    ],
+    "versionOverrides": [
+      {
+        "versionRange": "[1.0.0,3.8.0)",
+        "mainClass": "kafka.admin.ConsumerGroupCommand"
+      }
+    ]
+  },
+  "kafka-server": {
+    "mainClass": "kafka.Kafka",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.kafka::kafka:latest.stable"
+    ]
+  },
+  "kafka-topics": {
+    "mainClass": "org.apache.kafka.tools.TopicCommand",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.kafka::kafka:latest.stable",
+      "org.slf4j:slf4j-nop:1.7.30"
+    ],
+    "versionOverrides": [
+      {
+        "versionRange": "[1.0.0,3.7.0)",
+        "mainClass": "kafka.admin.TopicCommand"
+      }
+    ]
+  },
+  "kinetic-merge": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.sageserpent::kinetic-merge:latest.stable"
+    ],
+    "launcherType": "bootstrap"
+  },
+  "ktfmt": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.facebook:ktfmt:latest.release"
+    ],
+    "mainClass": "com.facebook.ktfmt.cli.Main"
+  },
+  "lsif-java": {
+    "deprecated": true,
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.sourcegraph::lsif-java:latest.stable"
+    ]
+  },
+  "make-it-g8": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.github.arturopala::make-it-g8:latest.stable"
+    ],
+    "properties": {
+      "makeitg8.interactive": "true"
+    }
+  },
+  "openapi-generator": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.openapitools:openapi-generator-cli:latest.stable"
+    ]
+  },
+  "plantuml": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "net.sourceforge.plantuml:plantuml:latest.release"
+    ]
+  },
+  "proguard-7": {
+    "repositories": [
+      "central",
+      "bintray:guardsquare/proguard"
+    ],
+    "dependencies": [
+      "com.guardsquare:proguard-base:latest.release"
+    ],
+    "mainClass": "proguard.ProGuard?"
+  },
+  "proguard-retrace": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "proguard.retrace.ReTrace",
+    "dependencies": [
+      "net.sf.proguard:proguard-retrace:latest.release"
+    ]
+  },
+  "proguard": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.guardsquare:proguard-base:latest.release"
+    ],
+    "mainClass": "proguard.ProGuard",
+    "versionOverrides": [
+      {
+        "versionRange": "[0,7)",
+        "dependencies": [
+          "net.sf.proguard:proguard-base:latest.release"
+        ]
+      }
+    ]
+  },
+  "protoc-jar": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.github.os72:protoc-jar:latest.release"
+    ]
+  },
+  "rhino": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.mozilla:rhino:latest.release"
+    ]
+  },
+  "rsc": {
+    "repositories": [
+      "central",
+      "jitpack"
+    ],
+    "launcherType": "graalvm-native-image",
+    "dependencies": [
+      "com.github.making:rsc:latest.release"
+    ],
+    "prebuilt": "https://github.com/making/rsc/releases/download/${version}/rsc-${platform}"
+  },
+  "rscj": {
+    "repositories": [
+      "central",
+      "jitpack"
+    ],
+    "dependencies": [
+      "com.github.making:rsc:latest.release"
+    ]
+  },
+  "s2d": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.github.finochiom:s2d-cli_3:latest.release"
+    ]
+  },
+  "scala-debugger": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-debugger::scala-debugger-tool:latest.release"
+    ]
+  },
+  "scala-monitor": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.polyvariant:scala-monitor_native0.5_3:latest.stable"
+    ],
+    "launcherType": "scala-native",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-x86_64-pc-linux",
+      "aarch64-pc-linux": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-aarch64-pc-linux",
+      "x86_64-apple-darwin": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-x86_64-apple-darwin",
+      "aarch64-apple-darwin": "https://github.com/polyvariant/scala-monitor/releases/download/v${version}/scala-monitor-aarch64-apple-darwin"
+    }
+  },
+  "scala-steward": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-steward::scala-steward-core:latest.release"
+    ]
+  },
+  "scala-update": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.github.kitlangton::scala-update:latest.release"
+    ],
+    "launcherType": "graalvm-native-image",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-linux-amd",
+      "x86_64-apple-darwin": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-macos-amd"
+    }
+  },
+  "scalals": {
+    "repositories": [
+      "jitpack"
+    ],
+    "dependencies": [
+      "com.github.avdv:scalals:latest.release"
+    ],
+    "launcherType": "prebuilt",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "https://github.com/avdv/scalals/releases/download/${version}/scalals-x86_64-linux",
+      "aarch64-pc-linux": "https://github.com/avdv/scalals/releases/download/${version}/scalals-arm64-linux",
+      "x86_64-apple-darwin": "https://github.com/avdv/scalals/releases/download/${version}/scalals-x86_64-darwin",
+      "aarch64-apple-darwin": "https://github.com/avdv/scalals/releases/download/${version}/scalals-arm64-darwin"
+    }
+  },
+  "scalaxb": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scalaxb::scalaxb:latest.stable"
+    ]
+  },
+  "scip-java": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "com.sourcegraph.scip_java.ScipJava",
+    "dependencies": [
+      "com.sourcegraph::scip-java:latest.stable"
+    ]
+  },
+  "sclin": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.github.molarmanful:sclin_3:latest.release"
+    ]
+  },
+  "sjsls": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.github.quafadas::sjsls:latest.stable"
+    ],
+    "launcherType": "bootstrap"
+  },
+  "smithy-cli": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "software.amazon.smithy:smithy-cli:latest.release"
+    ]
+  },
+  "smithy-language-server": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "software.amazon.smithy.lsp.Main",
+    "dependencies": [
+      "software.amazon.smithy:smithy-language-server:latest.release"
+    ]
+  },
+  "smithy4s": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.disneystreaming.smithy4s::smithy4s-codegen-cli:latest.stable"
+    ],
+    "mainClass": "smithy4s.codegen.cli.Main",
+    "launcherType": "bootstrap"
+  },
+  "smithytranslate": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.disneystreaming.smithy::smithytranslate-cli:latest.release"
+    ],
+    "mainClass": "smithytranslate.cli.Main",
+    "launcherType": "bootstrap"
+  },
+  "sn-bindgen": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.indoorvivants:bindgen_native0.5_3:latest.stable"
+    ],
+    "launcherType": "scala-native",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-x86_64-pc-linux",
+      "x86_64-pc-win32": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-x86_64-pc-win32.exe",
+      "x86_64-apple-darwin": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-x86_64-apple-darwin",
+      "aarch64-apple-darwin": "https://github.com/indoorvivants/sn-bindgen/releases/download/v${version}/sn-bindgen-aarch64-apple-darwin"
+    }
+  },
+  "sn-sizemap": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.indoorvivants:sn-sizemap_native0.5_3:latest.stable"
+    ],
+    "launcherType": "scala-native",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "https://github.com/indoorvivants/sn-sizemap/releases/download/v${version}/sn-sizemap-x86_64-pc-linux",
+      "aarch64-pc-linux": "https://github.com/indoorvivants/sn-sizemap/releases/download/v${version}/sn-sizemap-aarch64-pc-linux",
+      "x86_64-apple-darwin": "https://github.com/indoorvivants/sn-sizemap/releases/download/v${version}/sn-sizemap-x86_64-apple-darwin",
+      "aarch64-apple-darwin": "https://github.com/indoorvivants/sn-sizemap/releases/download/v${version}/sn-sizemap-aarch64-apple-darwin"
+    }
+  },
+  "sn-vcpkg": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.indoorvivants.vcpkg:sn-vcpkg_3:latest.release"
+    ]
+  },
+  "spaeti": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "eu.joaocosta:spaeti_3:latest.stable"
+    ],
+    "mainClass": "eu.joaocosta.spaeti.main"
+  },
+  "spark-connect-repl": {
+    "mainClass": "org.apache.spark.sql.application.ConnectRepl",
+    "repositories": [
+      "central"
+    ],
+    "scalaVersion": "2.12+",
+    "dependencies": [
+      "com.lihaoyi:::ammonite:2.5.8",
+      "org.apache.spark::spark-connect-client-jvm:latest.release",
+      "org.apache.spark::spark-catalyst:latest.release"
+    ]
+  },
+  "spark-repl": {
+    "mainClass": "org.apache.spark.repl.Main?",
+    "repositories": [
+      "central"
+    ],
+    "scalaVersion": "2.12+",
+    "dependencies": [
+      "org.apache.spark::spark-repl:latest.stable",
+      "org.slf4j:slf4j-nop:1.7.28"
+    ],
+    "exclusions": [
+      "org.slf4j:slf4j-log4j12"
+    ],
+    "properties": {
+      "scala.usejavacp": "true",
+      "spark.master?": "local[*]",
+      "spark.master": "local[*]"
+    }
+  },
+  "sqlline": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "sqlline.SqlLine",
+    "dependencies": [
+      "sqlline:sqlline:latest.release"
+    ]
+  },
+  "swagger-codegen": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.swagger.codegen.v3:swagger-codegen-cli:latest.stable"
+    ]
+  },
+  "wiremock": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.github.tomakehurst:wiremock:latest.release",
+      "org.slf4j:slf4j-nop:1.7.28"
+    ]
+  },
+  "zookeeper": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.apache.zookeeper:zookeeper:latest.release",
+      "io.dropwizard:dropwizard-metrics:2.0.13",
+      "org.xerial.snappy:snappy-java:1.1.7.7"
+    ],
+    "mainClass": "org.apache.zookeeper.server.quorum.QuorumPeerMain",
+    "descriptor-comments": [
+      "seems dropwizards and snappy-java are required for zookeeper 3.6.2",
+      "(3.5.8 seems fine OTOH)."
+    ]
+  }
+}
