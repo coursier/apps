@@ -1,0 +1,45 @@
+name: check-pr-scope
+on:
+  pull_request: {}
+
+# The files under listings/ are generated from the app descriptors by
+# .github/scripts/generate-channels.sc, and updated on main by the
+# update-channels workflow. Mixing generated and hand-written changes in a
+# single PR makes them conflict with each other, so a PR must either update
+# listings/, or everything else, but not both.
+
+jobs:
+  check-pr-scope:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Check changed files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          changed="$(git diff --name-only "$BASE_SHA...$HEAD_SHA")"
+          listings="$(printf '%s\n' "$changed" | grep    '^listings/' || true)"
+          others="$(  printf '%s\n' "$changed" | grep -v '^listings/' || true)"
+          if [ -n "$listings" ] && [ -n "$others" ]; then
+            echo "This PR changes both listings/ and other files:"
+            echo
+            echo "Under listings/:"
+            printf '%s\n' "$listings" | sed 's/^/  /'
+            echo
+            echo "Elsewhere:"
+            printf '%s\n' "$others" | sed 's/^/  /'
+            echo
+            echo "The files under listings/ are generated (see" \
+              ".github/scripts/generate-channels.sc) and updated on main by the" \
+              "update-channels workflow. Please split those changes in two PRs."
+            exit 1
+          fi
+          if [ -n "$listings" ]; then
+            echo "OK: this PR only changes files under listings/"
+          else
+            echo "OK: this PR doesn't change any file under listings/"
+          fi

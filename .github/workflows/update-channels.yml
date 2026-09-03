@@ -1,0 +1,53 @@
+name: update-channels
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/resources/**
+      - apps-contrib/resources/**
+      - .github/scripts/generate-channels.sc
+      - .github/workflows/update-channels.yml
+  workflow_dispatch: {}
+
+# Regenerates listings/apps.json and listings/apps-contrib.json (the
+# URL-based channels read by coursier) from the app descriptors under
+# apps/resources and apps-contrib/resources, and opens (or updates) a pull
+# request with the changes, if any.
+concurrency: update-channels
+
+jobs:
+  update-channels:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: coursier/cache-action@v8.1
+      - uses: coursier/setup-action@v3.0
+        with:
+          jvm: 17
+          apps: scala-cli
+      - run: scala-cli run .github/scripts/generate-channels.sc
+      # Note: PRs opened with the default GITHUB_TOKEN don't trigger the
+      # build workflow. Pass a PAT or GitHub App token via `token` if CI
+      # should run on them.
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          add-paths: |
+            listings/apps.json
+            listings/apps-contrib.json
+          commit-message: Update channel JSON files
+          author: Github Actions <actions@github.com>
+          committer: Github Actions <actions@github.com>
+          branch: update-channels
+          delete-branch: true
+          base: main
+          title: Update channel JSON files
+          body: |
+            Regenerates `listings/apps.json` and `listings/apps-contrib.json`
+            from the app descriptors under `apps/resources` and
+            `apps-contrib/resources`.
+
+            Automatically opened by the `update-channels` workflow.
