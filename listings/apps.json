@@ -1,0 +1,733 @@
+{
+  "almond": {
+    "repositories": [
+      "central",
+      "jitpack"
+    ],
+    "dependencies": [
+      "sh.almond:::scala-kernel:latest.release"
+    ],
+    "shared": [
+      "sh.almond:::scala-kernel-api"
+    ],
+    "classifiers": [
+      "_",
+      "sources"
+    ]
+  },
+  "ammonite": {
+    "mainClass": "ammonite.AmmoniteMain?",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.lihaoyi:::ammonite:latest.release"
+    ],
+    "classifiers": [
+      "_",
+      "sources"
+    ],
+    "name": "amm",
+    "versionOverrides": [
+      {
+        "versionRange": "(,2.4.1-5-3e8a87a4]",
+        "mainClass": "ammonite.Main?"
+      }
+    ]
+  },
+  "bloop-jvm": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "ch.epfl.scala::bloop-cli:latest.stable"
+    ],
+    "mainClass": "bloop.cli.Bloop",
+    "versionOverrides": [
+      {
+        "versionRange": "[,1.max)",
+        "dependencies": [
+          "ch.epfl.scala::bloopgun-core:latest.stable"
+        ],
+        "mainClass": "bloop.bloopgun.Bloopgun"
+      }
+    ]
+  },
+  "bloop": {
+    "repositories": [
+      "central"
+    ],
+    "launcherType": "graalvm-native-image",
+    "prebuilt": "https://github.com/scalacenter/bloop/releases/download/v${version}/bloop-${platform}",
+    "dependencies": [
+      "ch.epfl.scala::bloop-cli:latest.stable"
+    ],
+    "mainClass": "bloop.cli.Bloop",
+    "versionOverrides": [
+      {
+        "versionRange": "[,1.max)",
+        "launcherType": "graalvm-native-image",
+        "prebuilt": "https://github.com/scalacenter/bloop/releases/download/v${version}/bloop-${platform}",
+        "dependencies": [
+          "ch.epfl.scala::bloopgun-core:latest.stable"
+        ],
+        "mainClass": "bloop.bloopgun.Bloopgun"
+      }
+    ]
+  },
+  "coursier": {
+    "repositories": [
+      "central",
+      "typesafe:ivy-releases"
+    ],
+    "dependencies": [
+      "io.get-coursier::coursier-cli:latest.release"
+    ]
+  },
+  "cs": {
+    "repositories": [
+      "central",
+      "typesafe:ivy-releases"
+    ],
+    "launcherType": "graalvm-native-image",
+    "dependencies": [
+      "io.get-coursier::coursier-cli:latest.release"
+    ],
+    "name": "cs",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-linux.gz",
+      "aarch64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-aarch64-pc-linux.gz",
+      "x86_64-apple-darwin": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-apple-darwin.gz",
+      "aarch64-apple-darwin": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-aarch64-apple-darwin.gz",
+      "x86_64-pc-win32": "zip+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-win32.zip"
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "(2.1.15, 2.1.25-M2]",
+        "prebuiltBinaries": {
+          "x86_64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-linux.gz",
+          "aarch64-pc-linux": "gz+https://github.com/VirtusLab/coursier-m1/releases/download/v${version}/cs-aarch64-pc-linux.gz",
+          "x86_64-apple-darwin": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-apple-darwin.gz",
+          "aarch64-apple-darwin": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-aarch64-apple-darwin.gz",
+          "x86_64-pc-win32": "zip+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-win32.zip"
+        }
+      },
+      {
+        "versionRange": "(2.1.0-RC4, 2.1.15]",
+        "prebuiltBinaries": {
+          "x86_64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-linux.gz",
+          "aarch64-pc-linux": "gz+https://github.com/VirtusLab/coursier-m1/releases/download/v${version}/cs-aarch64-pc-linux.gz",
+          "x86_64-apple-darwin": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-apple-darwin.gz",
+          "aarch64-apple-darwin": "gz+https://github.com/VirtusLab/coursier-m1/releases/download/v${version}/cs-aarch64-apple-darwin.gz",
+          "x86_64-pc-win32": "zip+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-win32.zip"
+        }
+      },
+      {
+        "versionRange": "(2.0.16, 2.1.0-RC4]",
+        "prebuiltBinaries": {
+          "x86_64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-linux.gz",
+          "aarch64-pc-linux": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-aarch64-pc-linux.gz",
+          "x86_64-apple-darwin": "gz+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-apple-darwin.gz",
+          "aarch64-apple-darwin": "gz+https://github.com/VirtusLab/coursier-m1/releases/download/v${version}/cs-aarch64-apple-darwin.gz",
+          "x86_64-pc-win32": "zip+https://github.com/coursier/coursier/releases/download/v${version}/cs-x86_64-pc-win32.zip"
+        }
+      },
+      {
+        "versionRange": "(,2.0.16]",
+        "prebuiltBinaries": {},
+        "prebuilt": "https://github.com/coursier/coursier/releases/download/v${version}/cs-${platform}"
+      }
+    ]
+  },
+  "csbt": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.get-coursier::sbt-launcher:latest.stable"
+    ],
+    "shared": [
+      "org.scala-sbt:launcher-interface"
+    ],
+    "properties": {
+      "jline.shutdownhook": "false",
+      "jna.nosys": "true",
+      "coursier.sbt-launcher.parse-args": "extras"
+    },
+    "javaOptions": [
+      "-Xms512m",
+      "-Xss2m"
+    ],
+    "jvmOptionFile": ".jvmopts"
+  },
+  "dotty-repl": {
+    "mainClass": "dotty.tools.repl.Main",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scala3-compiler_3:3.0.1"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    }
+  },
+  "echo-graalvm": {
+    "repositories": [
+      "central"
+    ],
+    "launcherType": "graalvm-native-image",
+    "dependencies": [
+      "io.get-coursier:echo:latest.stable"
+    ]
+  },
+  "echo-java": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.get-coursier:echo:latest.stable"
+    ]
+  },
+  "echo-native": {
+    "repositories": [
+      "central"
+    ],
+    "launcherType": "scala-native",
+    "dependencies": [
+      "io.get-coursier::echo::latest.stable"
+    ]
+  },
+  "giter8": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.foundweekends.giter8::giter8:latest.stable",
+      "org.scala-sbt:launcher-interface:1.0.4",
+      "org.slf4j:slf4j-nop:1.7.25"
+    ],
+    "exclusions": [
+      "org.slf4j:slf4j-log4j12",
+      "ch.qos.logback:logback-classic"
+    ],
+    "name": "g8"
+  },
+  "mdoc": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "mdoc.Main",
+    "dependencies": [
+      "org.scalameta::mdoc:latest.stable"
+    ]
+  },
+  "metac": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scalameta:::metac:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    }
+  },
+  "metals-emacs": {
+    "repositories": [
+      "central"
+    ],
+    "properties": {
+      "metals.client": "emacs"
+    },
+    "javaOptions": [
+      "-Xms100m",
+      "-Xss4m"
+    ],
+    "dependencies": [
+      "org.scalameta::metals:latest.stable"
+    ]
+  },
+  "metals-mcp": {
+    "repositories": [
+      "central"
+    ],
+    "javaOptions": [
+      "-Xms100m",
+      "-Xss4m",
+      "-Xmx2g",
+      "--add-opens=java.base/java.nio=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.resources=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED",
+      "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED"
+    ],
+    "dependencies": [
+      "org.scalameta::metals-mcp:latest.stable"
+    ]
+  },
+  "metals": {
+    "repositories": [
+      "central"
+    ],
+    "javaOptions": [
+      "-Xms100m",
+      "-Xss4m",
+      "--add-opens=java.base/java.nio=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.resources=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
+      "--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED",
+      "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED",
+      "--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED"
+    ],
+    "dependencies": [
+      "org.scalameta::metals:latest.stable"
+    ]
+  },
+  "metap-native": {
+    "repositories": [
+      "central"
+    ],
+    "launcherType": "scala-native",
+    "mainClass": "scala.meta.cli.Metap",
+    "dependencies": [
+      "org.scalameta:::semanticdb-metap::latest.stable"
+    ],
+    "versionOverrides": [
+      {
+        "versionRange": "(,4.9.7]",
+        "dependencies": [
+          "org.scalameta::scalameta::latest.stable"
+        ]
+      }
+    ]
+  },
+  "metap": {
+    "repositories": [
+      "central"
+    ],
+    "mainClass": "scala.meta.cli.Metap",
+    "dependencies": [
+      "org.scalameta:::semanticdb-metap:latest.stable"
+    ],
+    "versionOverrides": [
+      {
+        "versionRange": "(,4.9.7]",
+        "dependencies": [
+          "org.scalameta::scalameta::latest.stable"
+        ]
+      }
+    ]
+  },
+  "mill-interactive": {
+    "mainClass": "mill.MillMain",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.lihaoyi::mill-dev:latest.stable"
+    ],
+    "properties": {
+      "jna.nosys": "true",
+      "MILL_CLASSPATH": "${java.class.path}",
+      "MILL_VERSION": "${mill-dev.version}"
+    },
+    "name": "mill-i"
+  },
+  "mill": {
+    "mainClass": "mill.main.client.MillClientMain",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.lihaoyi::mill-dev:latest.stable"
+    ],
+    "properties": {
+      "jna.nosys": "true",
+      "MILL_CLASSPATH": "${java.class.path}",
+      "MILL_VERSION": "${mill-dev.version}"
+    }
+  },
+  "sbt-launcher": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.get-coursier::sbt-launcher:latest.stable",
+      "io.get-coursier:coursier-okhttp_2.12:1.1.0-M9"
+    ],
+    "shared": [
+      "org.scala-sbt:launcher-interface"
+    ],
+    "properties": {
+      "jline.shutdownhook": "false",
+      "jna.nosys": "true",
+      "coursier.sbt-launcher.parse-args": "extras"
+    },
+    "javaOptions": [
+      "-Xms512m",
+      "-Xss2m"
+    ],
+    "name": "sbt",
+    "sharedLoaderDependencies": [
+      "org.scala-sbt:launcher-interface"
+    ],
+    "jvmOptionFile": ".jvmopts"
+  },
+  "sbt": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-sbt:sbt-launch:latest.stable",
+      "io.get-coursier.sbt:sbt-runner:latest.stable"
+    ],
+    "properties": {
+      "jline.shutdownhook": "false",
+      "jna.nosys": "true"
+    },
+    "javaOptions": [
+      "-Xms512m",
+      "-Xss2m"
+    ],
+    "jvmOptionFile": ".jvmopts",
+    "launcherType": "graalvm-native-image",
+    "prebuilt": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbt"
+  },
+  "sbtn": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-sbt:sbt:latest.stable"
+    ],
+    "mainClass": "sbt.internal.client.NetworkClient",
+    "launcherType": "graalvm-native-image",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-x86_64-pc-linux",
+      "aarch64-pc-linux": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-aarch64-pc-linux",
+      "x86_64-apple-darwin": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-universal-apple-darwin",
+      "aarch64-apple-darwin": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-universal-apple-darwin",
+      "x86_64-pc-win32": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-x86_64-pc-win32.exe"
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "(,1.10.0)",
+        "prebuiltBinaries": {
+          "x86_64-pc-linux": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-x86_64-pc-linux",
+          "aarch64-pc-linux": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-aarch64-pc-linux",
+          "x86_64-apple-darwin": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-x86_64-apple-darwin",
+          "aarch64-apple-darwin": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-aarch64-apple-darwin",
+          "x86_64-pc-win32": "zip+https://github.com/sbt/sbt/releases/download/v${version}/sbt-${version}.zip!sbt/bin/sbtn-x86_64-pc-win32.exe"
+        }
+      }
+    ]
+  },
+  "scala-cli": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.virtuslab.scala-cli:cli_3:latest.release"
+    ],
+    "launcherType": "graalvm-native-image",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-x86_64-pc-linux.gz",
+      "aarch64-pc-linux": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-aarch64-pc-linux.gz",
+      "x86_64-pc-win32": "zip+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-x86_64-pc-win32.zip",
+      "x86_64-apple-darwin": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-x86_64-apple-darwin.gz",
+      "aarch64-apple-darwin": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-aarch64-apple-darwin.gz"
+    },
+    "mainClass": "scala.cli.ScalaCli?",
+    "versionOverrides": [
+      {
+        "versionRange": "[0.0.1,0.1.2]",
+        "repositories": [
+          "central"
+        ],
+        "dependencies": [
+          "org.virtuslab.scala-cli:cli_2.12:latest.release"
+        ]
+      },
+      {
+        "versionRange": "[0.1.3,0.1.4]",
+        "dependencies": [
+          "org.virtuslab.scala-cli:cli_2.13:latest.release"
+        ]
+      }
+    ]
+  },
+  "scala-experimental": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.virtuslab.scala-cli:cli_3:latest.release"
+    ],
+    "launcherType": "graalvm-native-image",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-x86_64-pc-linux.gz",
+      "x86_64-pc-win32": "zip+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-x86_64-pc-win32.zip",
+      "x86_64-apple-darwin": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-x86_64-apple-darwin.gz",
+      "aarch64-apple-darwin": "gz+https://github.com/VirtusLab/scala-cli/releases/download/v${version}/scala-cli-aarch64-apple-darwin.gz"
+    },
+    "name": "scala",
+    "versionOverrides": [
+      {
+        "versionRange": "[0.0.1,0.1.2]",
+        "repositories": [
+          "central"
+        ],
+        "dependencies": [
+          "org.virtuslab.scala-cli:cli_2.12:latest.release"
+        ]
+      },
+      {
+        "versionRange": "[0.1.3,0.1.4]",
+        "dependencies": [
+          "org.virtuslab.scala-cli:cli_2.13:latest.release"
+        ]
+      }
+    ]
+  },
+  "scala": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scala3-compiler_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    },
+    "launcherType": "prebuilt",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-linux.tar.gz!scala3-${version}-x86_64-pc-linux/bin/scala",
+      "aarch64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-pc-linux.tar.gz!scala3-${version}-aarch64-pc-linux/bin/scala",
+      "x86_64-pc-win32": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-win32.zip!scala3-${version}-x86_64-pc-win32/bin/scala",
+      "aarch64-pc-win32": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}.zip!scala3-${version}/bin/scala.bat",
+      "x86_64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-apple-darwin.tar.gz!scala3-${version}-x86_64-apple-darwin/bin/scala",
+      "aarch64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-apple-darwin.tar.gz!scala3-${version}-aarch64-apple-darwin/bin/scala"
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "[3.6.0,3.6.2-RC3]",
+        "prebuiltBinaries": {
+          "x86_64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-linux.tar.gz!bin/scala",
+          "aarch64-pc-linux": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-pc-linux.tar.gz!bin/scala",
+          "x86_64-pc-win32": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-pc-win32.zip!bin/scala",
+          "x86_64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-x86_64-apple-darwin.tar.gz!bin/scala",
+          "aarch64-apple-darwin": "gz+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}-aarch64-apple-darwin.tar.gz!bin/scala"
+        }
+      },
+      {
+        "versionRange": "[3.5.0-RC1,3.5.0-RC1]",
+        "launcherType": "prebuilt",
+        "prebuilt": "zip+https://github.com/scala/scala3/releases/download/${version}/scala3-${version}.zip!scala3-${version}/bin/scala"
+      },
+      {
+        "versionRange": "[3.1.0,3.5.0-RC1)",
+        "launcherType": "bootstrap",
+        "mainClass": "dotty.tools.MainGenericRunner"
+      },
+      {
+        "versionRange": "[3.0.0,3.0.2]",
+        "launcherType": "bootstrap",
+        "mainClass": "dotty.tools.repl.Main"
+      },
+      {
+        "versionRange": "(,2.max]",
+        "launcherType": "bootstrap",
+        "mainClass": "scala.tools.nsc.MainGenericRunner",
+        "dependencies": [
+          "org.scala-lang:scala-compiler:latest.stable"
+        ]
+      }
+    ]
+  },
+  "scala3-compiler": {
+    "mainClass": "dotty.tools.dotc.Main",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scala3-compiler_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    }
+  },
+  "scala3-decompiler": {
+    "mainClass": "dotty.tools.dotc.decompiler.Main",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scala3-compiler_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    }
+  },
+  "scala3-doc": {
+    "mainClass": "dotty.tools.scaladoc.Main",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scaladoc_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    }
+  },
+  "scala3-repl": {
+    "mainClass": "dotty.tools.repl.Main",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scala3-repl_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "[3.0.0,3.7.4]",
+        "dependencies": [
+          "org.scala-lang:scala3-compiler_3:latest.stable"
+        ]
+      }
+    ]
+  },
+  "scala3": {
+    "mainClass": "dotty.tools.MainGenericRunner",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scala3-compiler_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    }
+  },
+  "scalac": {
+    "mainClass": "dotty.tools.MainGenericCompiler",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scala3-compiler_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "[3.0.0,3.1.2]",
+        "mainClass": "dotty.tools.dotc.Main"
+      },
+      {
+        "versionRange": "(,2.max]",
+        "mainClass": "scala.tools.nsc.Main",
+        "dependencies": [
+          "org.scala-lang:scala-compiler:latest.stable"
+        ]
+      }
+    ]
+  },
+  "scaladoc": {
+    "mainClass": "dotty.tools.scaladoc.Main",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scaladoc_3:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "(,2.max]",
+        "mainClass": "scala.tools.nsc.ScalaDoc",
+        "dependencies": [
+          "org.scala-lang:scala-compiler:latest.stable"
+        ]
+      }
+    ]
+  },
+  "scalafix": {
+    "mainClass": "scalafix.cli.Cli",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "ch.epfl.scala:::scalafix-cli:latest.release"
+    ]
+  },
+  "scalafmt": {
+    "mainClass": "org.scalafmt.cli.Cli?",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scalameta::scalafmt-cli:latest.stable"
+    ]
+  },
+  "scalap": {
+    "mainClass": "scala.tools.scalap.Main",
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scala-lang:scalap:latest.stable"
+    ],
+    "properties": {
+      "scala.usejavacp": "true"
+    }
+  },
+  "scalapbc": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "com.thesamet.scalapb::scalapbc:latest.release"
+    ]
+  },
+  "stc": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "org.scalablytyped.converter::cli:latest.release"
+    ]
+  }
+}
