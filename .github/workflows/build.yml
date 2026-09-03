@@ -15,7 +15,7 @@ jobs:
       - uses: coursier/cache-action@v8.1
       - uses: coursier/setup-action@v3.0
         with:
-          jvm: 8
+          jvm: 17
           apps: sbt scala-cli
       - run: sbt publishLocal
       # Validates the app descriptors, by aggregating them the way the
