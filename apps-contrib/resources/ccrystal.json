@@ -3,13 +3,14 @@
     "central"
   ],
   "dependencies": [
-    "org.scala-lang:scala3-library_3:3.3.4"
+    "io.github.oswaldo:ccrystal-cli_3:latest.release"
   ],
-  "launcherType": "prebuilt",
+  "launcherType": "scala-native",
+  "mainClass": "ccrystal.cli.Main?",
   "prebuiltBinaries": {
-    "x86_64-pc-linux": "tgz+https://github.com/oswaldo/context-crystal/releases/download/v1.0.0/ccrystal-v1.0.0-linux-x86_64.tar.gz!ccrystal",
-    "aarch64-pc-linux": "tgz+https://github.com/oswaldo/context-crystal/releases/download/v1.0.0/ccrystal-v1.0.0-linux-aarch64.tar.gz!ccrystal",
-    "x86_64-apple-darwin": "tgz+https://github.com/oswaldo/context-crystal/releases/download/v1.0.0/ccrystal-v1.0.0-macos-x86_64.tar.gz!ccrystal",
-    "aarch64-apple-darwin": "tgz+https://github.com/oswaldo/context-crystal/releases/download/v1.0.0/ccrystal-v1.0.0-macos-aarch64.tar.gz!ccrystal"
+    "x86_64-pc-linux": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-linux-x86_64.tar.gz!ccrystal",
+    "aarch64-pc-linux": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-linux-aarch64.tar.gz!ccrystal",
+    "x86_64-apple-darwin": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-macos-x86_64.tar.gz!ccrystal",
+    "aarch64-apple-darwin": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-macos-aarch64.tar.gz!ccrystal"
   }
 }
