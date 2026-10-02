@@ -4,9 +4,20 @@
     "central"
   ],
   "dependencies": [
-    "org.scala-lang:scala3-compiler_3:3.0.1"
+    "org.scala-lang:scala3-repl_3:latest.stable"
   ],
   "properties": {
     "scala.usejavacp": "true"
-  }
+  },
+  "versionOverrides": [
+    {
+      "versionRange": "[3.0.0,3.7.4]",
+      "dependencies": [
+        "org.scala-lang:scala3-compiler_3:latest.stable"
+      ]
+    }
+  ],
+  "descriptor-comments": [
+    "Deprecated, use scala3-repl instead (this is a copy of it, kept for compatibility)"
+  ]
 }

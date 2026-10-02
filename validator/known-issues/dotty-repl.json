@@ -1,6 +1,0 @@
-[
-  {
-    "versionRange": "[3.8.0-RC1,)",
-    "reason": "Since Scala 3.8, the REPL lives in scala3-repl_3 rather than scala3-compiler_3 (use the scala3-repl app)"
-  }
-]
