@@ -1,10 +1,10 @@
 [
   {
-    "versionRange": "(,1.0.0)",
-    "reason": "Not handled by the descriptor, that has no version override with the main class of these versions"
+    "versionRange": "(,0.8.1)",
+    "reason": "kafka.admin.TopicCommand was added in Kafka 0.8.1"
   },
   {
-    "versionRange": "[3.7.0,)",
-    "reason": "Needs fixing: since Kafka 3.7, TopicCommand lives in org.apache.kafka:kafka-tools"
+    "versions": ["0.8.2-beta"],
+    "reason": "Depends on a scala-library version that doesn't exist"
   }
 ]

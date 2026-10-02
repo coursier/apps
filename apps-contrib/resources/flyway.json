@@ -3,7 +3,22 @@
     "central"
   ],
   "dependencies": [
-    "org.flywaydb:flyway-commandline:latest.release"
+    "org.flywaydb:flyway-commandline:latest.release,exclude=org.flywaydb%flyway-database-clickhouse,exclude=org.flywaydb%flyway-database-cubrid,exclude=org.flywaydb%flyway-database-db2zos,exclude=org.flywaydb%flyway-database-duckdb,exclude=org.flywaydb%flyway-database-ignite,exclude=org.flywaydb%flyway-database-iris,exclude=org.flywaydb%flyway-database-oceanbase,exclude=org.flywaydb%flyway-database-questdb,exclude=org.flywaydb%flyway-database-tidb,exclude=org.flywaydb%flyway-database-timeplus,exclude=org.flywaydb%flyway-database-yugabytedb"
   ],
-  "mainClass": "org.flywaydb.commandline.Main"
+  "mainClass": "org.flywaydb.commandline.Main",
+  "versionOverrides": [
+    {
+      "versionRange": "(,12.10.0)",
+      "dependencies": [
+        "org.flywaydb:flyway-commandline:latest.release,exclude=net.minidev%json-smart",
+        "net.minidev:json-smart:2.5.2"
+      ]
+    }
+  ],
+  "descriptor-comments": [
+    "Since 12.10.0, flyway-commandline depends on community database plugins at version 10.25.15,",
+    "that was never published (they stop at 10.26.0), so these are excluded.",
+    "From 10.20.0 to 12.x, msal4j and oauth2-oidc-sdk want incompatible json-smart versions",
+    "(2.5.x and [1.3.3,2.4.10]), so json-smart is excluded and added back at a version msal4j accepts."
+  ]
 }

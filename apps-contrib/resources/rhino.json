@@ -3,6 +3,15 @@
     "central"
   ],
   "dependencies": [
-    "org.mozilla:rhino:latest.release"
+    "org.mozilla:rhino-tools:latest.release"
+  ],
+  "mainClass": "org.mozilla.javascript.tools.shell.Main",
+  "versionOverrides": [
+    {
+      "versionRange": "(,1.8.0)",
+      "dependencies": [
+        "org.mozilla:rhino:latest.release"
+      ]
+    }
   ]
 }

@@ -4,13 +4,17 @@
     "central"
   ],
   "dependencies": [
-    "org.apache.kafka::kafka:latest.stable",
+    "org.apache.kafka:kafka-tools:latest.stable",
     "org.slf4j:slf4j-nop:1.7.30"
   ],
   "versionOverrides": [
     {
-      "versionRange": "[1.0.0,3.8.0)",
-      "mainClass": "kafka.admin.ConsumerGroupCommand"
+      "versionRange": "[0.9.0.0,3.8.0)",
+      "mainClass": "kafka.admin.ConsumerGroupCommand",
+      "dependencies": [
+        "org.apache.kafka::kafka:latest.stable",
+        "org.slf4j:slf4j-nop:1.7.30"
+      ]
     }
   ]
 }
