@@ -27,8 +27,7 @@
   },
   "authors": {
     "repositories": [
-      "central",
-      "bintray:jypma/maven"
+      "central"
     ],
     "dependencies": [
       "lt.dvim.authors::authors-cli:latest.stable"
@@ -70,6 +69,22 @@
       "io.chrisdavenport::catscript:latest.stable"
     ]
   },
+  "ccrystal": {
+    "repositories": [
+      "central"
+    ],
+    "dependencies": [
+      "io.github.oswaldo:ccrystal-cli_3:latest.release"
+    ],
+    "launcherType": "scala-native",
+    "mainClass": "ccrystal.cli.Main?",
+    "prebuiltBinaries": {
+      "x86_64-pc-linux": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-linux-x86_64.tar.gz!ccrystal",
+      "aarch64-pc-linux": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-linux-aarch64.tar.gz!ccrystal",
+      "x86_64-apple-darwin": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-macos-x86_64.tar.gz!ccrystal",
+      "aarch64-apple-darwin": "gz+https://github.com/oswaldo/context-crystal/releases/download/v${version}/ccrystal-v${version}-macos-aarch64.tar.gz!ccrystal"
+    }
+  },
   "cellar": {
     "repositories": [
       "central"
@@ -95,6 +110,7 @@
     ]
   },
   "clojure": {
+    "mainClass": "clojure.main",
     "repositories": [
       "central"
     ],
@@ -156,9 +172,24 @@
       "central"
     ],
     "dependencies": [
-      "org.flywaydb:flyway-commandline:latest.release"
+      "org.flywaydb:flyway-commandline:latest.release,exclude=org.flywaydb%flyway-database-clickhouse,exclude=org.flywaydb%flyway-database-cubrid,exclude=org.flywaydb%flyway-database-db2zos,exclude=org.flywaydb%flyway-database-duckdb,exclude=org.flywaydb%flyway-database-ignite,exclude=org.flywaydb%flyway-database-iris,exclude=org.flywaydb%flyway-database-oceanbase,exclude=org.flywaydb%flyway-database-questdb,exclude=org.flywaydb%flyway-database-tidb,exclude=org.flywaydb%flyway-database-timeplus,exclude=org.flywaydb%flyway-database-yugabytedb"
     ],
-    "mainClass": "org.flywaydb.commandline.Main"
+    "mainClass": "org.flywaydb.commandline.Main",
+    "versionOverrides": [
+      {
+        "versionRange": "(,12.10.0)",
+        "dependencies": [
+          "org.flywaydb:flyway-commandline:latest.release,exclude=net.minidev%json-smart",
+          "net.minidev:json-smart:2.5.2"
+        ]
+      }
+    ],
+    "descriptor-comments": [
+      "Since 12.10.0, flyway-commandline depends on community database plugins at version 10.25.15,",
+      "that was never published (they stop at 10.26.0), so these are excluded.",
+      "From 10.20.0 to 12.x, msal4j and oauth2-oidc-sdk want incompatible json-smart versions",
+      "(2.5.x and [1.3.3,2.4.10]), so json-smart is excluded and added back at a version msal4j accepts."
+    ]
   },
   "frege": {
     "repositories": [
@@ -276,17 +307,25 @@
       "central"
     ],
     "dependencies": [
-      "org.apache.kafka::kafka:latest.stable",
+      "org.apache.kafka:kafka-tools:latest.stable",
       "org.slf4j:slf4j-nop:1.7.30"
     ],
     "versionOverrides": [
       {
-        "versionRange": "[1.0.0,3.8.0)",
-        "mainClass": "kafka.tools.ConsoleConsumer"
+        "versionRange": "[0.8.2.0,3.8.0)",
+        "mainClass": "kafka.tools.ConsoleConsumer",
+        "dependencies": [
+          "org.apache.kafka::kafka:latest.stable",
+          "org.slf4j:slf4j-nop:1.7.30"
+        ]
       },
       {
-        "versionRange": "(,1.0.0)",
-        "mainClass": "kafka.consumer.ConsoleConsumer"
+        "versionRange": "(,0.8.2.0)",
+        "mainClass": "kafka.consumer.ConsoleConsumer",
+        "dependencies": [
+          "org.apache.kafka::kafka:latest.stable",
+          "org.slf4j:slf4j-nop:1.7.30"
+        ]
       }
     ]
   },
@@ -296,17 +335,25 @@
       "central"
     ],
     "dependencies": [
-      "org.apache.kafka::kafka:latest.stable",
+      "org.apache.kafka:kafka-tools:latest.stable",
       "org.slf4j:slf4j-nop:1.7.30"
     ],
     "versionOverrides": [
       {
-        "versionRange": "[1.0.0,4.0.0)",
-        "mainClass": "kafka.tools.ConsoleProducer"
+        "versionRange": "[0.8.2.0,4.0.0)",
+        "mainClass": "kafka.tools.ConsoleProducer",
+        "dependencies": [
+          "org.apache.kafka::kafka:latest.stable",
+          "org.slf4j:slf4j-nop:1.7.30"
+        ]
       },
       {
-        "versionRange": "(,1.0.0)",
-        "mainClass": "kafka.producer.ConsoleProducer"
+        "versionRange": "(,0.8.2.0)",
+        "mainClass": "kafka.producer.ConsoleProducer",
+        "dependencies": [
+          "org.apache.kafka::kafka:latest.stable",
+          "org.slf4j:slf4j-nop:1.7.30"
+        ]
       }
     ]
   },
@@ -316,13 +363,17 @@
       "central"
     ],
     "dependencies": [
-      "org.apache.kafka::kafka:latest.stable",
+      "org.apache.kafka:kafka-tools:latest.stable",
       "org.slf4j:slf4j-nop:1.7.30"
     ],
     "versionOverrides": [
       {
-        "versionRange": "[1.0.0,3.8.0)",
-        "mainClass": "kafka.admin.ConsumerGroupCommand"
+        "versionRange": "[0.9.0.0,3.8.0)",
+        "mainClass": "kafka.admin.ConsumerGroupCommand",
+        "dependencies": [
+          "org.apache.kafka::kafka:latest.stable",
+          "org.slf4j:slf4j-nop:1.7.30"
+        ]
       }
     ]
   },
@@ -341,13 +392,17 @@
       "central"
     ],
     "dependencies": [
-      "org.apache.kafka::kafka:latest.stable",
+      "org.apache.kafka:kafka-tools:latest.stable",
       "org.slf4j:slf4j-nop:1.7.30"
     ],
     "versionOverrides": [
       {
-        "versionRange": "[1.0.0,3.7.0)",
-        "mainClass": "kafka.admin.TopicCommand"
+        "versionRange": "[0.8.1,3.7.0)",
+        "mainClass": "kafka.admin.TopicCommand",
+        "dependencies": [
+          "org.apache.kafka::kafka:latest.stable",
+          "org.slf4j:slf4j-nop:1.7.30"
+        ]
       }
     ]
   },
@@ -370,7 +425,9 @@
     "mainClass": "com.facebook.ktfmt.cli.Main"
   },
   "lsif-java": {
-    "deprecated": true,
+    "descriptor-comments": [
+      "Deprecated, use scip-java instead"
+    ],
     "repositories": [
       "central"
     ],
@@ -407,8 +464,7 @@
   },
   "proguard-7": {
     "repositories": [
-      "central",
-      "bintray:guardsquare/proguard"
+      "central"
     ],
     "dependencies": [
       "com.guardsquare:proguard-base:latest.release"
@@ -454,7 +510,16 @@
       "central"
     ],
     "dependencies": [
-      "org.mozilla:rhino:latest.release"
+      "org.mozilla:rhino-tools:latest.release"
+    ],
+    "mainClass": "org.mozilla.javascript.tools.shell.Main",
+    "versionOverrides": [
+      {
+        "versionRange": "(,1.8.0)",
+        "dependencies": [
+          "org.mozilla:rhino:latest.release"
+        ]
+      }
     ]
   },
   "rsc": {
@@ -525,8 +590,8 @@
     ],
     "launcherType": "graalvm-native-image",
     "prebuiltBinaries": {
-      "x86_64-pc-linux": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-linux-amd",
-      "x86_64-apple-darwin": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-macos-amd"
+      "x86_64-pc-linux": "https://github.com/kitlangton/scala-update/releases/download/v${version}/sup-linux-amd",
+      "x86_64-apple-darwin": "https://github.com/kitlangton/scala-update/releases/download/v${version}/sup-macos-amd"
     }
   },
   "scalals": {
@@ -538,10 +603,10 @@
     ],
     "launcherType": "prebuilt",
     "prebuiltBinaries": {
-      "x86_64-pc-linux": "https://github.com/avdv/scalals/releases/download/${version}/scalals-x86_64-linux",
-      "aarch64-pc-linux": "https://github.com/avdv/scalals/releases/download/${version}/scalals-arm64-linux",
-      "x86_64-apple-darwin": "https://github.com/avdv/scalals/releases/download/${version}/scalals-x86_64-darwin",
-      "aarch64-apple-darwin": "https://github.com/avdv/scalals/releases/download/${version}/scalals-arm64-darwin"
+      "x86_64-pc-linux": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-x86_64-linux",
+      "aarch64-pc-linux": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-arm64-linux",
+      "x86_64-apple-darwin": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-x86_64-darwin",
+      "aarch64-apple-darwin": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-arm64-darwin"
     }
   },
   "scalaxb": {
@@ -679,7 +744,6 @@
     "repositories": [
       "central"
     ],
-    "scalaVersion": "2.12+",
     "dependencies": [
       "org.apache.spark::spark-repl:latest.stable",
       "org.slf4j:slf4j-nop:1.7.28"
@@ -691,7 +755,16 @@
       "scala.usejavacp": "true",
       "spark.master?": "local[*]",
       "spark.master": "local[*]"
-    }
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "(,4.0.0-preview1)",
+        "dependencies": [
+          "org.apache.spark:spark-repl_2.12:latest.stable",
+          "org.slf4j:slf4j-nop:1.7.28"
+        ]
+      }
+    ]
   },
   "sqlline": {
     "repositories": [

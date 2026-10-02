@@ -166,11 +166,22 @@
       "central"
     ],
     "dependencies": [
-      "org.scala-lang:scala3-compiler_3:3.0.1"
+      "org.scala-lang:scala3-repl_3:latest.stable"
     ],
     "properties": {
       "scala.usejavacp": "true"
-    }
+    },
+    "versionOverrides": [
+      {
+        "versionRange": "[3.0.0,3.7.4]",
+        "dependencies": [
+          "org.scala-lang:scala3-compiler_3:latest.stable"
+        ]
+      }
+    ],
+    "descriptor-comments": [
+      "Deprecated, use scala3-repl instead (this is a copy of it, kept for compatibility)"
+    ]
   },
   "echo-graalvm": {
     "repositories": [
@@ -316,15 +327,11 @@
     "launcherType": "scala-native",
     "mainClass": "scala.meta.cli.Metap",
     "dependencies": [
-      "org.scalameta:::semanticdb-metap::latest.stable"
+      "org.scalameta::scalameta::4.9.7"
     ],
-    "versionOverrides": [
-      {
-        "versionRange": "(,4.9.7]",
-        "dependencies": [
-          "org.scalameta::scalameta::latest.stable"
-        ]
-      }
+    "descriptor-comments": [
+      "Since scalameta 4.9.8, metap lives in semanticdb-metap, that isn't published for Scala Native,",
+      "so this app is pinned to 4.9.7, the last scalameta version that ships metap for Scala Native."
     ]
   },
   "metap": {
@@ -345,7 +352,7 @@
     ]
   },
   "mill-interactive": {
-    "mainClass": "mill.MillMain",
+    "mainClass": "mill.runner.MillMain",
     "repositories": [
       "central"
     ],
@@ -357,7 +364,13 @@
       "MILL_CLASSPATH": "${java.class.path}",
       "MILL_VERSION": "${mill-dev.version}"
     },
-    "name": "mill-i"
+    "name": "mill-i",
+    "versionOverrides": [
+      {
+        "versionRange": "(,0.11.0-M8)",
+        "mainClass": "mill.MillMain"
+      }
+    ]
   },
   "mill": {
     "mainClass": "mill.main.client.MillClientMain",
@@ -394,9 +407,6 @@
       "-Xss2m"
     ],
     "name": "sbt",
-    "sharedLoaderDependencies": [
-      "org.scala-sbt:launcher-interface"
-    ],
     "jvmOptionFile": ".jvmopts"
   },
   "sbt": {
@@ -651,7 +661,7 @@
     },
     "versionOverrides": [
       {
-        "versionRange": "[3.0.0,3.1.2]",
+        "versionRange": "[3.0.0,3.1.3-RC4)",
         "mainClass": "dotty.tools.dotc.Main"
       },
       {
