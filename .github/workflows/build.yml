@@ -16,8 +16,8 @@ jobs:
       - uses: coursier/setup-action@v3
         with:
           jvm: 17
-          apps: sbt scala-cli
-      - run: sbt publishLocal
+          apps: scala-cli
+      - run: ./mill --no-daemon channels.__.publishLocal
       # Validates the app descriptors, by aggregating them the way the
       # update-channels workflow does (it doesn't check that the files under
       # listings/ are up-to-date, CI updates them upon merge on main)

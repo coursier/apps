@@ -1,7 +1,6 @@
 # Coursier Apps
 [![Build status](https://github.com/coursier/apps/workflows/build/badge.svg)](https://github.com/coursier/apps/actions?query=workflow%3Abuild)
 [![Release status](https://github.com/coursier/apps/workflows/publish/badge.svg)](https://github.com/coursier/apps/actions?query=workflow%3Apublish)
-[![Maven Central](https://img.shields.io/maven-central/v/io.get-coursier/apps.svg)](https://maven-badges.herokuapp.com/maven-central/io.get-coursier/apps)
 
 This repository holds the apps in the Main and Contrib channels for Coursier.
 You can find information about creating your own application to be installed
@@ -25,9 +24,12 @@ a pull request with the changes, if any. Locally, you can regenerate them with
 scala-cli run .github/scripts/generate-channels.sc
 ```
 
-The channels are also published as JARs on Maven Central, as
-`io.get-coursier:apps` and `io.get-coursier:apps-contrib`, for former
-coursier versions.
+The channels are also published as JARs, as `io.get-coursier:apps` and
+`io.get-coursier:apps-contrib`, for former coursier versions. Up to 1.0.70,
+these were published on Maven Central. Newer versions, and snapshots of the
+`main` branch, are published on
+[GitHub Packages](https://github.com/orgs/coursier/packages?repo_name=apps),
+whose Maven repository is `https://maven.pkg.github.com/coursier/apps`.
 
 The app descriptors are validated by the [`validator`](validator) module of
 the Mill build. On PRs, CI checks every descriptor (that coursier can parse it,

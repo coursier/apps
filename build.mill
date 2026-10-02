@@ -18,8 +18,44 @@ package build
 
 import mill.*
 import mill.api.BuildCtx
+import mill.javalib.publish.*
 import mill.scalalib.*
-import mill.util.Jvm
+import mill.util.{Jvm, VcsVersion}
+
+// Publishing of the channels, as io.get-coursier:apps and io.get-coursier:apps-contrib.
+// Their JARs only contain the app descriptors of each channel, at their root.
+//   ./mill channels.__.publishLocal
+// Publishing to GitHub Packages (done by the publish workflow, releases when pushing a
+// v* tag, snapshots when pushing to main), with credentials in MILL_MAVEN_USERNAME and
+// MILL_MAVEN_PASSWORD:
+//   ./mill mill.javalib.MavenPublishModule/ \
+//     --publishArtifacts channels.__.publishArtifacts \
+//     --releaseUri https://maven.pkg.github.com/coursier/apps \
+//     --snapshotUri https://maven.pkg.github.com/coursier/apps
+object channels extends Module {
+  object apps extends ChannelModule
+  object `apps-contrib` extends ChannelModule
+}
+
+trait ChannelModule extends JavaModule with PublishModule {
+  def channel = moduleSegments.last.value
+
+  def artifactName = channel
+  def resources = Task.Sources(BuildCtx.workspaceRoot / channel / "resources")
+
+  // 1.0.72 on the v1.0.72 tag, 1.0.72-3-abcdef-SNAPSHOT 3 commits later
+  def publishVersion = VcsVersion.vcsState().format(untaggedSuffix = "-SNAPSHOT")
+  def pomSettings = PomSettings(
+    description = channel,
+    organization = "io.get-coursier",
+    url = "https://github.com/coursier/apps",
+    licenses = Seq(License.`Apache-2.0`),
+    versionControl = VersionControl.github("coursier", "apps"),
+    developers = Seq(
+      Developer("alexarchambault", "Alexandre Archambault", "https://github.com/alexarchambault")
+    )
+  )
+}
 
 object validator extends ScalaModule {
   def scalaVersion = "3.3.6"

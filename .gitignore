@@ -1,4 +1,3 @@
-target/
 .bsp/
 gha.cache.tmp
 .metals/
