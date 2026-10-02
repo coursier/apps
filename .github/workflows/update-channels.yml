@@ -33,7 +33,7 @@ jobs:
       # Note: PRs opened with the default GITHUB_TOKEN don't trigger the
       # build workflow. Pass a PAT or GitHub App token via `token` if CI
       # should run on them.
-      - uses: peter-evans/create-pull-request@v7
+      - uses: peter-evans/create-pull-request@v8
         with:
           add-paths: |
             listings/apps.json
