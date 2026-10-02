@@ -1,6 +1,14 @@
 [
   {
-    "versionRange": "[10.17.0,)",
-    "reason": "Needs fixing: flyway-commandline depends on modules that aren't published on Maven Central (flyway-database-cassandra, flyway-database-db2zos, …)"
+    "versions": ["10.2.0"],
+    "reason": "Depends on flyway-database-ignite, flyway-database-tidb, and flyway-database-yugabytedb 10.2.0, that were never published"
+  },
+  {
+    "versions": ["10.17.0"],
+    "reason": "Depends on flyway-database-cassandra 10.17.0, that was never published"
+  },
+  {
+    "versionRange": "[11.1.0,11.8.2]",
+    "reason": "Depends on the flyway-verb-* and flyway-nc-* modules (the CLI commands themselves) of these versions, that were never published"
   }
 ]
