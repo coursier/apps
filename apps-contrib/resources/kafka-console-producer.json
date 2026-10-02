@@ -4,17 +4,25 @@
     "central"
   ],
   "dependencies": [
-    "org.apache.kafka::kafka:latest.stable",
+    "org.apache.kafka:kafka-tools:latest.stable",
     "org.slf4j:slf4j-nop:1.7.30"
   ],
   "versionOverrides": [
     {
       "versionRange": "[0.8.2.0,4.0.0)",
-      "mainClass": "kafka.tools.ConsoleProducer"
+      "mainClass": "kafka.tools.ConsoleProducer",
+      "dependencies": [
+        "org.apache.kafka::kafka:latest.stable",
+        "org.slf4j:slf4j-nop:1.7.30"
+      ]
     },
     {
       "versionRange": "(,0.8.2.0)",
-      "mainClass": "kafka.producer.ConsoleProducer"
+      "mainClass": "kafka.producer.ConsoleProducer",
+      "dependencies": [
+        "org.apache.kafka::kafka:latest.stable",
+        "org.slf4j:slf4j-nop:1.7.30"
+      ]
     }
   ]
 }
