@@ -29,6 +29,20 @@ The channels are also published as JARs on Maven Central, as
 `io.get-coursier:apps` and `io.get-coursier:apps-contrib`, for former
 coursier versions.
 
+The app descriptors are validated by the `.github/scripts/validate-apps`
+Scala CLI project. On PRs, CI checks every descriptor (that coursier can parse
+it, that it has no unknown keys, that its prebuilt launcher URLs are
+well-formed, …), and, for the descriptors changed by the PR, fetches the
+dependencies, and checks the main class and the prebuilt launchers, for a
+sample of the versions handled by the base descriptor and by each version
+override. Locally, you can validate some apps with
+```
+scala-cli run .github/scripts/validate-apps -- scala apps-contrib/resources/bfg.json
+```
+(pass `--offline` to skip the online checks). Known problems of former app
+versions, like missing prebuilt launchers, are listed in
+[`.github/scripts/validate-apps-known-issues.json`](.github/scripts/validate-apps-known-issues.json).
+
 ## Main
 These are the apps in the default Main channel, used by `cs install` and
 `cs launch`.

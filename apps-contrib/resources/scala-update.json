@@ -7,7 +7,7 @@
   ],
   "launcherType": "graalvm-native-image",
   "prebuiltBinaries": {
-    "x86_64-pc-linux": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-linux-amd",
-    "x86_64-apple-darwin": "https://github.com/kitlangton/scala-update/releases/download/${version}/sup-macos-amd"
+    "x86_64-pc-linux": "https://github.com/kitlangton/scala-update/releases/download/v${version}/sup-linux-amd",
+    "x86_64-apple-darwin": "https://github.com/kitlangton/scala-update/releases/download/v${version}/sup-macos-amd"
   }
 }

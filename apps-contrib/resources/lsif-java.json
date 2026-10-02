@@ -1,5 +1,7 @@
 {
-  "deprecated": true,
+  "descriptor-comments": [
+    "Deprecated, use scip-java instead"
+  ],
   "repositories": [
     "central"
   ],

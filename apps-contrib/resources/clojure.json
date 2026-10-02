@@ -1,4 +1,5 @@
 {
+  "mainClass": "clojure.main",
   "repositories": [
     "central"
   ],

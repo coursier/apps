@@ -22,3 +22,25 @@ jobs:
       # update-channels workflow does (it doesn't check that the files under
       # listings/ are up-to-date, CI updates them upon merge on main)
       - run: scala-cli run .github/scripts/generate-channels.sc
+      # Offline checks of all the app descriptors (coursier can parse them, no
+      # unknown keys, well-formed prebuilt launcher URLs, …)
+      - run: scala-cli run .github/scripts/validate-apps -- --offline
+
+  # Online checks (dependencies, main class, prebuilt launchers, …) of the app
+  # descriptors changed by a PR, for a sample of the versions handled by the
+  # base descriptor and by each version override
+  validate-apps:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: coursier/cache-action@v8
+      - uses: coursier/setup-action@v3
+        with:
+          jvm: 17
+          apps: scala-cli
+      - run: scala-cli run .github/scripts/validate-apps -- --changed-since "$BASE_SHA"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
