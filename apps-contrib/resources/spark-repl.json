@@ -3,7 +3,6 @@
   "repositories": [
     "central"
   ],
-  "scalaVersion": "2.12+",
   "dependencies": [
     "org.apache.spark::spark-repl:latest.stable",
     "org.slf4j:slf4j-nop:1.7.28"
@@ -15,5 +14,14 @@
     "scala.usejavacp": "true",
     "spark.master?": "local[*]",
     "spark.master": "local[*]"
-  }
+  },
+  "versionOverrides": [
+    {
+      "versionRange": "(,4.0.0-preview1)",
+      "dependencies": [
+        "org.apache.spark:spark-repl_2.12:latest.stable",
+        "org.slf4j:slf4j-nop:1.7.28"
+      ]
+    }
+  ]
 }
