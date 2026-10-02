@@ -1,7 +1,6 @@
 package validateapps
 
 import coursier.cache.FileCache
-import coursier.cache.loggers.{FallbackRefreshDisplay, RefreshLogger}
 import coursier.core.{Module, ModuleName, Organization, Repository}
 import coursier.install.{AppArtifacts, AppDescriptor, LauncherType, MainClass}
 import coursier.ivy.IvyRepository
@@ -25,18 +24,11 @@ import scala.util.control.NonFatal
   * @param allVersions
   *   whether to check all versions of apps, rather than a sample of them
   */
-final class OnlineChecks(allVersions: Boolean) extends AutoCloseable {
+final class OnlineChecks(allVersions: Boolean) {
 
-  // Prints "Downloading …" / "Downloaded …" lines, rather than progress bars (even in a
-  // terminal), so that the CI logs say what's being downloaded. Initialized once for the
-  // whole run, as downloads fail if it isn't, and it can't be re-initialized once stopped.
-  private val logger = RefreshLogger.create(System.out, new FallbackRefreshDisplay)
-  logger.init()
-
-  private val cache          = FileCache.create[Task]().copy(logger = logger)
+  // logs slow downloads, so that the CI logs say what's taking time
+  private lazy val cache     = FileCache.create[Task]().copy(logger = new SlowDownloadLogger)
   private lazy val prebuilts = new Prebuilts(cache)
-
-  def close(): Unit = logger.stop()
 
   private def await[T](f: Future[T]): T = Await.result(f, Duration.Inf)
 

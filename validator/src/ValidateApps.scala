@@ -36,8 +36,8 @@
 //     coursier's own logic (coursier.install.internal.PrebuiltApp). Launchers are
 //     only checked with HEAD requests, but archives that launchers are extracted
 //     from are downloaded, to check that the launchers are in them.
-//   Downloads and HEAD requests are logged as they happen ("Downloading …",
-//   "Checking …"), so that the CI logs say what's going on.
+//   Downloads taking more than 5 seconds ("Downloading …") and HEAD requests
+//   ("Checking …") are logged as they happen, so that the CI logs say what's going on.
 // - warns about repositories that provide none of the artifacts of the sampled
 //   versions
 //
@@ -156,7 +156,6 @@ object ValidateApps extends CaseApp[Options] {
       Await.result(f, Duration.Inf)
     }
     pool.shutdown()
-    onlineChecksOpt.foreach(_.close())
 
     val errorCount   = reports.map(_.count(Severity.Error)).sum + orphanKnownIssues.length
     val warningCount = reports.map(_.count(Severity.Warning)).sum
