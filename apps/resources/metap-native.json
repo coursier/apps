@@ -5,14 +5,10 @@
   "launcherType": "scala-native",
   "mainClass": "scala.meta.cli.Metap",
   "dependencies": [
-    "org.scalameta:::semanticdb-metap::latest.stable"
+    "org.scalameta::scalameta::4.9.7"
   ],
-  "versionOverrides": [
-    {
-      "versionRange": "(,4.9.7]",
-      "dependencies": [
-        "org.scalameta::scalameta::latest.stable"
-      ]
-    }
+  "descriptor-comments": [
+    "Since scalameta 4.9.8, metap lives in semanticdb-metap, that isn't published for Scala Native,",
+    "so this app is pinned to 4.9.7, the last scalameta version that ships metap for Scala Native."
   ]
 }

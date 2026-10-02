@@ -1,0 +1,6 @@
+[
+  {
+    "versions": ["0.1.0"],
+    "reason": "Doesn't have the scala.meta.fastpass.Fastpass main class"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "[10.17.0,)",
+    "reason": "Needs fixing: flyway-commandline depends on modules that aren't published on Maven Central (flyway-database-cassandra, flyway-database-db2zos, …)"
+  }
+]

@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: coursier/cache-action@v8.1
-      - uses: coursier/setup-action@v3.0
+      - uses: coursier/cache-action@v8
+      - uses: coursier/setup-action@v3
         with:
           jvm: 17
           apps: sbt scala-cli
@@ -22,3 +22,33 @@ jobs:
       # update-channels workflow does (it doesn't check that the files under
       # listings/ are up-to-date, CI updates them upon merge on main)
       - run: scala-cli run .github/scripts/generate-channels.sc
+      # Offline checks of all the app descriptors (coursier can parse them, no
+      # unknown keys, valid main classes, …)
+      - run: ./mill --no-daemon validator.run --offline
+
+  # Online checks (dependencies, main class, prebuilt launchers, …) of the app
+  # descriptors changed by a PR, for a sample of the versions handled by the
+  # base descriptor and by each version override.
+  # Each app has its own check command in the Mill build, whose inputs are the
+  # app descriptor, its known issues, and the validator. Mill's selective execution
+  # hashes those inputs on the base commit, and only runs on the PR the checks whose
+  # inputs changed.
+  validate-apps:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+      - uses: coursier/cache-action@v8
+      # With an empty selective execution file, all the checks run. That's what
+      # happens if the base commit can't be prepared (if it has no Mill build, say).
+      - run: mkdir -p out && touch out/mill-selective-execution.json
+      - run: |
+          ./mill --no-daemon selective.prepare __.check ||
+            echo "Couldn't prepare selective execution on the base commit, validating all apps"
+      # Keeps out/, where selective.prepare wrote the input hashes of the base commit
+      - uses: actions/checkout@v7
+        with:
+          clean: false
+      - run: ./mill --no-daemon selective.run __.check

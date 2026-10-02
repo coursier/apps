@@ -1,7 +1,6 @@
 {
   "repositories": [
-    "central",
-    "bintray:guardsquare/proguard"
+    "central"
   ],
   "dependencies": [
     "com.guardsquare:proguard-base:latest.release"

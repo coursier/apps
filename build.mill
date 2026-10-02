@@ -1,0 +1,77 @@
+//| mill-version: 1.1.10
+package build
+
+// Validation of the app descriptors (see validator/src/ValidateApps.scala for the
+// checks themselves).
+//
+// Each app descriptor has its own module, apps.<name> or `apps-contrib`.<name>,
+// whose 'check' command validates it. Its inputs are the app descriptor, its known
+// issues, and the validator, so that Mill's selective execution only validates the
+// apps whose descriptor or known issues changed (or all apps if the validator changed):
+//   ./mill selective.prepare __.check  # on the base commit
+//   ./mill selective.run __.check      # on the new commit
+//
+// Validate some apps:
+//   ./mill apps.scala.check
+//   ./mill `apps-contrib`.bfg.check
+//   ./mill __.check
+
+import mill.*
+import mill.api.BuildCtx
+import mill.scalalib.*
+import mill.util.Jvm
+
+object validator extends ScalaModule {
+  def scalaVersion = "3.3.6"
+  def mvnDeps = Seq(
+    mvn"io.get-coursier::coursier-install:2.1.26",
+    mvn"com.github.alexarchambault::case-app:2.1.1",
+    mvn"com.lihaoyi::os-lib:0.11.8",
+    mvn"com.lihaoyi::ujson:4.4.3"
+  )
+  def mainClass = Some("validateapps.ValidateApps")
+}
+
+// The app descriptors of a channel, as found on disk. Wrapped in watchValue, so that
+// Mill re-creates the app modules below when descriptors are added or removed.
+def descriptorNames(channel: String): Seq[String] =
+  BuildCtx.watchValue {
+    os.list(BuildCtx.workspaceRoot / channel / "resources")
+      .map(_.last)
+      .filter(_.endsWith(".json"))
+      .map(_.stripSuffix(".json"))
+      .sorted
+  }
+
+object apps extends Cross[AppsModule](descriptorNames("apps"))
+trait AppsModule extends AppModule {
+  def channel = "apps"
+}
+
+object `apps-contrib` extends Cross[AppsContribModule](descriptorNames("apps-contrib"))
+trait AppsContribModule extends AppModule {
+  def channel = "apps-contrib"
+}
+
+trait AppModule extends Cross.Module[String] {
+  def channel: String
+
+  def descriptor = Task.Source(BuildCtx.workspaceRoot / channel / "resources" / s"$crossValue.json")
+  def knownIssues = Task.Source(BuildCtx.workspaceRoot / "validator/known-issues" / s"$crossValue.json")
+
+  /** Runs the offline and online checks on this app */
+  def check() = Task.Command {
+    // only read by the validator, but makes the known issues an input of this command
+    knownIssues()
+    Jvm.callProcess(
+      mainClass = "validateapps.ValidateApps",
+      classPath = validator.runClasspath().map(_.path),
+      mainArgs = Seq(descriptor().path.toString),
+      // lets the validator print GitHub annotations when running on GitHub Actions
+      env = Task.env.filter(_._1 == "GITHUB_ACTIONS"),
+      cwd = BuildCtx.workspaceRoot,
+      stdout = os.Inherit
+    )
+    ()
+  }
+}

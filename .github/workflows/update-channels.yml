@@ -24,8 +24,8 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v7
-      - uses: coursier/cache-action@v8.1
-      - uses: coursier/setup-action@v3.0
+      - uses: coursier/cache-action@v8
+      - uses: coursier/setup-action@v3
         with:
           jvm: 17
           apps: scala-cli
@@ -33,7 +33,7 @@ jobs:
       # Note: PRs opened with the default GITHUB_TOKEN don't trigger the
       # build workflow. Pass a PAT or GitHub App token via `token` if CI
       # should run on them.
-      - uses: peter-evans/create-pull-request@v7
+      - uses: peter-evans/create-pull-request@v8
         with:
           add-paths: |
             listings/apps.json

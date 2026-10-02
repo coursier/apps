@@ -1,7 +1,6 @@
 {
   "repositories": [
-    "central",
-    "bintray:jypma/maven"
+    "central"
   ],
   "dependencies": [
     "lt.dvim.authors::authors-cli:latest.stable"

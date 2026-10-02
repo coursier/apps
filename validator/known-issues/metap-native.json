@@ -1,0 +1,10 @@
+[
+  {
+    "versionRange": "(,4.1.9)",
+    "reason": "scala.meta.cli.Metap was added in scalameta 4.1.9"
+  },
+  {
+    "versionRange": "(4.9.7,)",
+    "reason": "Since scalameta 4.9.8, metap lives in semanticdb-metap, that isn't published for Scala Native"
+  }
+]

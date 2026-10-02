@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "(,0.4.0)",
+    "reason": "Depend on scalameta artifacts that aren't on Maven Central"
+  }
+]

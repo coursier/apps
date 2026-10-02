@@ -29,6 +29,26 @@ The channels are also published as JARs on Maven Central, as
 `io.get-coursier:apps` and `io.get-coursier:apps-contrib`, for former
 coursier versions.
 
+The app descriptors are validated by the [`validator`](validator) module of
+the Mill build. On PRs, CI checks every descriptor (that coursier can parse it,
+that it has no unknown keys, valid main classes, …), and, for the descriptors
+changed by the PR, fetches the dependencies, and checks the main class and the
+prebuilt launchers, for a sample of the versions handled by the base descriptor
+and by each version override. Each app has its own module in the Mill build,
+whose `check` command validates it, so that Mill's selective execution only
+validates the apps whose descriptor or known issues changed. Locally, you can
+validate some apps with
+```
+./mill apps.scala.check
+./mill apps-contrib.bfg.check
+```
+or with the validator directly (pass `--offline` to skip the online checks)
+```
+./mill validator.run scala apps-contrib/resources/bfg.json
+```
+Known problems of former app versions, like missing prebuilt launchers, are
+listed in [`validator/known-issues`](validator/known-issues), in one file per app.
+
 ## Main
 These are the apps in the default Main channel, used by `cs install` and
 `cs launch`.
