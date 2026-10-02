@@ -14,17 +14,13 @@ jobs:
       - uses: coursier/setup-action@v3
         with:
           jvm: 17
-          apps: "sbt"
-      - run: .github/scripts/gpg-setup.sh
-        env:
-          PGP_SECRET: ${{ secrets.PUBLISH_SECRET_KEY }}
       - name: Publish
-        run: sbt ci-release
+        run: ./mill --no-daemon mill.javalib.SonatypeCentralPublishModule/ --publishArtifacts channels.__.publishArtifacts
         env:
-          PGP_PASSPHRASE: ${{ secrets.PUBLISH_SECRET_KEY_PASSWORD }}
-          PGP_SECRET: ${{ secrets.PUBLISH_SECRET_KEY }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          MILL_PGP_PASSPHRASE: ${{ secrets.PUBLISH_SECRET_KEY_PASSWORD }}
+          MILL_PGP_SECRET_BASE64: ${{ secrets.PUBLISH_SECRET_KEY }}
+          MILL_SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          MILL_SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
       - run: cs launch scala-cli:1.0.0-RC1 --main-class scala.cli.ScalaCli --jvm 17 -- .github/scripts/generate-readme.sc
       - uses: stefanzweifel/git-auto-commit-action@v7.2.0
         with:
