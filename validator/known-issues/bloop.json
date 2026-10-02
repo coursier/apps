@@ -1,0 +1,16 @@
+[
+  {
+    "versionRange": "(,1.4.0-RC3)",
+    "reason": "No native launchers were published for these versions"
+  },
+  {
+    "versionRange": "[1.4.0-RC3,2.0.1)",
+    "platforms": ["aarch64-apple-darwin"],
+    "reason": "No Apple Silicon launchers were published for these versions"
+  },
+  {
+    "versionRange": "[1.4.0-RC3,2.1.2]",
+    "platforms": ["aarch64-pc-linux", "aarch64-pc-win32"],
+    "reason": "No launchers were published for these platforms"
+  }
+]

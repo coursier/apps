@@ -1,0 +1,32 @@
+[
+  {
+    "versionRange": "(,1.4.0)",
+    "reason": "sbtn was added in sbt 1.4.0"
+  },
+  {
+    "versionRange": "[1.4.0,1.8.1)",
+    "platforms": ["aarch64-pc-linux"],
+    "reason": "The sbt zip of these versions has no Linux ARM sbtn launcher"
+  },
+  {
+    "versionRange": "[1.4.0,1.9.0)",
+    "platforms": ["aarch64-apple-darwin"],
+    "reason": "The sbt zip of these versions has no Apple Silicon sbtn launcher"
+  },
+  {
+    "versions": ["1.9.1", "1.9.2"],
+    "platforms": ["aarch64-apple-darwin"],
+    "reason": "The sbt zip of these versions has no Apple Silicon sbtn launcher"
+  },
+  {
+    "versions": [
+      "1.4.0-M1", "1.4.0-M2", "1.4.0-RC1", "1.5.0-M1", "1.5.0-M2", "1.6.0-M1", "1.7.0-M1",
+      "1.7.0-M2", "1.7.0-M2-6810fix", "1.7.0-M3", "1.9.0-M1", "1.10.0-M1", "1.10.0-RC1",
+      "1.10.0-RC2", "1.10.8", "1.12.0-M1", "1.12.0-M2", "2.0.0-alpha6", "2.0.0-alpha7",
+      "2.0.0-alpha8", "2.0.0-alpha9", "2.0.0-alpha10", "2.0.0-M1", "2.0.0-M2", "2.0.0-M3",
+      "2.0.0-M4", "2.0.0-M5", "2.0.0-RC1", "2.0.0-RC2", "2.0.0-RC3", "2.0.0-RC4", "2.0.0-RC5",
+      "2.0.0-RC6", "2.0.0-RC7", "2.0.0-RC8", "2.0.0-RC9", "2.0.0-RC10", "2.0.0-RC11"
+    ],
+    "reason": "No sbt-<version>.zip was published on GitHub for these versions"
+  }
+]

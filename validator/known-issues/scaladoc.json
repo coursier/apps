@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "(,2.7.1)",
+    "reason": "scala.tools.nsc.ScalaDoc was added in Scala 2.7.1"
+  }
+]

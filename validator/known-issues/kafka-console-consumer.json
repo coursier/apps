@@ -1,0 +1,10 @@
+[
+  {
+    "versions": ["0.8.2-beta"],
+    "reason": "Depends on a scala-library version that doesn't exist"
+  },
+  {
+    "versionRange": "[3.8.0,)",
+    "reason": "Needs fixing: since Kafka 3.8, ConsoleConsumer lives in org.apache.kafka:kafka-tools"
+  }
+]

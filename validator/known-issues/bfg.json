@@ -1,0 +1,10 @@
+[
+  {
+    "versionRange": "(,1.5.0)",
+    "reason": "No Main-Class in the JAR manifest"
+  },
+  {
+    "versions": ["1.11.0"],
+    "reason": "Depends on com.github.mpeltonen:sbt-idea, that isn't on Maven Central"
+  }
+]

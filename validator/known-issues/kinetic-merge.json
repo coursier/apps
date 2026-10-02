@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "(,0.1.4)",
+    "reason": "Depends on rabinfingerprint:rabinfingerprint_3, that isn't on Maven Central"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "versions": ["2.0.0-beta1", "2.0.0-beta2"],
+    "reason": "No Main-Class in the JAR manifest"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "versionRange": "(,0.8.1)",
+    "reason": "The app version is the Ammonite one, and these Ammonite versions aren't published for the Scala versions of Spark Connect"
+  },
+  {
+    "versions": ["1.0.4", "1.6.1"],
+    "reason": "The app version is the Ammonite one, and these Ammonite versions aren't published for the Scala versions of Spark Connect"
+  },
+  {
+    "versions": ["1.7.0", "1.9.0", "2.3.7"],
+    "reason": "The app version is the Ammonite one, and some modules of these Ammonite versions are missing on Maven Central"
+  }
+]

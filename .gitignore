@@ -4,3 +4,4 @@ gha.cache.tmp
 .metals/
 .vscode/
 .scala-build/
+out/
