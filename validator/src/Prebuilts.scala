@@ -16,7 +16,8 @@ import scala.util.control.NonFatal
 /** Checks that prebuilt launchers exist, letting coursier find them the same way as cs does */
 final class Prebuilts(cache: FileCache[Task]) {
 
-  private lazy val archiveCache = ArchiveCache()
+  // downloads archives with cache, so that its logger says what's being downloaded
+  private lazy val archiveCache = ArchiveCache.create[Task]().copy(cache = cache)
   private lazy val http = HttpClient.newBuilder()
     .followRedirects(HttpClient.Redirect.NORMAL)
     .connectTimeout(java.time.Duration.ofSeconds(30))
@@ -30,6 +31,7 @@ final class Prebuilts(cache: FileCache[Task]) {
         .method("HEAD", HttpRequest.BodyPublishers.noBody())
         .timeout(java.time.Duration.ofSeconds(60))
         .build()
+      Report.log(s"Checking $url")
       val res =
         try {
           val code = http.send(request, HttpResponse.BodyHandlers.discarding()).statusCode()
@@ -40,6 +42,12 @@ final class Prebuilts(cache: FileCache[Task]) {
         catch {
           case e: IOException => Left(e.toString)
         }
+      val resDesc = res match {
+        case Right(true)  => "found"
+        case Right(false) => "not found"
+        case Left(err)    => err
+      }
+      Report.log(s"Checked $url ($resDesc)")
       if (res.isLeft && remaining > 0) {
         Thread.sleep(2000L)
         attempt(remaining - 1)
