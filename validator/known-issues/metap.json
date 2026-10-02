@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "(,4.1.9)",
+    "reason": "scala.meta.cli.Metap was added in scalameta 4.1.9 (and 4.1.7 and 4.1.8 can't be fetched)"
+  }
+]

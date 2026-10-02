@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "(,1.45)",
+    "reason": "No Main-Class in the JAR manifest"
+  }
+]

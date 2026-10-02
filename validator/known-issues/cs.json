@@ -1,0 +1,50 @@
+[
+  {
+    "versionRange": "(,2.0.0-RC3)",
+    "reason": "No native launchers were published for these versions"
+  },
+  {
+    "versions": ["2.0.0-RC5", "2.0.0-RC5-5", "2.0.0-RC6-25", "2.0.0-RC6-26", "2.0.1"],
+    "reason": "No launchers were published on GitHub for these versions"
+  },
+  {
+    "versionRange": "[2.0.0-RC3,2.1.0-M7)",
+    "platforms": ["aarch64-apple-darwin"],
+    "reason": "No Apple Silicon launchers were published for these versions"
+  },
+  {
+    "versionRange": "[2.0.0-RC3,2.0.16]",
+    "platforms": ["aarch64-pc-win32"],
+    "reason": "No Windows ARM launchers were published for these versions"
+  },
+  {
+    "versionRange": "[2.0.0-RC3,2.0.0-RC6)",
+    "platforms": ["x86_64-pc-win32"],
+    "reason": "No Windows launchers were published for these versions"
+  },
+  {
+    "versionRange": "[2.0.14,2.0.16]",
+    "platforms": ["x86_64-pc-win32"],
+    "reason": "No Windows launchers were published for these versions"
+  },
+  {
+    "versions": ["2.0.8", "2.0.9"],
+    "platforms": ["x86_64-pc-win32"],
+    "reason": "The Windows launcher was published as cs-amd64-pc-win32.exe"
+  },
+  {
+    "versionRange": "[2.0.0-RC3,2.0.8)",
+    "platforms": ["aarch64-pc-linux"],
+    "reason": "No Linux ARM launchers were published for these versions"
+  },
+  {
+    "versions": ["2.0.9"],
+    "platforms": ["aarch64-pc-linux", "x86_64-pc-linux"],
+    "reason": "Only a cs-amd64-pc-linux Linux launcher was published"
+  },
+  {
+    "versions": ["2.1.25-M2"],
+    "platforms": ["aarch64-pc-linux"],
+    "reason": "Only static and container Linux ARM launchers were published"
+  }
+]

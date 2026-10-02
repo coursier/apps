@@ -1,0 +1,7 @@
+[
+  {
+    "versions": ["0.5.0"],
+    "platforms": ["aarch64-pc-linux", "x86_64-apple-darwin", "x86_64-pc-linux"],
+    "reason": "Only an Apple Silicon launcher was published for this version"
+  }
+]

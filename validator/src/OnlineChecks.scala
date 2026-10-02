@@ -24,7 +24,7 @@ import scala.util.control.NonFatal
   * @param allVersions
   *   whether to check all versions of apps, rather than a sample of them
   */
-final class OnlineChecks(knownIssues: Map[String, Seq[KnownIssue]], allVersions: Boolean) {
+final class OnlineChecks(allVersions: Boolean) {
 
   private lazy val cache     = FileCache.create[Task]()
   private lazy val prebuilts = new Prebuilts(cache)
@@ -125,8 +125,7 @@ final class OnlineChecks(knownIssues: Map[String, Seq[KnownIssue]], allVersions:
       case _ => None
     }
 
-  def apply(app: App, desc: AppDescriptor, report: Report): Unit = {
-    val issues            = knownIssues.getOrElse(app.name, Nil)
+  def apply(app: App, desc: AppDescriptor, issues: Seq[KnownIssue], report: Report): Unit = {
     val overrideIntervals = desc.versionOverrides.map(_.versionRange0)
     // repository -> whether it provided at least one artifact
     val repositoryUsage = mutable.LinkedHashMap.empty[(String, String), Boolean]

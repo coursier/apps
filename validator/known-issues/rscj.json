@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "[0.7.0,0.9.1]",
+    "reason": "Depends on Spring Native artifacts (spring-graalvm-native, spring-native), that aren't on Maven Central"
+  }
+]

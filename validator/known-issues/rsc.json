@@ -1,0 +1,16 @@
+[
+  {
+    "versionRange": "(,0.5.1)",
+    "reason": "The launchers of these versions are named differently (rsc-linux-x86_64, rsc-osx-x86_64)"
+  },
+  {
+    "versionRange": "[0.5.1,0.7.3)",
+    "platforms": ["x86_64-pc-win32"],
+    "reason": "No Windows launchers were published for these versions"
+  },
+  {
+    "versionRange": "[0.5.1,0.9.1]",
+    "platforms": ["aarch64-apple-darwin", "aarch64-pc-linux", "aarch64-pc-win32"],
+    "reason": "No launchers were published for these platforms"
+  }
+]

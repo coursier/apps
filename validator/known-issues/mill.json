@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "(,0.6.3)",
+    "reason": "mill.main.client.MillClientMain was added in Mill 0.6.3"
+  }
+]

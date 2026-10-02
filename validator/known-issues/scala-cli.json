@@ -1,0 +1,16 @@
+[
+  {
+    "versions": ["0.0.5", "0.0.6", "0.0.7", "0.0.8", "0.1.0", "0.1.1", "0.1.2"],
+    "reason": "Depend on SNAPSHOT versions of org.virtuslab:using_directives, that aren't available"
+  },
+  {
+    "versionRange": "(,0.1.15)",
+    "platforms": ["aarch64-apple-darwin"],
+    "reason": "No Apple Silicon launchers were published for these versions"
+  },
+  {
+    "versionRange": "(,0.1.19)",
+    "platforms": ["aarch64-pc-linux"],
+    "reason": "No Linux ARM launchers were published for these versions"
+  }
+]

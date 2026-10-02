@@ -40,17 +40,18 @@
 //   versions
 //
 // Known problems of former versions (missing launchers, …) are listed in
-// .github/scripts/validate-apps-known-issues.json, by app name, as a version
-// range ("versionRange") or a list of versions ("versions"), with a "reason".
-// Versions listed there are excluded from the samples or, if "platforms" are
-// specified, their prebuilt launchers for those platforms aren't checked.
+// validator/known-issues/<app name>.json, as a version range ("versionRange")
+// or a list of versions ("versions"), with a "reason". Versions listed there are
+// excluded from the samples or, if "platforms" are specified, their prebuilt
+// launchers for those platforms aren't checked.
 //
-// Usage:
-//   scala-cli run .github/scripts/validate-apps                                # validate all apps
-//   scala-cli run .github/scripts/validate-apps -- --offline                   # offline checks only
-//   scala-cli run .github/scripts/validate-apps -- scala apps-contrib/resources/bfg.json  # validate some apps only
-//   scala-cli run .github/scripts/validate-apps -- --changed-since origin/main # validate apps changed since origin/main
-//   scala-cli run .github/scripts/validate-apps -- --all-versions cs          # check all versions rather than a sample
+// The Mill build (build.mill) has one module per app, whose 'check' command runs
+// this on the app, so that Mill's selective execution only validates the apps
+// whose descriptor or known issues changed. This can also be run directly:
+//   ./mill validator.run                                         # validate all apps
+//   ./mill validator.run --offline                               # offline checks only
+//   ./mill validator.run scala apps-contrib/resources/bfg.json   # validate some apps only
+//   ./mill validator.run --all-versions cs                       # check all versions rather than a sample
 //
 // --all-versions is slow, but helps finding the versions affected by an issue,
 // before adding it to the known issues.
@@ -79,18 +80,10 @@ object ValidateApps extends CaseApp[Options] {
     val selection = remainingArgs.all
     if (options.parallelism <= 0)
       usageError(s"Invalid parallelism: ${options.parallelism}")
-    if (options.changedSince.nonEmpty && selection.nonEmpty)
-      usageError("--changed-since can't be used along with explicit apps")
 
-    val selectedApps = options.changedSince match {
-      case Some(ref) => Apps.changedSince(ref)
-      case None if selection.isEmpty => Apps.all
-      case None      => Apps.fromArgs(selection).fold(usageError, identity)
-    }
-    if (selectedApps.isEmpty) {
-      System.err.println("No app to validate")
-      sys.exit(0)
-    }
+    val selectedApps =
+      if (selection.isEmpty) Apps.all
+      else Apps.fromArgs(selection).fold(usageError, identity)
 
     val what = if (options.offline) "offline checks" else "offline and online checks"
     if (selectedApps.length == Apps.all.length)
@@ -101,17 +94,14 @@ object ValidateApps extends CaseApp[Options] {
           selectedApps.map(_.name).mkString(", ")
       )
 
+    // when validating all apps, also check that known issues files correspond to apps
+    val orphanKnownIssues = if (selection.isEmpty) KnownIssues.orphans() else Nil
+    for (path <- orphanKnownIssues)
+      Report.log(s"error: ${path.relativeTo(Apps.root)}: known issues of an app that doesn't exist")
+
     val onlineChecksOpt =
       if (options.offline) None
-      else
-        KnownIssues.load() match {
-          case Right(knownIssues) => Some(new OnlineChecks(knownIssues, options.allVersions))
-          case Left(errors) =>
-            System.err.println(
-              errors.mkString(s"Errors in ${KnownIssues.path.relativeTo(Apps.root)}:\n  ", "\n  ", "")
-            )
-            sys.exit(1)
-        }
+      else Some(new OnlineChecks(options.allVersions))
 
     // apps are validated in parallel, so they can start and finish in different orders
     val total    = selectedApps.length
@@ -124,9 +114,18 @@ object ValidateApps extends CaseApp[Options] {
       // offline checks are fast, only say which apps are being checked for online ones
       if (onlineChecksOpt.nonEmpty)
         report.progress(s"validating ${app.relPath} (starting $index/$total)")
-      try
-        for (desc <- OfflineChecks(app, report); onlineChecks <- onlineChecksOpt)
-          onlineChecks(app, desc, report)
+      try {
+        val descOpt = OfflineChecks(app, report)
+        val issues = KnownIssues.load(app) match {
+          case Right(issues) => issues
+          case Left(errors) =>
+            for (err <- errors)
+              report.error(s"${KnownIssues.path(app).relativeTo(Apps.root)}: $err")
+            Nil
+        }
+        for (desc <- descOpt; onlineChecks <- onlineChecksOpt)
+          onlineChecks(app, desc, issues, report)
+      }
       catch {
         case NonFatal(e) =>
           report.error(s"unexpected error: ${Report.errorMessage(e)}")
@@ -156,7 +155,7 @@ object ValidateApps extends CaseApp[Options] {
     }
     pool.shutdown()
 
-    val errorCount   = reports.map(_.count(Severity.Error)).sum
+    val errorCount   = reports.map(_.count(Severity.Error)).sum + orphanKnownIssues.length
     val warningCount = reports.map(_.count(Severity.Warning)).sum
     val mode         = if (options.offline) "offline checks only" else "offline and online checks"
     println()

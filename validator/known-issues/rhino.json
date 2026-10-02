@@ -1,0 +1,6 @@
+[
+  {
+    "versionRange": "[1.8.0,)",
+    "reason": "Needs fixing: since Rhino 1.8, the shell lives in org.mozilla:rhino-tools, and org.mozilla:rhino has no Main-Class"
+  }
+]

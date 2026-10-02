@@ -1,0 +1,7 @@
+[
+  {
+    "versionRange": "(,2.0.22]",
+    "platforms": ["aarch64-apple-darwin", "aarch64-pc-linux", "aarch64-pc-win32"],
+    "reason": "No launchers were published for these platforms"
+  }
+]
