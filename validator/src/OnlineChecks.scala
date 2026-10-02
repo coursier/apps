@@ -26,7 +26,8 @@ import scala.util.control.NonFatal
   */
 final class OnlineChecks(allVersions: Boolean) {
 
-  private lazy val cache     = FileCache.create[Task]()
+  // logs slow downloads, so that the CI logs say what's taking time
+  private lazy val cache     = FileCache.create[Task]().copy(logger = new SlowDownloadLogger)
   private lazy val prebuilts = new Prebuilts(cache)
 
   private def await[T](f: Future[T]): T = Await.result(f, Duration.Inf)
