@@ -48,7 +48,9 @@
 // validator/known-issues/<app name>.json, as a version range ("versionRange")
 // or a list of versions ("versions"), with a "reason". Versions listed there are
 // excluded from the samples or, if "platforms" are specified, their prebuilt
-// launchers for those platforms aren't checked.
+// launchers for those platforms aren't checked. Version ranges with no upper bound
+// apply to versions not published yet too, so they're only accepted for apps whose
+// descriptor installs a fixed version (rather than latest.stable, …).
 //
 // The Mill build (build.mill) has one module per app, whose 'check' command runs
 // this on the app, so that Mill's selective execution only validates the apps
@@ -128,6 +130,8 @@ object ValidateApps extends CaseApp[Options] {
               report.error(s"${KnownIssues.path(app).relativeTo(Apps.root)}: $err")
             Nil
         }
+        for (desc <- descOpt)
+          KnownIssues.checkUnboundedRanges(app, desc, issues, report)
         for (desc <- descOpt; onlineChecks <- onlineChecksOpt)
           onlineChecks(app, desc, issues, report)
       }
