@@ -1,4 +1,4 @@
-//> using scala 3.3.6
+//> using scala 3.3.8
 //> using jvm 17
 //> using dep com.lihaoyi::os-lib:0.11.8
 //> using dep com.lihaoyi::ujson:4.4.3

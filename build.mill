@@ -58,7 +58,7 @@ trait ChannelModule extends JavaModule with PublishModule {
 }
 
 object validator extends ScalaModule {
-  def scalaVersion = "3.3.6"
+  def scalaVersion = "3.3.8"
   def mvnDeps = Seq(
     mvn"io.get-coursier::coursier-install:2.1.26",
     mvn"com.github.alexarchambault::case-app:2.1.1",
