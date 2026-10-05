@@ -5,14 +5,23 @@
       "jitpack"
     ],
     "dependencies": [
-      "sh.almond:::scala-kernel:latest.release"
+      "sh.almond::scala-kernel:latest.release"
     ],
     "shared": [
+      "sh.almond::scala-kernel-api",
       "sh.almond:::scala-kernel-api"
     ],
     "classifiers": [
       "_",
       "sources"
+    ],
+    "versionOverrides": [
+      {
+        "versionRange": "(,0.15.0)",
+        "dependencies": [
+          "sh.almond:::scala-kernel:latest.release"
+        ]
+      }
     ]
   },
   "ammonite": {
