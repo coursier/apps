@@ -57,6 +57,93 @@ trait ChannelModule extends JavaModule with PublishModule {
   )
 }
 
+// The app descriptors of each channel (apps/resources/*.json,
+// apps-contrib/resources/*.json) are aggregated into a single JSON file per channel
+// (listings/apps.json, listings/apps-contrib.json), that coursier reads as URL-based
+// channels, see https://get-coursier.io/docs/cli-appdescriptors#url-based-channels
+//   ./mill generateChannels          # (re-)generate the files
+//   ./mill generateChannels --check  # only check they're up-to-date
+val listedChannels = Seq("apps", "apps-contrib")
+
+/** Generates listings/apps.json and listings/apps-contrib.json from the app descriptors */
+def generateChannels(check: mainargs.Flag = mainargs.Flag()) = Task.Command {
+  val root = BuildCtx.workspaceRoot
+
+  def channelContent(channel: String): String = {
+    val entries = os.list(root / channel / "resources")
+      .filter(p => os.isFile(p) && p.last.endsWith(".json"))
+      .sortBy(_.last)
+      .map { path =>
+        val name = path.last.stripSuffix(".json")
+        val json =
+          try ujson.read(os.read(path))
+          catch {
+            case e: ujson.ParseException =>
+              Task.fail(s"Error parsing $path: ${e.getMessage}")
+          }
+        json match {
+          case obj: ujson.Obj => name -> (obj: ujson.Value)
+          case _              => Task.fail(s"$path: expected a JSON object at the root")
+        }
+      }
+    ujson.write(ujson.Obj.from(entries), indent = 2) + System.lineSeparator()
+  }
+
+  val outdated = listedChannels.flatMap { channel =>
+    val dest    = root / "listings" / s"$channel.json"
+    val content = channelContent(channel)
+    if (check.value) {
+      val current = if (os.exists(dest)) Some(os.read(dest)) else None
+      if (current.contains(content)) Nil else Seq(dest)
+    }
+    else {
+      BuildCtx.withFilesystemCheckerDisabled {
+        os.write.over(dest, content, createFolders = true)
+      }
+      Task.log.info(s"Wrote $dest")
+      Nil
+    }
+  }
+
+  if (outdated.nonEmpty)
+    Task.fail(
+      outdated.map(_.relativeTo(root)).mkString(
+        "Outdated channel file(s): ",
+        ", ",
+        "\nRun './mill generateChannels' to update them."
+      )
+    )
+}
+
+// README.md is generated from README.template.md, by replacing the
+// "```scala mdoc:list:<channel>" code blocks there with the list of the apps of
+// that channel
+//   ./mill generateReadme
+
+/** Generates README.md from README.template.md */
+def generateReadme() = Task.Command {
+  val root = BuildCtx.workspaceRoot
+  val listRegex = "(?m)^```scala mdoc:list:([a-z-]+)\\R```$".r
+
+  def appList(channel: String): String = {
+    val names = os.list(root / channel / "resources")
+      .filter(p => os.isFile(p) && p.last.endsWith(".json"))
+      .sortBy(_.last)
+      .map(_.last.stripSuffix(".json"))
+    if (names.isEmpty) Task.fail(s"No app found under ${root / channel / "resources"}")
+    names.mkString(" - ", "\n - ", "")
+  }
+
+  val content = listRegex.replaceAllIn(
+    os.read(root / "README.template.md"),
+    m => scala.util.matching.Regex.quoteReplacement(appList(m.group(1)))
+  )
+  BuildCtx.withFilesystemCheckerDisabled {
+    os.write.over(root / "README.md", content)
+  }
+  Task.log.info(s"Wrote ${root / "README.md"}")
+}
+
 object validator extends ScalaModule {
   def scalaVersion = "3.3.8"
   def mvnDeps = Seq(

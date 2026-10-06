@@ -16,12 +16,11 @@ jobs:
       - uses: coursier/setup-action@v3
         with:
           jvm: 17
-          apps: scala-cli
       - run: ./mill --no-daemon channels.__.publishLocal
       # Validates the app descriptors, by aggregating them the way the
       # update-channels workflow does (it doesn't check that the files under
       # listings/ are up-to-date, CI updates them upon merge on main)
-      - run: scala-cli run .github/scripts/generate-channels.sc
+      - run: ./mill --no-daemon generateChannels
       # Offline checks of all the app descriptors (coursier can parse them, no
       # unknown keys, valid main classes, …)
       - run: ./mill --no-daemon validator.run --offline
