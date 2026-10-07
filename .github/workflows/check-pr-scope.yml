@@ -2,8 +2,8 @@ name: check-pr-scope
 on:
   pull_request: {}
 
-# The files under listings/ are generated from the app descriptors by
-# .github/scripts/generate-channels.sc, and updated on main by the
+# The files under listings/ are generated from the app descriptors by the
+# generateChannels command of the Mill build, and updated on main by the
 # update-channels workflow. Mixing generated and hand-written changes in a
 # single PR makes them conflict with each other, so a PR must either update
 # listings/, or everything else, but not both.
@@ -33,8 +33,8 @@ jobs:
             echo "Elsewhere:"
             printf '%s\n' "$others" | sed 's/^/  /'
             echo
-            echo "The files under listings/ are generated (see" \
-              ".github/scripts/generate-channels.sc) and updated on main by the" \
+            echo "The files under listings/ are generated (by" \
+              "'./mill generateChannels') and updated on main by the" \
               "update-channels workflow. Please split those changes in two PRs."
             exit 1
           fi

@@ -80,37 +80,75 @@ final class Prebuilts(cache: FileCache[Task]) {
       })
   }
 
-  /** Checks the prebuilt launchers of a version, on all platforms */
-  def check(desc: AppDescriptor, version: String, issues: Seq[KnownIssue], report: Report): Unit = {
+  private enum Failure {
+    case NotFound(urls: Seq[String])
+    case Error(message: String)
+  }
+
+  // Looks for the prebuilt launcher of desc on a platform, the same way as cs does
+  private def find(desc: AppDescriptor, target: Target): Option[Failure] =
+    try
+      PrebuiltApp.get(
+        desc,
+        headCache,
+        archiveCache,
+        verbosity = 0,
+        platform = Some(target.platform),
+        platformExtensions = target.launcherExtensions,
+        preferPrebuilt = false
+      ) match {
+        case Right(_)   => None
+        case Left(Nil)  => None // no prebuilt launcher for this platform
+        case Left(urls) => Some(Failure.NotFound(urls.distinct))
+      }
+    catch {
+      case NonFatal(e) => Some(Failure.Error(Report.errorMessage(e)))
+    }
+
+  /** Checks the prebuilt launchers of a version, on all platforms
+    *
+    * @param fallback
+    *   if version is the one cs installs when no version is specified, the base descriptor and the
+    *   versions cs falls back to (in order) on platforms that version has no launcher for
+    */
+  def check(
+    desc: AppDescriptor,
+    version: String,
+    issues: Seq[KnownIssue],
+    report: Report,
+    fallback: Option[(AppDescriptor, Seq[String])] = None
+  ): Unit = {
     val ver = Version(version)
-    val failures = Descriptors.targets.flatMap { target =>
+    val results = Descriptors.targets.flatMap { target =>
       val platform = target.platform
       if (issues.exists(_.excludesPlatform(ver, platform))) Nil
-      else {
-        val failureOpt =
-          try
-            PrebuiltApp.get(
-              desc,
-              headCache,
-              archiveCache,
-              verbosity = 0,
-              platform = Some(platform),
-              platformExtensions = target.launcherExtensions,
-              preferPrebuilt = false
-            ) match {
-              case Right(_)  => None
-              case Left(Nil) => None // no prebuilt launcher for this platform
-              case Left(urls) =>
-                Some(s"no prebuilt launcher found (looked for ${urls.distinct.mkString(", ")})")
+      else
+        find(desc, target).toSeq.map {
+          case Failure.NotFound(urls) =>
+            // Like cs, fall back to the previous versions, but only if their launchers are
+            // missing too (errors stop the search, like in cs)
+            val fallbackVersionOpt = fallback.flatMap { (baseDesc, candidates) =>
+              candidates.iterator
+                .map(v => v -> find(baseDesc.overrideVersion(v), target))
+                .takeWhile(_._2.forall(_.isInstanceOf[Failure.NotFound]))
+                .collectFirst { case (v, None) => v }
             }
-          catch {
-            case NonFatal(e) =>
-              Some(s"error checking prebuilt launchers: ${Report.errorMessage(e)}")
-          }
-        failureOpt.map(platform -> _).toSeq
+            fallbackVersionOpt match {
+              case Some(v) =>
+                (platform, Severity.Warning, s"no prebuilt launcher found, cs falls back to $v")
+              case None =>
+                (platform, Severity.Error, s"no prebuilt launcher found (looked for ${urls.mkString(", ")})")
+            }
+          case Failure.Error(msg) =>
+            (platform, Severity.Error, s"error checking prebuilt launchers: $msg")
+        }
+    }
+    for (((severity, msg), l) <- results.groupBy(r => (r._2, r._3)).toSeq.sortBy(_._2.head._1)) {
+      val line = s"$version (${l.map(_._1).mkString(", ")}): $msg"
+      severity match {
+        case Severity.Error   => report.error(line)
+        case Severity.Warning => report.warning(line)
       }
     }
-    for ((failure, l) <- failures.groupBy(_._2).toSeq.sortBy(_._2.head._1))
-      report.error(s"$version (${l.map(_._1).mkString(", ")}): $failure")
   }
 }

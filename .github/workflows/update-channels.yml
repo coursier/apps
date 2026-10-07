@@ -6,7 +6,7 @@ on:
     paths:
       - apps/resources/**
       - apps-contrib/resources/**
-      - .github/scripts/generate-channels.sc
+      - build.mill
       - .github/workflows/update-channels.yml
   workflow_dispatch: {}
 
@@ -28,8 +28,7 @@ jobs:
       - uses: coursier/setup-action@v3
         with:
           jvm: 17
-          apps: scala-cli
-      - run: scala-cli run .github/scripts/generate-channels.sc
+      - run: ./mill --no-daemon generateChannels
       # Note: PRs opened with the default GITHUB_TOKEN don't trigger the
       # build workflow. Pass a PAT or GitHub App token via `token` if CI
       # should run on them.
