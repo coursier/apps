@@ -36,6 +36,9 @@
 //     coursier's own logic (coursier.install.internal.PrebuiltApp). Launchers are
 //     only checked with HEAD requests, but archives that launchers are extracted
 //     from are downloaded, to check that the launchers are in them.
+//     Like cs, when the version cs installs by default (when no version is specified) has no
+//     prebuilt launcher for a platform, the previous versions are tried. Falling back to one of
+//     them is only a warning.
 //   Downloads taking more than 5 seconds ("Downloading …") and HEAD requests
 //   ("Checking …") are logged as they happen, so that the CI logs say what's going on.
 // - warns about repositories that provide none of the artifacts of the sampled

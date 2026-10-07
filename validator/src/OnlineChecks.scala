@@ -126,8 +126,19 @@ final class OnlineChecks(allVersions: Boolean) {
       case _ => None
     }
 
+  // The versions cs tries when installing an app without specifying a version: it installs the
+  // first one, except on platforms it has no prebuilt launcher for, where it falls back to the
+  // next ones (same logic as coursier.install.internal.PrebuiltApp, with preferPrebuilt = true)
+  // (if those can't be listed, no fallback is attempted)
+  private def defaultVersionCandidates(desc: AppDescriptor): Seq[String] =
+    try desc.candidateMainVersions(cache, 0).take(5).map(_.asString).toSeq.distinct
+    catch { case NonFatal(_) => Nil }
+
   def apply(app: App, desc: AppDescriptor, issues: Seq[KnownIssue], report: Report): Unit = {
     val overrideIntervals = desc.versionOverrides.map(_.versionRange0)
+    // cs uses the base descriptor for the versions it falls back to, ignoring version overrides
+    val baseDesc = desc.copy(versionOverrides = Nil)
+    lazy val defaultCandidates = defaultVersionCandidates(desc)
     // repository -> whether it provided at least one artifact
     val repositoryUsage = mutable.LinkedHashMap.empty[(String, String), Boolean]
 
@@ -213,7 +224,11 @@ final class OnlineChecks(allVersions: Boolean) {
         }
         if (versionDesc.launcherType.isNative) {
           report.progress(s"$version: checking prebuilt launchers")
-          prebuilts.check(versionDesc, version, issues, report)
+          val fallback = defaultCandidates match {
+            case `version` +: others => Some((baseDesc, others))
+            case _                   => None
+          }
+          prebuilts.check(versionDesc, version, issues, report, fallback)
         }
       }
 
