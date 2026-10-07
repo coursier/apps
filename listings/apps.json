@@ -651,7 +651,10 @@
       "central"
     ],
     "dependencies": [
-      "org.scala-lang:scala3-compiler_3:latest.stable"
+      "org.scala-lang:scala3-compiler_3:3.7.4"
+    ],
+    "descriptor-comments": [
+      "Pinned to the latest 3.7 version, as dotty.tools.MainGenericRunner was removed in Scala 3.8"
     ],
     "properties": {
       "scala.usejavacp": "true"
