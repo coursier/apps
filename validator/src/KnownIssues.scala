@@ -1,12 +1,19 @@
 package validateapps
 
-import coursier.version.{Version, VersionParse}
+import coursier.install.AppDescriptor
+import coursier.version.{Version, VersionInterval, VersionParse}
 
 import scala.collection.mutable
 import scala.util.control.NonFatal
 
 // Known issues apply either to a version range, or to a list of versions
-final case class KnownIssue(matches: Version => Boolean, platforms: Option[Set[String]]) {
+//
+// unboundedRangeOpt: where the issue is and its version range, if that range has no upper bound
+final case class KnownIssue(
+  matches: Version => Boolean,
+  platforms: Option[Set[String]],
+  unboundedRangeOpt: Option[String] = None
+) {
   def excludesVersion(version: Version): Boolean =
     platforms.isEmpty && matches(version)
   def excludesPlatform(version: Version, platform: String): Boolean =
@@ -51,7 +58,10 @@ object KnownIssues {
           (obj.get("versionRange").map(_.str), obj.get("versions").map(_.arr.map(_.str).toSet)) match {
             case (Some(range), None) =>
               VersionParse.versionInterval(range) match {
-                case Some(itv) => Seq(KnownIssue(itv.contains, platformsOpt))
+                case Some(itv) =>
+                  val unboundedRangeOpt =
+                    if (itv.to.isEmpty) Some(s"""$where: versionRange "$range"""") else None
+                  Seq(KnownIssue(itv.contains, platformsOpt, unboundedRangeOpt))
                 case None =>
                   errors += s"""$where: invalid versionRange "$range""""
                   Nil
@@ -70,5 +80,25 @@ object KnownIssues {
           Nil
       }
     if (errors.isEmpty) Right(entries) else Left(errors.toList)
+  }
+
+  /** Checks that known issues with no upper bound only apply to apps installing a fixed version
+    *
+    * Such issues also apply to versions not published yet, which apps installing a latest.*
+    * version by default would install once they're published.
+    */
+  def checkUnboundedRanges(app: App, desc: AppDescriptor, issues: Seq[KnownIssue], report: Report): Unit = {
+    val constraintOpt = desc.dependencies.headOption.map(_.versionConstraint)
+    val fixedVersion = constraintOpt.exists { c =>
+      c.latest.isEmpty && c.preferred.nonEmpty && c.interval == VersionInterval.zero
+    }
+    if (!fixedVersion)
+      for (issue <- issues; range <- issue.unboundedRangeOpt) {
+        val versionDesc = constraintOpt.fold("")(c => s" (${c.asString})")
+        report.error(
+          s"${path(app).relativeTo(Apps.root)}: $range has no upper bound, so the app descriptor " +
+            s"must install a fixed version, rather than a version range or a latest.* one$versionDesc"
+        )
+      }
   }
 }
