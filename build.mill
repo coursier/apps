@@ -145,7 +145,7 @@ def generateReadme() = Task.Command {
 }
 
 object validator extends ScalaModule {
-  def scalaVersion = "3.3.8"
+  def scalaVersion = "3.9.0"
   def mvnDeps = Seq(
     mvn"io.get-coursier::coursier-install:2.1.26",
     mvn"com.github.alexarchambault::case-app:2.1.1",
