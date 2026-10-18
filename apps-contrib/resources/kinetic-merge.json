@@ -3,7 +3,7 @@
     "central"
   ],
   "dependencies": [
-    "com.sageserpent::kinetic-merge:latest.stable"
+    "com.sageserpent::kinetic-merge:(, 1.20.0]"
   ],
   "launcherType": "bootstrap"
 }
