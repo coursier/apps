@@ -149,7 +149,7 @@ object validator extends ScalaModule {
   def mvnDeps = Seq(
     mvn"io.get-coursier::coursier-install:2.1.26",
     mvn"com.github.alexarchambault::case-app:2.1.1",
-    mvn"com.lihaoyi::os-lib:0.11.8",
+    mvn"com.lihaoyi::os-lib:0.11.9",
     mvn"com.lihaoyi::ujson:4.4.3"
   )
   def mainClass = Some("validateapps.ValidateApps")
