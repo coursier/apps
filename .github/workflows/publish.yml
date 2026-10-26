@@ -35,7 +35,7 @@ jobs:
           MILL_MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       - run: ./mill --no-daemon generateReadme
         if: startsWith(github.ref, 'refs/tags/')
-      - uses: stefanzweifel/git-auto-commit-action@v7.2.0
+      - uses: stefanzweifel/git-auto-commit-action@v7.2.1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           file_pattern: README.md
