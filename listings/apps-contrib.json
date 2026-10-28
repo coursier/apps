@@ -406,15 +406,6 @@
       }
     ]
   },
-  "kinetic-merge": {
-    "repositories": [
-      "central"
-    ],
-    "dependencies": [
-      "com.sageserpent::kinetic-merge:latest.stable"
-    ],
-    "launcherType": "bootstrap"
-  },
   "ktfmt": {
     "repositories": [
       "central"
