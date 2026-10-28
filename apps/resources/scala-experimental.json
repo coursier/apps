@@ -1,4 +1,7 @@
 {
+  "descriptor-comments": [
+    "Deprecated, use scala-cli instead"
+  ],
   "repositories": [
     "central"
   ],
