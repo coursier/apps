@@ -194,10 +194,14 @@ final class OnlineChecks(allVersions: Boolean) {
         val versionDesc = desc.overrideVersion(version)
         val hasPrebuilts = versionDesc.launcherType.isNative &&
           (versionDesc.prebuiltLauncher.nonEmpty || versionDesc.prebuiltBinaries.nonEmpty)
-        // platforms known to have no prebuilt launcher, where cs installs a JVM launcher instead
+        // platforms that known issues with no upper bound say have no prebuilt launcher, where
+        // such issues are accepted because cs installs a JVM launcher instead (see
+        // KnownIssues.checkUnboundedRanges), so that JVM launcher has to work
         val jvmFallbackPlatforms =
           if (Descriptors.fallsBackToJvmLauncher(versionDesc))
-            Descriptors.platforms.filter(p => issues.exists(_.excludesPlatform(Version(version), p)))
+            Descriptors.platforms.filter { p =>
+              issues.exists(i => i.unboundedRangeOpt.nonEmpty && i.excludesPlatform(Version(version), p))
+            }
           else Nil
         // with prebuilt launchers, the class path is only used on platforms without one
         val reportClassPathIssue: String => Unit =

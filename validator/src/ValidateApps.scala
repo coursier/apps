@@ -32,8 +32,8 @@
 //     found in the JAR manifests, if the descriptor doesn't specify one). For
 //     apps with prebuilt launchers, issues with dependencies or main classes are
 //     only warnings, as those only matter on platforms without a prebuilt launcher,
-//     unless known issues say that some platforms have none, and cs installs JVM
-//     launchers on those (with the graalvm-native-image launcher type).
+//     unless known issues with no upper bound say that some platforms have none, and
+//     cs installs JVM launchers on those (see below).
 //   - checks that prebuilt launchers exist, for all platforms, finding them with
 //     coursier's own logic (coursier.install.internal.PrebuiltApp). Launchers are
 //     only checked with HEAD requests, but archives that launchers are extracted
