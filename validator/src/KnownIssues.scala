@@ -82,7 +82,8 @@ object KnownIssues {
     if (errors.isEmpty) Right(entries) else Left(errors.toList)
   }
 
-  /** Checks that known issues with no upper bound only apply to apps installing a fixed version
+  /** Checks that known issues with no upper bound only apply to apps installing a fixed version,
+    * or only exclude the prebuilt launchers of some platforms, that cs substitutes JVM launchers for
     *
     * Such issues also apply to versions not published yet, which apps installing a latest.*
     * version by default would install once they're published.
@@ -92,12 +93,24 @@ object KnownIssues {
     val fixedVersion = constraintOpt.exists { c =>
       c.latest.isEmpty && c.preferred.nonEmpty && c.interval == VersionInterval.zero
     }
+    // the rules of the versions not published yet: version overrides with no upper bound, if
+    // there are some, else the base descriptor
+    val rules              = Descriptors.rules(desc)
+    val unboundedOverrides = rules.filter(_.interval.exists(_.to.isEmpty))
+    val futureRules        = if (unboundedOverrides.isEmpty) rules.filter(_.interval.isEmpty) else unboundedOverrides
+    val jvmFallback        = futureRules.forall(r => Descriptors.fallsBackToJvmLauncher(r.desc))
     if (!fixedVersion)
-      for (issue <- issues; range <- issue.unboundedRangeOpt) {
+      for (issue <- issues; range <- issue.unboundedRangeOpt if issue.platforms.isEmpty || !jvmFallback) {
         val versionDesc = constraintOpt.fold("")(c => s" (${c.asString})")
+        val alternative =
+          if (issue.platforms.isEmpty) ""
+          else
+            ", or use the graalvm-native-image launcher type, so that cs installs " +
+              "JVM launchers on the platforms with no prebuilt launcher"
         report.error(
           s"${path(app).relativeTo(Apps.root)}: $range has no upper bound, so the app descriptor " +
-            s"must install a fixed version, rather than a version range or a latest.* one$versionDesc"
+            s"must install a fixed version, rather than a version range or a latest.* one$versionDesc" +
+            alternative
         )
       }
   }

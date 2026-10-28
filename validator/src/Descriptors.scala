@@ -1,6 +1,6 @@
 package validateapps
 
-import coursier.install.{AppDescriptor, InstallDir, Platform}
+import coursier.install.{AppDescriptor, InstallDir, LauncherType, Platform}
 import coursier.version.VersionInterval
 
 /** The base descriptor of an app, or one of its version overrides, applied to the base descriptor */
@@ -27,6 +27,12 @@ object Descriptors {
 
   // Platforms coursier looks for prebuilt launchers for (x86_64-pc-linux, aarch64-apple-darwin, …)
   val platforms: Seq[String] = targets.map(_.platform)
+
+  /** Whether cs installs a JVM launcher, built from the class path, on platforms that have no
+    * prebuilt launcher (rather than building a native launcher, or failing)
+    */
+  def fallsBackToJvmLauncher(desc: AppDescriptor): Boolean =
+    desc.launcherType == LauncherType.GraalvmNativeImage
 
   def rules(desc: AppDescriptor): Seq[Rule] =
     Rule("base descriptor", None, desc.copy(versionOverrides = Nil)) +:
