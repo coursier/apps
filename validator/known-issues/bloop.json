@@ -9,8 +9,8 @@
     "reason": "No Apple Silicon launchers were published for these versions"
   },
   {
-    "versionRange": "[1.4.0-RC3,2.1.2]",
+    "versionRange": "[1.4.0-RC3,)",
     "platforms": ["aarch64-pc-linux", "aarch64-pc-win32"],
-    "reason": "No launchers were published for these platforms"
+    "reason": "No launchers are published for these platforms (cs installs JVM launchers there)"
   }
 ]
