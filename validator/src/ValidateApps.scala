@@ -31,7 +31,9 @@
 //   - checks that the main class exists in the class path (or that one can be
 //     found in the JAR manifests, if the descriptor doesn't specify one). For
 //     apps with prebuilt launchers, issues with dependencies or main classes are
-//     only warnings, as those only matter on platforms without a prebuilt launcher.
+//     only warnings, as those only matter on platforms without a prebuilt launcher,
+//     unless known issues with no upper bound say that some platforms have none, and
+//     cs installs JVM launchers on those (see below).
 //   - checks that prebuilt launchers exist, for all platforms, finding them with
 //     coursier's own logic (coursier.install.internal.PrebuiltApp). Launchers are
 //     only checked with HEAD requests, but archives that launchers are extracted
@@ -50,7 +52,9 @@
 // excluded from the samples or, if "platforms" are specified, their prebuilt
 // launchers for those platforms aren't checked. Version ranges with no upper bound
 // apply to versions not published yet too, so they're only accepted for apps whose
-// descriptor installs a fixed version (rather than latest.stable, …).
+// descriptor installs a fixed version (rather than latest.stable, …), or, if they only
+// exclude the prebuilt launchers of some platforms, for apps that cs installs JVM
+// launchers for on platforms with no prebuilt launcher (graalvm-native-image launcher type).
 //
 // The Mill build (build.mill) has one module per app, whose 'check' command runs
 // this on the app, so that Mill's selective execution only validates the apps
