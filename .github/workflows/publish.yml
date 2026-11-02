@@ -20,7 +20,7 @@ jobs:
           # the publish version is computed from the last tag, which needs the history
           fetch-depth: 0
       - run: git fetch --prune origin main
-      - uses: coursier/cache-action@v8
+      - uses: coursier/cache-action@v9
       - uses: coursier/setup-action@v3
         with:
           jvm: 17
