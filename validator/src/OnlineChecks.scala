@@ -7,7 +7,7 @@ import coursier.ivy.IvyRepository
 import coursier.maven.MavenRepository
 import coursier.parse.JavaOrScalaDependency
 import coursier.util.Task
-import coursier.version.Version
+import coursier.version.{Latest, Version}
 
 import java.io.File
 import java.util.zip.ZipFile
@@ -84,9 +84,6 @@ final class OnlineChecks(allVersions: Boolean) {
     gitDescribeRegex.findFirstIn(ver).nonEmpty ||
     commitHashRegex.findFirstIn(ver).nonEmpty
 
-  private def isStable(ver: String): Boolean =
-    !ver.exists(_.isLetter) && ver.split(Array('.', '-')).forall(_.lengthCompare(5) <= 0)
-
   private def classExists(jars: Seq[File], className: String): Boolean = {
     val entry = className.replace('.', '/') + ".class"
     jars.exists { jar =>
@@ -139,6 +136,11 @@ final class OnlineChecks(allVersions: Boolean) {
     // cs uses the base descriptor for the versions it falls back to, ignoring version overrides
     val baseDesc = desc.copy(versionOverrides = Nil)
     lazy val defaultCandidates = defaultVersionCandidates(desc)
+    // When the descriptor installs latest.stable, pre-releases newer than the newest stable version
+    // are only installed when asked for explicitly, and their launchers are often published some
+    // time after them (scala/scala3 GitHub releases, …), so the newest version isn't sampled then
+    val installsLatestStable =
+      desc.dependencies.headOption.exists(_.versionConstraint.latest.contains(Latest.Stable))
     // repository -> whether it provided at least one artifact
     val repositoryUsage = mutable.LinkedHashMap.empty[(String, String), Boolean]
 
@@ -157,11 +159,14 @@ final class OnlineChecks(allVersions: Boolean) {
       }
       val releases = inRange.filterNot(v => isDevBuild(v.asString))
       val sorted   = releases.filterNot(v => issues.exists(_.excludesVersion(v))).sorted
+      val newestStable = sorted.filter(_.isStable).lastOption
+      // version overrides handle fixed ranges, whose newest version is always worth checking
+      val newest =
+        if (installsLatestStable && rule.interval.isEmpty && newestStable.nonEmpty) None
+        else sorted.lastOption
       val samples =
         if (allVersions) sorted.map(_.asString)
-        else
-          Seq(sorted.headOption, sorted.lastOption, sorted.filter(v => isStable(v.asString)).lastOption)
-            .flatten.distinct.map(_.asString)
+        else Seq(sorted.headOption, newest, newestStable).flatten.distinct.map(_.asString)
       val devBuildCount = inRange.length - releases.length
       val excludedCount = releases.length - sorted.length
       def modulesDesc =

@@ -26,7 +26,9 @@
 //   published version.
 // - for a sample of the versions handled by each version override and by the
 //   base descriptor (the oldest one, the newest one, and the newest stable one,
-//   ignoring development builds like nightlies):
+//   ignoring development builds like nightlies; for apps installing latest.stable,
+//   the base descriptor's newest version is only sampled if it's stable, as cs
+//   doesn't install newer pre-releases by default):
 //   - fetches the app dependencies (unless the app uses a "prebuilt" launcher)
 //   - checks that the main class exists in the class path (or that one can be
 //     found in the JAR manifests, if the descriptor doesn't specify one). For
