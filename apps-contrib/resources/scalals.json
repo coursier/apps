@@ -7,9 +7,9 @@
   ],
   "launcherType": "prebuilt",
   "prebuiltBinaries": {
-    "x86_64-pc-linux": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-x86_64-linux",
-    "aarch64-pc-linux": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-arm64-linux",
-    "x86_64-apple-darwin": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-x86_64-darwin",
-    "aarch64-apple-darwin": "https://github.com/avdv/scalals/releases/download/v${version}/scalals-arm64-darwin"
+    "x86_64-pc-linux": "xz+https://github.com/avdv/scalals/releases/download/v${version}/scalals-x86_64-linux.xz",
+    "aarch64-pc-linux": "xz+https://github.com/avdv/scalals/releases/download/v${version}/scalals-arm64-linux.xz",
+    "x86_64-apple-darwin": "xz+https://github.com/avdv/scalals/releases/download/v${version}/scalals-x86_64-darwin.xz",
+    "aarch64-apple-darwin": "xz+https://github.com/avdv/scalals/releases/download/v${version}/scalals-arm64-darwin.xz"
   }
 }
